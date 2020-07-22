@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile</title>
+    <style>
+        table,th,td{
+            border: 1px solid #5f6062;
+        }
+    </style>
+</head>
+<body>
+<label><h3 style="color: #d61b06">Nokia</h3><input type="text" id="Nokia"></label>
+<input type="button" value="Gửi tin" onclick="Send(1)">
+<input type="button" value="Xem tin" onclick="Show(1)">
+<input type="button" value="Xem trạng thái" onclick="Choose(1)">
+<input type="button" value="Bật tắt" onclick="Status(1)">
+<label><h3 style="color: #d61b06">Iphone</h3><input type="text" id="Iphone"></label>
+<input type="button" value="Gửi tin" onclick="Send(2)">
+<input type="button" value="Xem tin" onclick="Show(2)">
+<input type="button" value="Xem trạng thái" onclick="Choose(2)">
+<input type="button" value="Bật tắt" onclick="Status(2)">
+<br><br>
+<div id="result"></div>
+
+<script>
+    class Mobile{
+        constructor(name,pin,status) {
+            this.name=name;
+            this.pin=pin;
+            this.memoryTyping=[];
+            this.memoryTo=[];
+            this.memorySend=[];
+            this.status=status;
+            this.countSend=0;
+            this.countTo=0;
+        }
+        getName(){
+            return "Tên điện thoại: "+this.name
+        }
+        getPin() {
+            return "Pin: "+this.pin+"%"
+        }
+        showMemoryTyping(){
+            document.getElementById("result").innerHTML="Tin đang nhập tại "+this.name+ " : "+this.memoryTyping
+        }
+        showMemoryTo(){
+            let table="<table cellpadding='0' cellspacing='0'>";
+            for (let i=0;i<this.countTo;i++){
+                table+="<tr>";
+                table+="<td>"+(i+1)+"</td>";
+                table+="<td>"+this.memoryTo[i]+"</td>";
+                table+="</tr>"
+            }
+            table+="</table>";
+            document.getElementById("result").innerHTML="Hộp thư đến: "+"<br>"+table
+            }
+        showMemorySend(){
+            let table="<table cellpadding='0' cellspacing='0'>";
+            for (let i=0;i<this.countSend;i++){
+                table+="<tr>";
+                table+="<td>"+(i+1)+"</td>";
+                table+="<td>"+this.memorySend[i]+"</td>";
+                table+="</tr>"
+            }
+            table+="</table>";
+            document.getElementById("result").innerHTML="Hộp thư đã gửi: "+"<br>"+table
+        }
+        showStatus() {
+            if (this.status === "On") {
+                return alert(this.getName() + "\n" +
+                    "Trạng thái: On" + "\n" +
+                    this.getPin() + "\n" +
+                    "Tin đang soạn: " + this.memoryTyping + "\n" +
+                    "Tin đã gửi: " + this.countSend + "\n" +
+                    "Tin đã nhận: " + this.countTo
+                )
+            }
+            if (this.status === "Off") {
+                return alert("Điện thoại đang tắt!")
+            }
+        }
+    }
+    let nokia= new Mobile("Nokia",100,"On");
+    let iphone= new Mobile("Iphone",100,"On");
+    let statusNokia;
+    let statusIphone;
+
+
+
+    function Choose(x) {
+        if (x === 1) {
+            nokia.showStatus()
+        }
+        if (x === 2) {
+            iphone.showStatus()
+        }
+    }
+
+   function Status(x) {
+        if (x===1){
+            if (nokia.status==="On"){
+                statusNokia= confirm("Bạn có muốn bật/tắt Nokia? ");
+                if (statusNokia===true){
+                    nokia.status="Off";
+                    nokia.showStatus()
+                } else {
+                    alert("Nokia vẫn đang bật!")
+                }
+            } else if (nokia.status==="Off"){
+                statusNokia= confirm("Bạn có muốn bật/tắt Nokia? ");
+                if (statusNokia===true){
+                    nokia.status="On";
+                    nokia.showStatus()
+                } else {
+                    nokia.showStatus()
+                }
+            }
+        }
+       if (x===2){
+           if (iphone.status==="On"){
+               statusIphone= confirm("Bạn có muốn bật/tắt Iphone? ");
+               if (statusIphone===true){
+                   iphone.status="Off";
+                   iphone.showStatus()
+               } else {
+                   alert("Iphone vẫn đang bật!")
+               }
+           } else if (iphone.status==="Off"){
+               statusIphone= confirm("Bạn có muốn bật/tắt Iphone? ");
+               if (statusIphone===true){
+                   iphone.status="On";
+                   iphone.showStatus()
+               } else {
+                   iphone.showStatus()
+               }
+           }
+       }
+   }
+
+    function Show(x) {
+
+        if (x===1){
+            if (nokia.status==="Off"){
+                alert("Điện thoại đang tắt")
+            } else {
+                    let showMess= parseInt(prompt("Bạn muốn xem hộp tin nào? "+"\n"+
+                        "1.Hộp thư đến."+"\n"+
+                        "2.Hộp thư đi."+"\n"+
+                        "3.Hộp thư đang nhập."
+                    ));
+                    if (showMess === 1) {
+                        nokia.showMemoryTo()
+                    } else if (showMess === 2) {
+                        nokia.showMemorySend()
+                    } else if (showMess === 3) {
+                        nokia.memoryTyping = document.getElementById("Nokia").value;
+                        nokia.showMemoryTyping()
+                    } else {
+                        alert("Không hợp lệ!")
+                    }
+                }
+        }
+        if (x===2){
+            if (iphone.status==="Off"){
+                alert("Điện thoại đang tắt")
+            } else {
+                let showMess= parseInt(prompt("Bạn muốn xem hộp tin nào? "+"\n"+
+                    "1.Hộp thư đến."+"\n"+
+                    "2.Hộp thư đi."+"\n"+
+                    "3.Hộp thư đang nhập."
+                ));
+                if (showMess === 1) {
+                    iphone.showMemoryTo()
+                } else if (showMess === 2) {
+                    iphone.showMemorySend()
+                } else if (showMess === 3) {
+                    iphone.memoryTyping = document.getElementById("Iphone").value;
+                    iphone.showMemoryTyping()
+                } else {
+                    alert("Không hợp lệ!")
+                }
+            }
+        }
+    }
+
+    function Send(x) {
+        if (x===1){
+            if (nokia.status==="Off"){
+                alert("Điện thoại đang tắt")
+            } else {
+                alert("Đã gửi tới Iphone");
+                let mess = document.getElementById("Nokia").value;
+                nokia.countSend++;
+                nokia.memorySend.push(mess);
+                iphone.countTo++;
+                iphone.memoryTo.push(mess);
+            }
+        }
+        if (x===2){
+            if (iphone.status==="Off"){
+                alert("Điện thoại đang tắt")
+            } else {
+                alert("Đã gửi tới Nokia");
+                let mess = document.getElementById("Iphone").value;
+                iphone.countSend++;
+                iphone.memorySend.push(mess);
+                nokia.countTo++;
+                nokia.memoryTo.push(mess);
+            }
+        }
+    }
+</script>
+</body>
+</html>

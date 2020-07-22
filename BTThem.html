@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập thêm</title>
+</head>
+<body>
+<script>
+    class PhanSo{
+        constructor(a1,b1,a2,b2) {
+            this.tuSo1=a1;
+            this.mauSo1=b1;
+            this.tuSo2=a2;
+            this.mauSo2=b2;
+        }
+        cong(){
+            let tuSoCong=(this.tuSo1*this.mauSo2+this.tuSo2*this.mauSo1);
+            let mauSoCong=this.mauSo2*this.mauSo1;
+            return tuSoCong+"/"+mauSoCong
+        }
+        tru(){
+            let tuSoTru=(this.tuSo1*this.mauSo2-this.tuSo2*this.mauSo1);
+            let mauSoTru=this.mauSo2*this.mauSo1;
+            return tuSoTru+"/"+mauSoTru
+        }
+        nhan(){
+            let tuSoNhan=(this.tuSo1*this.tuSo2);
+            let mauSoNhan=this.mauSo1*this.mauSo2;
+           return tuSoNhan+"/"+mauSoNhan
+        }
+        chia(){
+            let tuSoChia=this.tuSo1*this.mauSo2;
+            let mauSoChia=this.mauSo1*this.tuSo2;
+            return tuSoChia+"/"+mauSoChia
+        }
+    }
+    nhap();
+    function nhap() {
+        let a1=parseInt(prompt('Nhập tử số 1: '));
+        let b1=parseInt(prompt('Nhập mẫu số 1: '));
+        let a2=parseInt(prompt('Nhập tử số 2: '));
+        let b2=parseInt(prompt('Nhập mẫu số 2: '));
+        let tinh= new PhanSo(a1,b1,a2,b2);
+        alert("Kết quả phép cộng giữa "+a1+"/"+b1+" và "+a2+"/"+b2+" là: "+tinh.cong());
+        alert("Kết quả phép  trừ giữa "+a1+"/"+b1+" và "+a2+"/"+b2+" là: "+tinh.tru());
+        alert("Kết quả phép  nhân giữa "+a1+"/"+b1+" và "+a2+"/"+b2+" là: "+tinh.nhan());
+        alert("Kết quả phép chia giữa "+a1+"/"+b1+" và "+a2+"/"+b2+" là: "+tinh.chia());
+        nhap();
+    }
+
+</script>
+</body>
+</html>

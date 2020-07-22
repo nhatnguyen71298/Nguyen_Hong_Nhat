@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>yêu cầu 4</title>
+</head>
+<body>
+</body>
+<script>
+    // Task1
+    // let numOfcus= parseInt(prompt('Nhập số lượng KH muốn thêm vào:'));
+    // let arrNameCustomers= new Array(numOfcus);
+    // let name='';
+    // for (let i=0;i<arrNameCustomers.length;i++){
+    //     name = prompt('Tên KH:');
+    //     arrNameCustomers[i]=name;
+    // }
+    // alert('Tên các KH đã nhập:'+arrNameCustomers);
+    // alert('Tên các KH đã nhập theo thứ tự alphabel:'+arrNameCustomers.sort());
+    // Task2
+    let arrNameCustomers= ['nhat','danh','quan','trung','vinh','chau','chuong','phuoc','an','anh'];
+    alert('Danh sách KH hiện có: '+arrNameCustomers);
+    let del=prompt('Chọn KH muốn xóa:');
+    let nameDel='';
+    for (let i=0;i<arrNameCustomers.length;i++){
+        if (del===arrNameCustomers[i]){
+            nameDel=arrNameCustomers[i];
+            arrNameCustomers.splice(i,1);
+            break;
+        }
+    }
+    alert('Bạn đã xóa ông/bà : '+nameDel);
+    alert('Danh sách KH còn lại: '+arrNameCustomers);
+</script>
+</html>

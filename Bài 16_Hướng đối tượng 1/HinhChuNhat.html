@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hcn</title>
+</head>
+<body>
+<script>
+    class Retacgle {
+        constructor(chieudai,chieurong) {
+            this.chieuDai = chieudai;
+            this.chieuRong = chieurong;
+        }
+            chuvi() {
+                let c=(this.chieuDai+this.chieuRong)*2;
+                alert("Chu vi: "+c)
+            }
+            dientich(){
+                let S=(this.chieuDai*this.chieuRong);
+                alert("Diện tích: "+S )
+                }
+    }
+    let cD=parseInt(prompt('Nhập chiều dài:'));
+    let cR=parseInt(prompt('Nhập chiều rộng:'));
+    let hcn=new Retacgle(cD,cR);
+    let chuvi=hcn.chuvi();
+    let dientich=hcn.dientich();
+
+
+
+
+</script>
+</body>
+</html>

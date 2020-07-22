@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Furama Resort</title>
+</head>
+<body>
+    <label>Name:</label><input type="text" id="name"><br>
+    <label>Date:</label><input type="date" id="date"><br>
+    <label>Email:</label><input type="text" id="email"><br>
+    <label>Address:</label><input type="text" id="address"><br>
+    <label>Customer type:</label>
+    <select id="type">
+        <option value="diamond">Diamond</option>
+        <option value="platium">Platium</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="member">Member</option>
+    </select><br>
+    <label>Discount:</label><input type="number" id="discount"><br>
+    <label>Amount of nember:</label><input type="number" id="member"><br>
+    <label>Rentdays:</label><input type="number" id="days"><br>
+    <label>Kind of room:</label>
+    <select id="kind">
+        <option value="vip">Vip</option>
+        <option value="bussiness">Bussiness</option>
+        <option value="normal">Normal</option>
+    </select><br>
+    <label>Price:</label>
+    <select id="price">
+        <option value="villa">Villa 500$/1day</option>
+        <option value="house">House 300$/1day</option>
+        <option value="room">Room 100$/1day</option>
+    </select><br>
+    <button id="confirm" onclick="confirm()">Confirm</button>
+    <button type="reset">Reset</button><br>
+    <h1>Xác nhận thông tin</h1>
+    <p id="infor"></p>
+    <p id="pay"></p>
+
+</body>
+<script>
+function confirm() {
+    let name= document.getElementById("name").value;
+    let date= document.getElementById("date").value;
+    let email= document.getElementById("email").value;
+    let address= document.getElementById("address").value;
+    let type= document.getElementById("type").value;
+    let discount= document.getElementById("discount").value;
+    let amount= document.getElementById("member").value;
+    let days= document.getElementById("days").value;
+    let kind= document.getElementById("kind").value;
+    let price= document.getElementById("price").value;
+    document.getElementById("infor").innerHTML=" Name:" +name+"<br>"
+                                                +" Date: "+date+"<br>"
+                                                +" Email: "+email+"<br>"
+                                                +" Address: "+address+"<br>"
+                                                +" Type: "+type+"<br>"
+                                                +" Discount: "+discount+"<br>"
+                                                +" Member: "+amount+"<br>"
+                                                +" Days: "+days+"<br>"
+                                                +" Kind of member: "+kind+"<br>"
+                                                +" Price: "+price;
+    let amounT=parseInt(days);
+    let disCount=parseInt(discount);
+    let pay=0;
+        if (price=="villa"){
+            pay=500*amounT*(1-disCount/100)
+        }else {if (price=="house"){
+            pay=300*amounT*(1-disCount/100)
+        } else {
+            pay=100*amounT*(1-disCount/100)
+               }
+        };
+    document.getElementById("pay").innerHTML= 'Need to pays:' +pay +'$';
+    }
+</script>
+</html>

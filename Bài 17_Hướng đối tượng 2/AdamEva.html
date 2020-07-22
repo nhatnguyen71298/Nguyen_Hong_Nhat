@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adam</title>
+</head>
+<body>
+<div id="adam">Adam</div>
+<input type="button" onclick="Infor(1)" value="Thông tin Adam">
+<input type="button" onclick="Eat(1)" value="Adam Ăn!">
+<div id="Eva">Eva</div>
+<input type="button" onclick="Infor(2)" value="Thông tin Eva ">
+<input type="button" onclick="Eat(2)" value="Eva Ăn!">
+<br><br>
+<input type="button" value="Thêm 1 quả táo!" onclick="newApple()">
+<div id="apple"></div>
+<script>
+    class Apple{
+        constructor(numOfApple,weight) {
+            this.numOfApple=numOfApple;
+            this.weight=weight;
+        }
+        NumOfApple(){
+            return this.numOfApple
+        }
+        setWeight(){
+            if (this.weight>=10){
+                this.numOfApple++;
+                this.weight-=10
+            }
+            return this.weight;
+        }
+    }
+    class Human{
+        constructor(name,gender,weight) {
+            this.name=name;
+            this.gender=gender;
+            this.weight=weight;
+        }
+        getName(){
+            return this.name
+        }
+        Gender(){
+            return this.gender
+        }
+        getWeight(){
+            return this.weight
+        }
+        eatApple(){
+           this.weight++
+        }
+        checkInfor(){
+            return alert(this.name+"\n"+
+                        this.gender+"\n"+
+                        this.weight
+            )
+        }
+    }
+
+    let Adam= new Human("Adam","Nam",70);
+    let Eva= new Human("Eva","Nữ",50);
+    let apple= new Apple(0,0);
+    checkApple();
+    function newApple() {
+        apple.weight+=10;
+        apple.setWeight();
+        alert("Đã thêm 1 quả táo!");
+        checkApple()
+    }
+    function  Infor(x) {
+        if (x===1){
+            alert("Tên: "+Adam.getName()+"\n"+
+                "Giới tính: "+Adam.Gender()+"\n"
+                +"Cân nặng: "+Adam.getWeight()
+            )
+        }
+        if (x===2){
+            alert("Tên: "+Eva.getName()+"\n"+
+                "Giới tính: "+Eva.Gender()+"\n"
+                +"Cân nặng: "+Eva.getWeight()
+            )
+        }
+    }
+    function Eat(x) {
+        if (x===1){
+            if (apple.numOfApple===0&&apple.weight===0){
+                alert("Đã hết táo!")
+            } else {
+                alert("Adam đã tăng 1 đơn vị");
+                Adam.weight++;
+                Adam.getWeight();
+                if (apple.weight === 0) {
+                    apple.numOfApple -= 1;
+                    apple.weight = 9;
+                } else {
+                    apple.weight -= 1
+                }
+            }
+            checkApple();
+        }
+        if (x===2){
+            if (apple.numOfApple===0&&apple.weight===0){
+                alert("Đã hết táo!")
+            } else {
+                alert("Eva đã tăng 1 đơn vị");
+                Eva.weight++;
+                Eva.getWeight();
+                if (apple.weight === 0) {
+                    apple.numOfApple -= 1;
+                    apple.weight = 9;
+                } else {
+                    apple.weight -= 1
+                }
+            }
+            checkApple()
+        }
+    }
+    function checkApple() {
+        document.getElementById("apple").innerHTML= "Số táo và đơn vị hiện tại: "+apple.numOfApple+" quả táo, "+apple.weight+"đơn vị"
+    }
+
+</script>
+</body>
+</html>

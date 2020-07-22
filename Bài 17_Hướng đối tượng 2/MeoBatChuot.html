@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mèo bắt chuột</title>
+</head>
+<body>
+<script>
+    class Chuot{
+        constructor(ten,cannang,tocdo,trangthai,keu) {
+            this.ten=ten;
+            this.cannang=cannang;
+            this.tocdo=tocdo;
+            this.trangthai=trangthai;
+            this.keu=keu;
+        }
+    }
+    class Meo{
+        constructor(ten,khoiluong,tocdo,keu) {
+            this.ten=ten;
+            this.cannang=cannang;
+            this.tocdo=tocdo;
+            this.keu=keu;
+        }
+    }
+    let Chuot1=new Chuot("jerry",3,15,"sống","Đố anh bắt được e!");
+    let Chuot2=new Chuot("mickey",5,10,"sống","Mơ đi cưng");
+    let Chuot3=new Chuot("chuột bạch",0,0,"chết","I'm died !");
+    let tenMeo = prompt("Nhập tên mèo: ");
+    let khoiLuongMeo = parseInt(prompt("Nhập cân nặng: "));
+    let tocDoMeo = parseInt(prompt("Nhập tốc độ: "));
+    let keuMeo = prompt("Nhập tên tiếng kêu: ");
+    let chon = prompt("nhập tên chú chuột muốn bắt" + "\n" +
+            "jerry" + "\n" +
+            "mickey"+ "\n" +
+            "chuột bạch");
+    function check(x) {
+        if (tocDoMeo > x.tocdo && x.trangthai==="sống"){
+            alert(keuMeo);
+            khoiLuongMeo += x.cannang;
+            alert("Mèo " +tenMeo +" đã bắt chuột thành công! Cân nặng của mèo tăng lên: "+khoiLuongMeo)
+        } else {
+            alert(x.keu)
+        }
+    }
+    if (chon===Chuot1.ten){
+        check(Chuot1)
+    } else if (chon===Chuot2.ten){
+        check(Chuot2)
+    } else if (chon===Chuot3.ten) {
+        check(Chuot3)
+    }else {
+        alert("Không hợp lệ")
+    }
+</script>
+</body>
+</html>

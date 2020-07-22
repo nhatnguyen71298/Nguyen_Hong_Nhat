@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caro</title>
+    <style>
+        table,tr,th,td{
+          border: 1px solid #2c2c2c;
+        }
+    </style>
+</head>
+<body>
+<p id="table"></p>
+<script>
+    function Table() {
+        let table = "<table cellpadding='0' cellspacing='0' width='500' height='500'>";
+        for (let i = 0; i < 20; i++) {
+            table += "<tr>";
+            for (let j = 0; j < 20; j++) {
+                table += "<td>" + "&nbsp" + "</td>"
+            }
+            table += "</tr>"
+        }
+        table += "</table>";
+        document.getElementById("table").innerHTML = table;
+    }
+    Table();
+    function PlayerX() {
+
+    }
+</script>
+</body>
+</html>

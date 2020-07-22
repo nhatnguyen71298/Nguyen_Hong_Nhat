@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>8sao</title>
+</head>
+<body>
+<input type="button" onclick="choi()" value="Click to play!" style="height: 100px;width: 200px; margin-left: 40%">
+</body>
+<script>
+function choi() {
+    let khoang = parseInt(prompt('Nhập khoảng dự đoán:'));
+    let soDung = Math.floor(Math.random() * khoang + 1);
+    let i = 0;
+    let num;
+    while (i<3) {
+                num = parseInt(prompt('Số bạn đoán là:?'));
+                if (num === soDung) {
+                    alert('Bạn đã đoán đúng và hoàn thành trò chơi!');
+                    i+=3; break;
+                }
+                if (num>soDung){
+                    alert('Hạ');
+                    i++;
+                }
+                if (num<soDung) {
+                    alert('Tăng');
+                    i++;
+                }
+
+    }
+    alert('Chơi lại nào!')
+
+    }
+
+
+
+</script>
+</html>

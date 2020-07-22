@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let i=parseInt(prompt('Nhập độ dài: '));
+    let array=new Array(i);
+    for (let j=0;j<i;j++){
+        array[j]=parseInt(prompt('Nhập phần tử thứ: '+j))
+    }
+    let check=parseInt(prompt('Nhập kí tự muốn kiểm tra: '));
+    function checkedX(length,X) {
+        let count=0;
+        for (let k=0;k<length;k++){
+            if (X===array[k]){
+                count++;
+            }
+        }
+        if (count===0){
+            count=-1
+        }
+        return count;
+    }
+    let kiemTra=checkedX(i,check);
+    alert(kiemTra)
+
+</script>
+</body>
+</html>

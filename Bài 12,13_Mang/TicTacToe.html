@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tic tac</title>
+
+</head>
+<body>
+<p id="table"></p>
+</body>
+<script>
+    // let array=new Array(10);
+    // for (let i=0;i<array.length;i++) {
+    //     array[i] = new Array(10);
+    //     for (let j = 0; j < array[i].length; j++) {
+    //         a[i][j] = '*';
+    //     }
+    // }
+    let table= "<table border='1'>";
+    for (let i=0;i<10;i++){
+        table+="<tr>";
+        for (let j=0;j<10;j++){
+            table+="<td style='height: 20px; width: 20px '></td>"
+        }
+        table+="</tr>"
+    }
+    table += "</table>";
+    document.getElementById("table").innerHTML=table;
+</script>
+</html>

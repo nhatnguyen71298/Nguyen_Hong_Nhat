@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Do you love me</title>
+</head>
+<body>
+<div>
+    <h1>Do you love me?</h1>
+    <input type="button" onclick="yes()" value="yes" id="yes">
+    <input type="button" onclick="no()" value="no" id="no">
+</div>
+</body>
+<script>
+       let buttonObj=document.getElementById("no");
+    function init() {
+        buttonObj.style.position="relative";
+        buttonObj.style.left="0px";
+    }
+    function yes() {
+        alert("♥♥♥")
+    }
+    function no() {
+        buttonObj.style.left=parseInt(buttonObj.style.left)+100+'px';
+    }
+    window.onload= init
+</script>
+</html>

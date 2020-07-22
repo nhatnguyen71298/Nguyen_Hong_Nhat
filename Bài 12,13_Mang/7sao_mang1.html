@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7sao</title>
+</head>
+<body>
+<script>
+    let str= new Array(10);
+    let num;
+    for (let i=0;i<str.length;i++){
+        str[i]=prompt('Nhập phần tử thứ '+(i+1)+' của mảng')
+    }
+    num=prompt('nhập 1 số: ');
+    for (let j=0;j<str.length;j++){
+     if (num===str[j]){
+         str.splice(j,1);
+         str.push(0)
+     }
+    }
+    alert('Mảng sau khi đã xóa phần tử được chọn: '+str)
+</script>
+</body>
+</html>

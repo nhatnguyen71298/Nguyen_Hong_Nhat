@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phương trình bậc hai</title>
+</head>
+<body>
+<form>
+    <p>Nhap a:
+        <input type="text" id="nhapa"/>
+        x1:
+        <label>
+            <input type="text" id="x1"/>
+        </label>
+    </p>
+    <p>Nhập b:
+        <label>
+            <input type="text" id="nhapb" />
+        </label>
+        x2:
+        <label>
+            <input type="text" id="x2"/>
+        </label>
+    </p>
+    <p>Nhập c:
+        <label>
+            <input type="text" id="nhapc"/>
+        </label>
+        Nghiệm kép:
+        <label>
+            <input type="text" id="nghiemkep"/>
+        </label>
+    </p>
+    <p>
+        <label>
+            <input type="button" value="giai" onclick="ptbh()" />
+            <input type="button" value="reset" onclick="location.href='ptbh.htm'" />
+        </label>
+    </p>
+</form>
+</body>
+<script>
+    function ptbh() {
+        let a = parseInt(document.getElementById('nhapa').value);
+        let b = parseInt(document.getElementById('nhapb').value);
+        let c = parseInt(document.getElementById('nhapc').value);
+        let delta = b*b - 4*a*c;
+        let x = 0;
+        let x1 = 0;
+        let x2 = 0;
+        if (delta < 0) {
+            alert(" Phương trình vô nghiệm ")
+        } else {
+            if (delta > 0) {
+                x1 = (b*-1 + Math.sqrt(delta)) / (2 * a);
+                x2 = (b*-1 - Math.sqrt(delta)) / (2 * a);
+                document.getElementById('x1').innerHTML = +x1;
+                document.getElementById('x2').innerHTML = +x2;
+            } else {
+                x = b/a*-1;
+                document.getElementById('nghiemkep').innerHTML = +x;
+            }
+        }
+    }
+</script>
+</html>

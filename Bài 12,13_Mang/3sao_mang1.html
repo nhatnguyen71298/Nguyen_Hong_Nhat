@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3sao</title>
+</head>
+<body>
+<script>
+    let str=[12,45,76,234,56,76,23,34,123];
+    let max=str[0];
+    let numStr=0;
+    let trungBinh=0;
+    for (i=0;i<str.length;i++){
+        if (max<str[i]){
+            max=str[i]
+        }
+        numStr++;
+        trungBinh+=str[i]
+    }
+    trungBinh/=numStr;
+    document.write('Số lớn nhất trong mảng str là: '+max+'<br>'+
+        'Trung bình phần tử trong mảng là: '+trungBinh)
+</script>
+</body>
+</html>

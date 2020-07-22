@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>8sao</title>
+</head>
+<body>
+<input id="nhap" type="number" placeholder="Nhập số nguyên dương:">
+<input onclick="kiemTra()" value="Kiểm tra" type="button">
+<script>
+function kiemTra() {
+    let tuoi=parseInt(document.getElementById("nhap").value);
+    if (tuoi>120){
+        alert('Đây không phải tuổi!')
+    } else {
+        if (tuoi>0){
+            alert('Tuổi của bạn là: '+tuoi+" tuổi")
+        } else (
+            alert('Đây không phải tuổi!')
+        )
+    }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bật đèn</title>
+</head>
+<body>
+<script>
+    CongTac();
+    function CongTac() {
+        let congTac = parseInt(prompt("1.Bật bóng đèn"+"\n"+"2.Tắt bóng đèn"));
+        if (congTac===1){
+            alert("Đã bật đèn. ")
+        } else if (congTac===2){
+            alert("Đã tắt đèn.")
+        } else {
+            alert("Không hợp lệ!")
+        }
+        CongTac()
+    }
+</script>
+</body>
+</html>

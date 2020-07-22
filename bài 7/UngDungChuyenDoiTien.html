@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền</title>
+</head>
+<body>
+
+    <label>Amonunt</label>
+    <label style="margin-left: 200px">From Currency</label>
+    <label style="margin-left: 200px">To Curreny</label><br>
+    <input type="text", name="tien" placeholder="Enter the amount" id="tien">
+    <select  style="margin-left: 100px" id="from">
+        <option value="vni" selected="selected">VND</option>
+    </select>
+    <select style="margin-left: 250px" name="change" id="to" >
+        <option value="eng" >$</option>
+        <option value="euro" >Euro</option>
+    </select>
+    <button style="color: blueviolet;margin-left: 50px" name="covert" onclick="doiTien();">Convert</button><br>
+    <p id="hienThi" style="color: blue"></p>
+
+</body>
+<script>
+    function doiTien() {
+        let tien= document.getElementById("tien").value;
+        let to=document.getElementById("to").value;
+        let ketQua=0;
+            if (to=="eng"){
+                ketQua=tien/23000
+            }else{
+                ketQua=tien/26000
+            }
+        document.getElementById("hienThi").innerHTML= ketQua;
+    }
+</script>
+</html>

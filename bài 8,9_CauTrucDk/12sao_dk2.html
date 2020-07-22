@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12sao</title>
+</head>
+<body>
+<script>
+    let tienVay=parseInt(prompt('Số tiền đã vay:'));
+    let soThang=parseInt(prompt('Trả trong vòng ? tháng:'));
+    let laiSuat=parseInt(prompt('Lãi suất(%):'));
+    let tienLoimoithang=0;
+    let tienPhaitra=0;
+    i=0;
+    do {
+        tienLoimoithang=tienVay*laiSuat/100;
+        tienVay=tienVay+tienLoimoithang;
+    } while (i++&&i<soThang);
+    tienPhaitra=tienVay+tienLoimoithang;
+    alert('Số tiền sinh thêm:' +tienLoimoithang);
+    alert('Số tiền phải trả sau '+soThang+' tháng : ' +tienPhaitra);
+</script>
+</body>
+</html>

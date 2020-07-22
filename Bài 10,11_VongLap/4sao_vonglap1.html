@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4sao</title>
+</head>
+<body>
+<script>
+    let num1=0;
+    let num2=1;
+    let count=0;
+       while (count<1){
+           num2=num1+num2;
+           num1=num2-num1;
+           if (num1%5===0) {
+               document.write('Số đầu tiền trong dãy Fibo chia hết chi 5 là: '+num1);
+               count++
+           }
+       }
+
+</script>
+</body>
+</html>

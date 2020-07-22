@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính</title>
+</head>
+<body>
+<h1>Caculator</h1>
+<input id="a" type="text">
+<input id="b" type="text"><br>
+<button onclick="cong()">Addition(+)</button>
+<button onclick="tru()">Subtraction(-)</button>
+<button onclick="nhan()">Multiplication(*)</button>
+<button onclick="chia()">Division(/)</button>
+</body>
+<p id="dapSo"></p>
+<script>
+    function cong() {
+        let soMot=parseInt(document.getElementById("a").value);
+        let soHai=parseInt(document.getElementById("b").value);
+        let ketQua= soMot + soHai;
+        document.getElementById('dapSo').innerHTML=ketQua;
+    }
+    function tru() {
+        let soMot=parseInt(document.getElementById("a").value);
+        let soHai=parseInt(document.getElementById("b").value);
+        let ketQua= soMot - soHai;
+        document.getElementById('dapSo').innerHTML=ketQua;
+    }
+    function nhan() {
+        let soMot=parseInt(document.getElementById("a").value);
+        let soHai=parseInt(document.getElementById("b").value);
+        let ketQua= soMot * soHai;
+        document.getElementById('dapSo').innerHTML=ketQua;
+    }
+    function chia() {
+        let soMot=parseInt(document.getElementById("a").value);
+        let soHai=parseInt(document.getElementById("b").value);
+        let ketQua= soMot / soHai;
+        document.getElementById('dapSo').innerHTML=ketQua;
+    }
+</script>
+</html>

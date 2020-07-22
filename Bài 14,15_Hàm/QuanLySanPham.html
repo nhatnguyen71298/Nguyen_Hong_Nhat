@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý sản phẩm</title>
+   <style>
+       table,th,td{
+           border: 1px solid #5f6062;
+       }
+   </style>
+</head>
+<body>
+<h1>Danh sách sản phẩm:</h1>
+<input type="button" onclick="them()" value="Thêm">
+<div id="trang"></div>
+
+<script>
+    let dsSanPham=['Coca','Pepsi','7up','Mirinda'];
+    reLoad();
+    function reLoad() {
+        let table="<table cellpadding='0' cellspacing='0'>";
+        for (let i = 0; i < dsSanPham.length; i++) {
+            table += "<tr>";
+            for (let j = 1; j <= 3; j++) {
+                if (j === 1) {
+                    table += "<td>" + dsSanPham[i] + "</td>"
+                }
+                if (j === 2) {
+                    table += "<td>" + "<input type='button' style='color: #e8ae32' value='Edit' onclick='eDit("+i+")'>" + "</td>"
+                }
+                if (j === 3) {
+                    table += "<td>" + "<input type='button' style='color: #d61b06' value='Delete' onclick='Del("+i+")'>" + "</td>"
+                }
+            }
+            table += "</tr>";
+        }
+        table += "</table>";
+        document.getElementById("trang").innerHTML=table;
+    }
+
+    function them() {
+        let news=prompt('Nhập tên sản phẩm muốn thêm:');
+        dsSanPham.push(news);
+        reLoad()
+    }
+    function eDit(y) {
+        dsSanPham[y]=prompt('Nhập tên muốn chỉnh sửa');
+        reLoad()
+    }
+    function Del(x) {
+        dsSanPham.splice(x,1);
+        reLoad();
+    }
+</script>
+</body>
+</html>

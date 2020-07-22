@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi</title>
+</head>
+<body>
+<script>
+    class changeDoC {
+        constructor(x) {
+            this.doC=x
+        }
+        doF(){
+            let f = (this.doC*1.8)+32;
+            return f
+        }
+        doKenvin(){
+            let k =this.doC+273;
+            return  k
+        }
+    }
+    let num=parseInt(prompt('Nhập độ C:'));
+    let change= new changeDoC(num);
+    alert("Độ F: "+ change.doF() +"\n" + "Độ Kenvin: " +change.doKenvin())
+
+</script>
+</body>
+</html>

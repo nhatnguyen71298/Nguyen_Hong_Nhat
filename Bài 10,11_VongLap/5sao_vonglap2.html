@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5sao</title>
+</head>
+<body>
+<script>
+   let tienVaybandau=parseInt(prompt('Số tiền vay:'));
+   let tienVaylaisuat= tienVaybandau;
+   let soThang=parseInt(prompt('Số tháng:'));
+   let laiSuat=parseInt(prompt('Lãi suất:'));
+   let tienSinhloi=0;
+   let tienPhaitra=0;
+   for (let i=0;i<soThang;i++){
+       tienSinhloi=tienVaylaisuat/100*laiSuat;
+       tienVaylaisuat+=tienSinhloi;
+   }
+   tienPhaitra=tienVaybandau+tienSinhloi;
+   alert("Số tiền phải trả sau "+soThang+" tháng là: "+tienPhaitra)
+</script>
+</body>
+</html>

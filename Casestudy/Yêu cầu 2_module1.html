@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 2</title>
+</head>
+<body>
+<label>Name:</label><input type="text" id="name"><br>
+<label>Date:</label><input type="date" id="date"><br>
+<label>Email:</label><input type="text" id="email"><br>
+<label>Address:</label><input type="text" id="address"><br>
+<label>Customer type:</label>
+<select id="type">
+    <option value="Diamond">Diamond</option>
+    <option value="Platium">Platium</option>
+    <option value="Gold">Gold</option>
+    <option value="Silver">Silver</option>
+    <option value="Member">Member</option>
+</select><br>
+<label>Discount:</label><input type="number" id="discount"><br>
+<label>Amount of nember:</label><input type="number" id="member"><br>
+<label>Rentdays:</label><input type="number" id="days"><br>
+<label>Kind of room:</label>
+<select id="kind">
+    <option value="vip">Vip</option>
+    <option value="bussiness">Bussiness</option>
+    <option value="normal">Normal</option>
+</select><br>
+<label>Price:</label>
+<select id="price">
+    <option value="villa">Villa 500$/1day</option>
+    <option value="house">House 300$/1day</option>
+    <option value="room">Room 100$/1day</option>
+</select><br>
+<button id="confirm" onclick="confirm()">Confirm</button>
+<button type="reset">Reset</button><br>
+</body>
+<script>
+    function confirm() {
+        let name= document.getElementById("name").value;
+        let date= document.getElementById("date").value;
+        let email= document.getElementById("email").value;
+        let address= document.getElementById("address").value;
+        let type= document.getElementById("type").value;
+        let discount= document.getElementById("discount").value;
+        let amount= document.getElementById("member").value;
+        let days= document.getElementById("days").value;
+        let kind= document.getElementById("kind").value;
+        let price= document.getElementById("price").value;
+        let choose = prompt("1. Hiển thị thông tin KH:" + "\n" +
+            "2. Chỉnh sửa thông tin KH" + "\n" +
+            "3. Hiển thị giá sau khi được giảm giá");
+        switch (choose) {
+            case "1":
+                alert("Name: " + name + "\n" +
+                    "Date: " + date + "\n" +
+                    "Email: " + email + "\n" +
+                    "Address: " + address + "\n" +
+                    "Type: " + type + "\n" +
+                    "Discount: " + discount + "\n" +
+                    "Num of member: " + amount + "\n" +
+                    "Days: " + days + "\n" +
+                    "Kind: " + kind + "\n" +
+                    "Price: " + price);
+                break;
+            case '2':
+                let chooseEdit = prompt("1.Name: " + name + "\n" +
+                    "2.Date: " + date + "\n" +
+                    "3.Email: " + email + "\n" +
+                    "4.Address: " + address + "\n" +
+                    "5.Type: " + type + "\n" +
+                    "6.Discount: " + discount + "\n" +
+                    "7.Num of member: " + amount + "\n" +
+                    "8.Days: " + days + "\n" +
+                    "9.Kind: " + kind + "\n" +
+                    "10.Price: " + price);
+                switch (chooseEdit) {
+                    case "1": {
+                        name = prompt('Enter the name:');
+                    }
+                        break;
+                    case '2':
+                        date = prompt('Enter the date:');
+                        break;
+                    case "3": {
+                        email = prompt('Enter the email:');
+                    }
+                        break;
+                    case "4": {
+                        address = prompt('Enter the address:');
+                    }
+                        break;
+                    case "5": {
+                        type = prompt('Enter the type:');
+                    }
+                        break;
+                    case "6": {
+                        discount = prompt('Enter the discount:');
+                    }
+                        break;
+                    case "7": {
+                        amount = prompt('Enter the num of member:');
+                    }
+                        break;
+                    case "8": {
+                        days = prompt('Enter the days:');
+                    }
+                        break;
+                    case "9": {
+                        kind = prompt('Enter the kind:');
+                    }
+                        break;
+                    case "10": {
+                        price = prompt('Enter the price:');
+                    }
+                        break;
+                    default: {
+                        alert('Failed!');
+                    }
+                }
+                alert("Name: " + name + "\n" +
+                    "Date: " + date + "\n" +
+                    "Email: " + email + "\n" +
+                    "Address: " + address + "\n" +
+                    "Type: " + type + "\n" +
+                    "Discount: " + discount + "\n" +
+                    "Num of member: " + amount + "\n" +
+                    "Days: " + days + "\n" +
+                    "Kind: " + kind + "\n" +
+                    "Price: " + price
+                );
+                break;
+            case '3':
+                let amounT = parseInt(days);
+                let disCount = parseInt(discount);
+                let pay = 0;
+                if (price ==="villa") {
+                    pay = 500 * amounT * (1 - disCount / 100)
+                }
+                if (price === "house") {
+                    pay = 300 * amounT * (1 - disCount / 100)
+                }
+                if (price==='room') {
+                    pay = 100 * amounT * (1 - disCount / 100)}
+                if (address === 'Đà nẵng') {
+                    pay = pay - 20
+                }
+                if (address==='Huế'){
+                    pay = pay - 10}
+                if (address==='Quảng nam'){
+                    pay=pay-2
+                }
+                if (days > 7) {
+                    pay = pay - 30
+                }
+                if (days > 5) {
+                    pay = pay - 20
+                }
+                if (days>2){
+                    pay = pay - 10}
+                if (type==='Diamond'){
+                    pay=pay-15
+                }
+                if( type==='Platium'){
+                    pay=pay-10
+                }
+                if (type==='Gold'){
+                    pay=pay-5
+                }
+                if (type==='Silver'){
+                    pay=pay-2}
+                alert('Need to pay: ' + pay + '$');
+                break;
+            default: {
+                alert('Your choose is not avaiable!')
+            }
+        }
+    }
+</script>
+</html>

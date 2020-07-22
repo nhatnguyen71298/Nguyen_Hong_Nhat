@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6sao</title>
+</head>
+<body>
+<script>
+    let mang1=new Array(10);
+    let num;
+    for (let i=0;i<mang1.length;i++) {
+        mang1[i] = prompt('Nhập phần tử thứ ' + (i+1) + ' của mảng:')
+    }
+    num=prompt('Nhập số muốn kiểm tra: ');
+    for (let j=0;j<mang1.length;j++){
+        if (mang1[j]===num){
+            alert(num+' is in array');
+            break;
+        }
+        else if (j===9){
+            alert(num+' is not in array');
+            break;
+        }
+    }
+</script>
+</body>
+</html>

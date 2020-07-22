@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2sao</title>
+</head>
+<body>
+<script>
+    let max=100;
+    let min=20;
+    let nhietDo=prompt('Nhập nhiệt độ');
+    while (nhietDo>max){
+        alert('Giảm nhiệt độ');
+        nhietDo=prompt('Nhập nhiệt độ')
+    }
+    if (nhietDo<min){
+        alert('Tăng nhiệu độ');
+        nhietDo=prompt('Nhập nhiệt độ')
+    } else {
+        alert(nhietDo+' Độ');
+    }
+</script>
+</body>
+</html>

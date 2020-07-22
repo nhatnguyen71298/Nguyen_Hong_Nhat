@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu 6</title>
+</head>
+<body>
+<script>
+    class Customer{
+        constructor(name,cmnd,birthday,email,address,typeService,typeRoom,typeCustomer,disCount,quanlityIncluded,rentDays) {
+            this.name=name;
+            this.cmnd=cmnd;
+            this.birthday=birthday;
+            this.email=email;
+            this.address=address;
+            this.typeService=typeService;
+            this.typeRoom=typeRoom;
+            this.typeCustomer=typeCustomer;
+            this.disCount=disCount;
+            this.quanlityIncluded=quanlityIncluded;
+            this.rentDays=rentDays;
+            this.list=[];
+            this.inforCustomer=[];
+        }
+            setter() {
+                this.name= prompt('Input name: ');
+                this.cmnd = prompt('Input cmnd: ');
+                this.birthday = prompt('Input birthday: ');
+                this.email = prompt('Input email: ');
+                this.address = prompt('Input address: ');
+                this.typeService = prompt('Input type Servicec: ');
+                this.typeRoom = prompt('Input type Room: ');
+                this.typeCustomer = prompt('Input type Customer: ');
+                this.disCount = prompt('Input Discount: ');
+                this.quanlityIncluded = prompt('Input  Quanlity Included: ');
+                this.rentDays = prompt('Input rent Days: ');
+
+            }
+            getter() {
+                this.list.push(this.name);
+                this.list.push(this.cmnd);
+                this.list.push(this.birthday);
+                this.list.push(this.email);
+                this.list.push(this.address);
+                this.list.push(this.typeService);
+                this.list.push(this.typeRoom);
+                this.list.push(this.typeCustomer);
+                this.list.push(this.disCount);
+                this.list.push(this.quanlityIncluded);
+                this.list.push(this.rentDays);
+                this.inforCustomer.push(this.list);
+            }
+
+            showCustomer(){
+                let nameCustomer="";
+                for (let i=0;i<this.inforCustomer.length;i++){
+                    nameCustomer+="Name: "+this.inforCustomer[i][0]+'\n'
+                }
+                let chooseShow=parseInt(prompt('Chọn KH muốn xem'+"\n"+nameCustomer));
+                alert('Name:'+  this.inforCustomer[chooseShow][0]+'\n'+
+                    'cmnd:'+  this.inforCustomer[chooseShow][1]+'\n'+
+                    'Birthday:'+  this.inforCustomer[chooseShow][2]+'\n'+
+                    'Email:'+  this.inforCustomer[chooseShow][3]+'\n'+
+                    'Address:'+  this.inforCustomer[chooseShow][4]+'\n'+
+                    'Type service'+  this.inforCustomer[chooseShow][5]+'\n'+
+                    'Type room:'+  this.inforCustomer[chooseShow][6]+'\n'+
+                    'Type customer:'+  this.inforCustomer[chooseShow][7]+'\n'+
+                    'Discount:'+  this.inforCustomer[chooseShow][8]+'\n'+
+                    'Quanlity inclded:'+  this.inforCustomer[chooseShow][9]+'\n'+
+                    'Rent days:'+  this.inforCustomer[chooseShow][10]
+                )
+            }
+   }
+    let cus=new Customer();
+    Choose();
+
+    function Choose() {
+
+        let choose = parseInt(prompt('1. Add new Customer.' +
+            '\n2. Display information Custumer' +
+            '\n3. Display total pay of customer' +
+            '\n4. Delete Custumer' +
+            '\n5. Exit'
+        ));
+        switch (choose) {
+            case 1:{
+                cus.setter();
+                cus.getter();
+                alert('Đã thêm thông tin KH!');
+                Choose();
+                break;
+            }
+            case 2:{
+                cus.showCustomer();
+                Choose();
+                break;
+            }
+            case 3:{
+
+                break;
+            }
+            case 4:{
+
+                break;
+            }
+            case 5:{
+
+                break;
+            }
+            default:{
+                alert('Không hợp lệ!');
+                Choose();
+            }
+        }
+    }
+
+
+</script>
+</body>
+</html>

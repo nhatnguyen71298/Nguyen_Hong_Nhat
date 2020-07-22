@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Số ngày</title>
+</head>
+<body>
+<input type="number" id="month">
+<input type="button" value="Tính số ngày" id="ketQua" onclick="ketqua()">
+<p id="result"></p>
+</body>
+<script>
+    function ketqua() {
+        let month= parseInt(document.getElementById("month").value);
+        switch (month) {
+            case month=1:
+                case month=3:
+                    case month=5:
+                        case month=7:
+                            case month=8:
+                                case month=10:
+                                    case month=12:
+         document.getElementById("result").innerHTML= 31+"Ngày";
+            break;
+            case (month)=2:
+         document.getElementById("result").innerHTML= 28+" hoặc "+29+" ngày.";
+            break;
+            default:
+         document.getElementById("result").innerHTML= 30+"Ngày";
+        }
+    }
+</script>
+</html>

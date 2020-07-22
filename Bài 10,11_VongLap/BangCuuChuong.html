@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bảng cửu chương</title>
+</head>
+<body>
+<script>
+    let table, oneTo9, twoTo9;
+    table= "<table border='1' width='300' cellspacing='0' cellpadding='3'>";
+    oneTo9=1;
+    twoTo9=2;
+    while (oneTo9<10){
+        table+="<tr>";
+        while(twoTo9<10){
+            table=table+"<td>"+twoTo9+"x"+oneTo9 +"=" +oneTo9*twoTo9+"</td>";
+            twoTo9++;
+        }
+        table+="</tr>";
+        twoTo9=2;
+        oneTo9++;
+    }
+    table+="</table>";
+    document.write(table);
+</script>
+</body>
+</html>

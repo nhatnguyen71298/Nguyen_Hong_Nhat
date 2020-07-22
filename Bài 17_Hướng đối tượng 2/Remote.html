@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tivi</title>
+</head>
+<body>
+<script>
+
+
+    class tivi{
+        constructor(kenh,amluong,trangthai) {
+            this.Kenh=kenh;
+            this.Amluong=amluong;
+            this.Trangthai=trangthai;
+        }
+        Battivi(){
+            alert('Kênh hiện tại: '+this.Kenh+'\n'+
+                'Âm lượng hiện tại: '+this.Amluong+'\n'+
+                'Trạng thái : Đang '+this.Trangthai
+            )
+        }
+        Tattivi(){
+            alert("Tivi đã tắt!")
+        }
+    }
+
+    let Tivi=new tivi(7,12,"Bật");
+    Tivi.Battivi();
+    Remote();
+
+    function Remote() {
+        let conTrol= parseInt(prompt("Điều khiển ti vi: "+"\n"+
+                                        "1. Xem ti vi."+"\n"+
+                                        "2. Tăng âm lượng."+"\n"+
+                                        "3. Giảm âm lượng."+"\n"+
+                                        "4. Chuyển kênh."+"\n"+
+                                        "5. Tắt ti vi."+"\n"+
+                                        "6. Bật ti vi."
+        ));
+
+            switch (conTrol) {
+                case 1: {
+                    if (Tivi.Trangthai==="Tắt"){
+                        Tivi.Tattivi();
+                        Remote();
+                    } else {
+                    Tivi.Battivi();
+                    Remote()
+                    }
+                    break;
+                }
+                case 2: {
+                    if (Tivi.Trangthai==="Tắt"){
+                        Tivi.Tattivi();
+                        Remote();
+                    } else if (0 <= Tivi.Amluong <= 15) {
+                        alert('Đã tăng âm lượng thêm 1!');
+                        Tivi.Amluong++;
+                    } else {
+                        alert('Âm lượng đã max!')
+                    }
+                    Tivi.Battivi();
+                    Remote();
+                    break;
+                }
+                case 3: {
+                    if (Tivi.Trangthai==="Tắt"){
+                        Tivi.Tattivi();
+                        Remote();
+                    } if (0 < Tivi.Amluong <= 15) {
+                        alert('Đã giảm âm lượng xuống 1!');
+                        Tivi.Amluong--;
+                    } else {
+                        alert('Âm lượng đã tắt!')
+                    }
+                    Tivi.Battivi();
+                    Remote();
+                    break;
+                }
+                case 4: {
+                    if (Tivi.Trangthai==="Tắt"){
+                        Tivi.Tattivi();
+                        Remote();
+                    } else {
+                    Tivi.Kenh = parseInt(prompt('Nhập số kênh muốn xem: '));
+                    Tivi.Battivi();
+                    Remote()
+                    }
+                    break;
+                }
+                case 5: {
+                    Tivi.Trangthai = "Tắt";
+                    Tivi.Tattivi();
+                    Remote();
+                    break;
+                }
+                case 6:{
+                    if (Tivi.Trangthai==="Tắt"){
+                        Tivi.Trangthai="Bật";
+                        Tivi.Battivi();
+                        Remote()
+                    } else if (Tivi.Trangthai==="Bật") {
+                        alert('Ti vi đang bật!');
+                        Remote()
+                    }
+                    break;
+                }
+                default: {
+                    alert('Không hợp lệ');
+                    Remote();
+                }
+            }
+
+
+    }
+</script>
+</body>
+</html>

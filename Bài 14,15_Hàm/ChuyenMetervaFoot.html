@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi</title>
+</head>
+<body>
+
+</body>
+<script>
+    function metToFeet(met) {
+        let a=3.279;
+         return met*a;
+    }
+    function feetTomet(feet) {
+        let b=0.305;
+        return feet*b;
+    }
+    let num1= parseFloat(prompt('Mét muốn đổi sang feet'));
+    num1=metToFeet(num1);
+    alert(num1+" feet");
+    let num2= parseFloat(prompt('feet muốn đổi sang mét'));
+    num2=feetTomet(num2);
+    alert(num2+" mét")
+</script>
+</html>

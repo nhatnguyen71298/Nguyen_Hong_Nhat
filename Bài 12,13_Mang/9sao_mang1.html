@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>9sao</title>
+</head>
+<body>
+<script>
+    let mang1=new Array(10);
+    let mang2=new Array(10);
+    for (let i=0;i<mang1.length;i++){
+        mang1[i]=prompt('Nhập số thứ '+(i+1)+' của mảng 1:')
+    }
+    for (let j=0;j<mang2.length;j++){
+        mang2[j]=prompt('Nhập số thứ '+(j+1)+' của mảng 2:')
+    }
+    let mang3=mang1.concat(mang2);
+    alert(mang3)
+</script>
+</body>
+</html>

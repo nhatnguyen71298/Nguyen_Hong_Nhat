@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11sao</title>
+</head>
+<body>
+<script>
+    let thuNhap=parseInt(prompt('Nhập doanh Số'));
+    let thue;
+    if (thuNhap>50000000){
+        thue=20
+    }else {
+        if( thuNhap>40000000){
+            thue=15
+        } else {
+            if (thuNhap>30000000){
+                thue=10
+            } else {thuNhap=5}
+        }
+    }
+    alert('Phần trăm thuế:'+thue)
+</script>
+</body>
+</html>

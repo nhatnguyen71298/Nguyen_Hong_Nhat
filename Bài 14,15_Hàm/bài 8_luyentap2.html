@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>đảo ngược mảng</title>
+</head>
+<body>
+<script>
+    function daoMang() {
+        let i=parseInt(prompt('Nhập số phần tử mảng:'));
+        let arr=new Array(i);
+        for (let j=0;j<arr.length;j++){
+            arr[j]=prompt('Nhập phần tử thứ '+j)
+        }
+        return arr.reverse();
+    }
+    let b=daoMang();
+    alert(b)
+</script>
+</body>
+</html>

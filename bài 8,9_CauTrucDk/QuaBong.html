@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Click!</title>
+</head>
+<body>
+<form>
+    <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQRERMABCKkPcD_ZkT56E5wwhn7QtjHQva_zj6ZgUj0CEUFNfgT&usqp=CAU" >
+    <p>Click button below to move the ball!</p>
+    <input type="button" value="MoveRight!" onclick="moveRight();">
+    <input type="button" value="MoveLeft!" onclick="moveLeft();">
+</form>
+</body>
+<script>
+    imgObj=document.getElementById("image");
+    function init() {
+        imgObj=document.getElementById("image");
+        imgObj.style.position='relative';
+        imgObj.style.left='0px';
+    }
+    function moveRight() {
+        imgObj.style.left=parseInt(imgObj.style.left)+10+'px';
+    }
+    function moveLeft() {
+        imgObj.style.left=parseInt(imgObj.style.left)-10+'px';
+    }
+    window.onload=init;
+
+</script>
+</html>

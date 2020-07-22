@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+    <style>
+        .wufoo {
+            font-family: "Lucida Grande","Lucida Sans Unicode", Tahoma, sans-serif;
+        }
+    </style>
+</head>
+<body>
+<form method="get" action="simpleform.html" class="wufoo">
+    <h2>Order form</h2>
+    <p>Trình độ tiếng Anh của bạn?</p>
+    <select>
+        <option value =" ">Rất tốt</option>
+        <option value =" ">Tốt</option>
+        <option value =" ">Khá</option>
+        <option value =" ">Trung bình</option>
+        <option value =" ">Kém</option>
+    </select>
+    <p>Bạn có muốn cải thiện trình độ tiếng Anh của mình?</p>
+    <input type="checkbox" name="mong muon"/> Rất mong muốn. <br>
+    <input type="checkbox" name="mong muon"/> Có mong muốn. <br>
+    <input type="checkbox" name="mong muon"/> Nếu có cơ hội. <br>
+    <input type="checkbox" name="mong muon"/> Không cần thiết. <br>
+    <input type="checkbox" name="mong muon"/> Tuyệt đối không. <br>
+    <p>Họ và Tên<span style="color: red">*</span>:</p>
+    <input type ="text" name="Họ" placeholder="Họ" size="15"/>
+    <input type ="text" name="Tên" placeholder="Tên" size="15"/>
+    <p>Email:</p>
+    <input type="text" name="email"  size="35"/>
+    <p>Số điện thoai:</p>
+    <input type="text" name="num 1" size="5"/> -
+    <input type="text" name="num 2" size="5"/> -
+    <input type="text" name="num 3" size="5">
+    <input type="button" name="Gửi" value="Gửi">
+</form>
+</body>
+</html>

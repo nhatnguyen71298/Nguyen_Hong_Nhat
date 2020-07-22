@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 5</title>
+</head>
+<body>
+
+</body>
+<script>
+    function gtnn(a,b,c) {
+        let min;
+        if (a>b){
+            if (c>b){
+                min=b
+            } else {
+                min=c
+            }
+        } else {
+            if (c>a){
+                min=a
+            } else {
+                min=c
+            }
+        }
+        return min;
+    }
+    let num1=parseInt(prompt('Nhập số 1'));
+    let num2=parseInt(prompt('Nhập số 2'));
+    let num3=parseInt(prompt('Nhập số 3'));
+    let GTNN=gtnn(num1,num2,num3);
+    alert(GTNN)
+
+</script>
+</html>

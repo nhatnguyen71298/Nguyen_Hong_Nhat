@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu Cầu 1</title>
+</head>
+<body>
+<script>
+    let name;
+    let cmnd;
+    let birthday;
+    let email;
+    let address;
+    let typeCustomer;
+    let disCount;
+    let amount;
+    let days;
+    let typeServices;
+    let typeRoom;
+    let check=false;
+
+    let tempname="";
+    name = prompt("Họ và tên ");
+    name=name.trim().toLowerCase();
+    for (let i=0;i<name.length; i++){
+        if (name.charAt(i)===" "&&name.charAt(i+1)===" "){
+            continue;
+        }
+        if (i===0 || name.charAt(i-1)===" "){
+            tempname += name.charAt(i).toUpperCase();
+            continue;
+        }
+        tempname+= name.charAt(i);
+    }
+    name=tempname;
+
+    do {
+        cmnd=parseInt(prompt("Số CMND"));
+        if (cmnd<9999999){
+        alert('Số CMND không hợp lệ!')
+        }
+    } while (cmnd<9999999);
+
+    do {
+        birthday = prompt("Ngày tháng năm sinh");
+        if (birthday.charAt(2)==="/"&&birthday.charAt(5)==="/"){
+            let day=birthday.substring(0,2);
+            let month=birthday.substring(3,5);
+            let year=birthday.substring(6,10);
+            if (!isNaN(day)&&!isNaN(month)&&!isNaN(year)){
+                day=Number.parseFloat(day);
+                month=Number.parseFloat(month);
+                year=Number.parseFloat(year);
+                if (Number.isInteger(day)&&Number.isInteger(month)&&Number.isInteger(year)){
+                    if (day<32&&month<13&&year>1950){
+                        check=true;
+                    }
+                }
+            }
+        }
+        if (!check){
+            alert('Ngày sinh không đúng định dạng!')
+        }
+    } while (!check);
+
+    check=false;
+    do {
+        let countAt=0;
+        let countDoc=0;
+        email = prompt("Email");
+        for (let i=0;i<email.length;i++){
+            if (email.charAt(i)==="@"){
+                countAt++;
+                for (let j=i+1;j<email.length;j++){
+                    if (email.charAt(j)==="."){
+                        countDoc++;
+                    }
+                }
+            }
+        }
+        if (countAt!==1||countDoc<1){
+            alert('Email bạn nhập không đúng!')
+        } else {
+            check=true;
+        }
+    } while (!check);
+
+    address = prompt("Địa chỉ");
+    typeCustomer = prompt("Loại khách hàng");
+
+
+    do {
+        disCount=parseInt(prompt("giảm giá"));
+        if (disCount<0){
+        alert('Discount không lệ')
+        }
+    } while (disCount<0);
+
+
+     do {
+        amount = parseInt(prompt("Số người đi kèm"));
+        if (amount<0){
+            alert('Không hợp lệ')
+        }
+    } while (amount<0);
+
+
+    do {
+        days = parseInt(prompt("Số ngày thuê"));
+        if (day<0){
+        alert('Không hợp lệ')
+        }
+    } while (days<0);
+
+    typeServices = prompt("Loại dịch vụ");
+    typeRoom = prompt("Loại thuê phòng");
+    let total = typeServices * days * (1 - disCount / 100);
+
+
+
+    alert("Họ và tên: " + name + "\n" +
+        "Số CMND: " + cmnd + "\n" +
+        "Ngày tháng năm sinh: " + birthday + "\n" +
+        "Email: " + email + "\n" +
+        "Địa chỉ: " + address + "\n" +
+        "Loại khách hàng: " + typeCustomer + "\n" +
+        "Giảm giá: " + disCount + "\n" +
+        "Số lượng: " + amount + "\n" +
+        "Số ngày thuê: " + days + "\n" +
+        "Loại dịch vụ: " + typeServices + "\n" +
+        "Loại phòng thuê: " + typeRoom + "\n" +
+        "Chi phí: " + total );
+</script>
+</body>
+</html>
