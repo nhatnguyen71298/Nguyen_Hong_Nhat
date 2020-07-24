@@ -63,7 +63,7 @@
         cusInfo.push(quanlityIncluded);
         cusInfo.push(rentDays);
         arrListCustomer.push(cusInfo);
-        alert('Đã thêm thành công!');
+        alert('Added successfully!');
         displayMainMenu();
     }
 
@@ -73,53 +73,54 @@
             temp+=i+".Name: "+arrListCustomer[i][0]+"\n"
         }
         let chooseDisplay=parseInt(prompt(temp));
-        alert("Tên: " + arrListCustomer[chooseDisplay][0] + "\n" +
+        alert("Name: " + arrListCustomer[chooseDisplay][0] + "\n" +
             "cmnd: " + arrListCustomer[chooseDisplay][1] + "\n" +
-            "Ngày sinh: " + arrListCustomer[chooseDisplay][2] + "\n" +
+            "Birthday: " + arrListCustomer[chooseDisplay][2] + "\n" +
             "Email: " + arrListCustomer[chooseDisplay][3] + "\n" +
-            "Đại chỉ: " + arrListCustomer[chooseDisplay][4] + "\n" +
-            "Loại dịch vụ: " + arrListCustomer[chooseDisplay][5] + "\n" +
-            "Loại phòng: " + arrListCustomer[chooseDisplay][6] + "\n" +
-            "Loại khách hàng: " + arrListCustomer[chooseDisplay][7] + "\n" +
-            "Giảm giá: " + arrListCustomer[chooseDisplay][8] + "\n" +
-            "Số lượng đi kèm: " + arrListCustomer[chooseDisplay][9] + "\n" +
-            "Số lượng ngày: " + arrListCustomer[chooseDisplay][10] );
+            "Address: " + arrListCustomer[chooseDisplay][4] + "\n" +
+            "Type Service: " + arrListCustomer[chooseDisplay][5] + "\n" +
+            "Type Room: " + arrListCustomer[chooseDisplay][6] + "\n" +
+            "Type Customer: " + arrListCustomer[chooseDisplay][7] + "\n" +
+            "Discount: " + arrListCustomer[chooseDisplay][8] + "\n" +
+            "Quanlity Included: " + arrListCustomer[chooseDisplay][9] + "\n" +
+            "Rent days: " + arrListCustomer[chooseDisplay][10] );
             displayMainMenu();
     }
 
     function editCustomer() {
         let temp="";
+        let editNew;
         for (let i=0;i<arrListCustomer.length;i++){
             temp+=i+".Name: "+arrListCustomer[i][0]+"\n"
         }
-        let chooseEdit=parseInt(prompt("Chọn KH muốn chỉnh sửa: "+"\n"+temp));
-        let edit=parseInt(prompt('Chọn mục muốn sửa: '+"\n"+
-                                    "1. Tên "  + "\n" +
-                                    "2. cmnd"   +"\n" +
-                                    "3. Ngày sinh "  + "\n" +
-                                    "4. Email:"  + "\n" +
-                                    "5. Đại chỉ"  + "\n" +
-                                    "6. Loại dịch vụ "  + "\n" +
-                                    "7. Loại phòng "  + "\n" +
-                                    "8. Loại khách hàng "  + "\n" +
-                                    "9. Giảm giá " +   "\n" +
-                                    "10. Số lượng đi kèm "  + "\n" +
-                                    "11. Số lượng ngày."
+        let chooseEdit=parseInt(prompt("Choose customer: "+"\n"+temp));
+        let edit=parseInt(prompt("Choose information to del: "+'\n'+
+            "0.Name: " + arrListCustomer[chooseEdit][0] + "\n" +
+            "1.cmnd: " + arrListCustomer[chooseEdit][1] + "\n" +
+            "2.Birthday: " + arrListCustomer[chooseEdit][2] + "\n" +
+            "3. Email: " + arrListCustomer[chooseEdit][3] + "\n" +
+            "4. Address: " + arrListCustomer[chooseEdit][4] + "\n" +
+            "5. Type service: " + arrListCustomer[chooseEdit][5] + "\n" +
+            "6. Type room " + arrListCustomer[chooseEdit][6] + "\n" +
+            "7. Type customer " + arrListCustomer[chooseEdit][7] + "\n" +
+            "8. Discount " + arrListCustomer[chooseEdit][8] + "\n" +
+            "9.Quanlity included: " + arrListCustomer[chooseEdit][9] + "\n" +
+            "10. Rent days: " + arrListCustomer[chooseEdit][10]
         ));
-        let editNew =prompt('Nhập thông tim mới') ;
-        arrListCustomer[chooseEdit][edit-1]= editNew;
-        alert('Đã chỉnh sửa thông tin KH');
-        alert("Tên: " + arrListCustomer[chooseEdit][0] + "\n" +
-            "cmnd: " + arrListCustomer[chooseEdit][1] + "\n" +
-            "Ngày sinh: " + arrListCustomer[chooseEdit][2] + "\n" +
-            "Email: " + arrListCustomer[chooseEdit][3] + "\n" +
-            "Đại chỉ: " + arrListCustomer[chooseEdit][4] + "\n" +
-            "Loại dịch vụ: " + arrListCustomer[chooseEdit][5] + "\n" +
-            "Loại phòng: " + arrListCustomer[chooseEdit][6] + "\n" +
-            "Loại khách hàng: " + arrListCustomer[chooseEdit][7] + "\n" +
-            "Giảm giá: " + arrListCustomer[chooseEdit][8] + "\n" +
-            "Số lượng đi kèm: " + arrListCustomer[chooseEdit][9] + "\n" +
-            "Số lượng ngày: " + arrListCustomer[chooseEdit][10] );
+        editNew =prompt('Input new information: ') ;
+        arrListCustomer[chooseEdit][edit]= editNew;
+        alert('Done!');
+        alert("0.Name: " + arrListCustomer[chooseEdit][0] + "\n" +
+            "1.cmnd: " + arrListCustomer[chooseEdit][1] + "\n" +
+            "2.Birthday: " + arrListCustomer[chooseEdit][2] + "\n" +
+            "3. Email: " + arrListCustomer[chooseEdit][3] + "\n" +
+            "4. Address: " + arrListCustomer[chooseEdit][4] + "\n" +
+            "5. Type service: " + arrListCustomer[chooseEdit][5] + "\n" +
+            "6. Type room " + arrListCustomer[chooseEdit][6] + "\n" +
+            "7. Type customer " + arrListCustomer[chooseEdit][7] + "\n" +
+            "8. Discount " + arrListCustomer[chooseEdit][8] + "\n" +
+            "9.Quanlity included: " + arrListCustomer[chooseEdit][9] + "\n" +
+            "10. Rent days: " + arrListCustomer[chooseEdit][10] );
         displayMainMenu();
     }
 
@@ -129,13 +130,13 @@
         for (let i=0;i<arrListCustomer.length;i++){
             temp+=i+".Name: "+arrListCustomer[i][0]+"\n"
         }
-        let chooseDel=parseInt(prompt("Chọn KH muốn xóa: "+"\n"+temp));
+        let chooseDel=parseInt(prompt("Choose customer "+"\n"+temp));
         arrListCustomer.splice(chooseDel,1);
-        alert('Đã xóa !');
+        alert('Done !');
         for (let i=0;i<arrListCustomer.length;i++){
             tempdel+=i+".Name: "+arrListCustomer[i][0]+"\n"
         }
-        alert('Danh sách KH hiện tại: '+"\n"+tempdel);
+        alert('Customer list: '+"\n"+tempdel);
         displayMainMenu();
     }
 

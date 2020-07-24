@@ -6,6 +6,7 @@
 </head>
 <body>
 <script>
+
     class Customer{
         constructor(name,cmnd,birthday,email,address,typeService,typeRoom,typeCustomer,disCount,quanlityIncluded,rentDays) {
             this.name=name;
@@ -19,101 +20,548 @@
             this.disCount=disCount;
             this.quanlityIncluded=quanlityIncluded;
             this.rentDays=rentDays;
-            this.list=[];
-            this.inforCustomer=[];
         }
-            setter() {
-                this.name= prompt('Input name: ');
-                this.cmnd = prompt('Input cmnd: ');
-                this.birthday = prompt('Input birthday: ');
-                this.email = prompt('Input email: ');
-                this.address = prompt('Input address: ');
-                this.typeService = prompt('Input type Servicec: ');
-                this.typeRoom = prompt('Input type Room: ');
-                this.typeCustomer = prompt('Input type Customer: ');
-                this.disCount = prompt('Input Discount: ');
-                this.quanlityIncluded = prompt('Input  Quanlity Included: ');
-                this.rentDays = prompt('Input rent Days: ');
+        getName(){
+            return this.name
+        }
+        getCmnd(){
+            return this.cmnd
+        }
+        getBirthday(){
+            return this.birthday
+        }
+        getEmail(){
+            return this.email
+        }
+        getAddress(){
+            return this.address
+        }
+        getTypeService(){
+            return this.typeService
+        }
+        getTypeRoom(){
+            return this.typeRoom
+        }
+        getTypeCustomer(){
+            return this.typeCustomer
+        }
+        getDisCount(){
+            return this.disCount
+        }
+        getQuanlityIncluded(){
+            return this.quanlityIncluded
+        }
+        getRentDays(){
+            return this.rentDays
+        }
+        setName(name){
+            return this.name=name
+        }
+        setCmnd(cmnd){
+            return this.cmnd=cmnd
+        }
+        setBirthday(birthday){
+            return this.birthday=birthday
+        }
+        setEmail(email){
+            return this.email=email
+        }
+        setAddress(address){
+            return this.address=address
+        }
+        setTypeService(typeService){
+            return this.typeService=typeService
+        }
+        setTypeRoom(typeRoom){
+            return this.typeRoom=typeRoom
+        }
+        setTypeCustomer(typeCustomer){
+            return this.typeCustomer=typeCustomer
+        }
+        setDisCount(disCount){
+            return this.disCount=disCount
+        }
+        setQuanlityIncluded(quanlityIncluded){
+            return this.quanlityIncluded=quanlityIncluded
+        }
+        setRentDays(rentDays){
+            return this.rentDays=rentDays
+        }
 
-            }
-            getter() {
-                this.list.push(this.name);
-                this.list.push(this.cmnd);
-                this.list.push(this.birthday);
-                this.list.push(this.email);
-                this.list.push(this.address);
-                this.list.push(this.typeService);
-                this.list.push(this.typeRoom);
-                this.list.push(this.typeCustomer);
-                this.list.push(this.disCount);
-                this.list.push(this.quanlityIncluded);
-                this.list.push(this.rentDays);
-                this.inforCustomer.push(this.list);
-            }
-
-            showCustomer(){
-                let nameCustomer="";
-                for (let i=0;i<this.inforCustomer.length;i++){
-                    nameCustomer+="Name: "+this.inforCustomer[i][0]+'\n'
-                }
-                let chooseShow=parseInt(prompt('Chọn KH muốn xem'+"\n"+nameCustomer));
-                alert('Name:'+  this.inforCustomer[chooseShow][0]+'\n'+
-                    'cmnd:'+  this.inforCustomer[chooseShow][1]+'\n'+
-                    'Birthday:'+  this.inforCustomer[chooseShow][2]+'\n'+
-                    'Email:'+  this.inforCustomer[chooseShow][3]+'\n'+
-                    'Address:'+  this.inforCustomer[chooseShow][4]+'\n'+
-                    'Type service'+  this.inforCustomer[chooseShow][5]+'\n'+
-                    'Type room:'+  this.inforCustomer[chooseShow][6]+'\n'+
-                    'Type customer:'+  this.inforCustomer[chooseShow][7]+'\n'+
-                    'Discount:'+  this.inforCustomer[chooseShow][8]+'\n'+
-                    'Quanlity inclded:'+  this.inforCustomer[chooseShow][9]+'\n'+
-                    'Rent days:'+  this.inforCustomer[chooseShow][10]
-                )
-            }
    }
-    let cus=new Customer();
-    Choose();
 
-    function Choose() {
+    class Employee extends Customer{
+        constructor(name,cmnd,birthday,email,address,typeService,typeRoom,typeCustomer,disCount,quanlityIncluded,rentDays,rank) {
+            super(name,cmnd,birthday,email,address,typeService,typeRoom,typeCustomer,disCount,quanlityIncluded,rentDays);
+            this.rank=rank;
+        }
+        getRank(){
+            return this.rank;
+        }
+        setRank(rank){
+            return this.rank=rank;
+        }
+    }
+    let listCustomer=[];
+    let listEmploy=[];
 
+    function Menu() {
         let choose = parseInt(prompt('1. Add new Customer.' +
-            '\n2. Display information Custumer' +
-            '\n3. Display total pay of customer' +
-            '\n4. Delete Custumer' +
-            '\n5. Exit'
+            '\n2. Display information Custumer.' +
+            '\n3. Display total pay of customer.' +
+            '\n4. Edit information Customer.' +
+            '\n5. Delete Custumer.' +
+            '\n6. EmPloyee' +
+            '\n7. Exit.'
         ));
         switch (choose) {
             case 1:{
-                cus.setter();
-                cus.getter();
-                alert('Đã thêm thông tin KH!');
-                Choose();
+                addNewCustomer();
                 break;
             }
             case 2:{
-                cus.showCustomer();
-                Choose();
+                displayInFor();
                 break;
             }
             case 3:{
-
+                displayTotal();
                 break;
             }
             case 4:{
-
+                editCustomer();
                 break;
             }
             case 5:{
-
+                delCustomer();
+                Menu();
+                break;
+            }
+            case 6:{
+                employee();
+                break;
+            }
+            case 7:{
+                alert("Done!");
+                Menu();
                 break;
             }
             default:{
                 alert('Không hợp lệ!');
-                Choose();
+                Menu();
+            }
+        }
+    }
+    Menu();
+
+    function addNewCustomer(){
+        let name= prompt('Input name: ');
+        let cmnd= prompt('Input cmnd: ');
+
+        let birthday;
+        do {
+            birthday= prompt('Input birthday: ');
+        }while (!kiemTraNgayThang(birthday));
+
+        let email= '';
+        do {
+            email=prompt("nhập vào email");
+        }while (!kiemTraEmail(email));
+
+        let address= prompt('Input address: ');
+        let typeService= prompt('Input type Servicec: ');
+        let typeRoom= prompt('Input type Room: ');
+        let typeCustomer= prompt('Input type Customer: ');
+        let  disCount= prompt('Input disCount: ');
+        let quanlityIncluded= prompt('Input  Quanlity Included: ');
+        let rentDays= prompt('Input rent Days: ');
+        let newCustomer= new Customer(name,cmnd,birthday,email,address,typeService,typeRoom,typeCustomer,disCount,quanlityIncluded,rentDays);
+        listCustomer.push(newCustomer);
+        alert('Done');
+        Menu();
+    }
+
+    function displayInFor() {
+        let nameDisplay='';
+        for (let i=0;i<listCustomer.length;i++){
+            nameDisplay+=i+". Name: "+ listCustomer[i].getName()+'\n';
+        }
+        let chooseDisplay= parseInt(prompt('Choose customer: '+'\n'+nameDisplay ));
+        alert('Name:'+  listCustomer[chooseDisplay].getName() +'\n'+
+            'cmnd:'+   listCustomer[chooseDisplay].getCmnd() +'\n'+
+            'Birthday:'+   listCustomer[chooseDisplay].getBirthday()+'\n'+
+            'Email:'+   listCustomer[chooseDisplay].getEmail()+'\n'+
+            'Address:'+ listCustomer[chooseDisplay].getAddress()+'\n'+
+            'Type service'+   listCustomer[chooseDisplay].getTypeService()+'\n'+
+            'Type room:'+   listCustomer[chooseDisplay].getTypeRoom()+'\n'+
+            'Type customer:'+   listCustomer[chooseDisplay].getTypeCustomer()+'\n'+
+            'Discount:'+   listCustomer[chooseDisplay].getDisCount()+'\n'+
+            'Quanlity included:'+   listCustomer[chooseDisplay].getQuanlityIncluded()+'\n'+
+            'Rent days:'+   listCustomer[chooseDisplay].getRentDays());
+            Menu();
+    }
+
+    function displayTotal() {
+        let pay=0;
+        let namePay='';
+        for (let i=0;i<listCustomer.length;i++){
+            namePay+=i+". Name: "+ listCustomer[i].getName()+'\n';
+        }
+        let choosePay= parseInt(prompt('Choose customer: '+'\n'+namePay));
+        if (listCustomer[choosePay].getTypeService()==="villa"){
+            pay=500*listCustomer[choosePay].getRentDays()*(1-listCustomer[choosePay].getDisCount()/100)
+        } else if (listCustomer[choosePay].getTypeService()==="house"){
+            pay=300*listCustomer[choosePay].getRentDays()*(1-listCustomer[choosePay].getDisCount()/100)
+        } else if(listCustomer[choosePay].getTypeService()==="room"){
+            pay=100*listCustomer[choosePay].getRentDays()*(1-listCustomer[choosePay].getDisCount()/100)
+        } else {
+            alert('Can not count!')
+        }
+        alert("You must be pay: "+pay);
+        Menu()
+    }
+
+    function editCustomer() {
+        let nameEdit="";
+        for (let i=0;i<listCustomer.length;i++){
+            nameEdit+=i+".Name: "+listCustomer[i].getName()+"\n"
+        }
+        let chooseEdit = parseInt(prompt("Choose customer:  " + "\n" + nameEdit));
+        let edit = parseInt(prompt("Choose information to del: " + '\n' +
+                '0.Name:' + listCustomer[chooseEdit].getName() + '\n' +
+                '1.cmnd:' + listCustomer[chooseEdit].getCmnd() + '\n' +
+                '2.Birthday:' + listCustomer[chooseEdit].getBirthday() + '\n' +
+                '3.Email:' + listCustomer[chooseEdit].getEmail() + '\n' +
+                '4.Address:' + listCustomer[chooseEdit].getAddress() + '\n' +
+                '5.Type service' + listCustomer[chooseEdit].getTypeService() + '\n' +
+                '6.Type room:' + listCustomer[chooseEdit].getTypeRoom() + '\n' +
+                '7.Type customer:' + listCustomer[chooseEdit].getTypeCustomer() + '\n' +
+                '8.Discount:' + listCustomer[chooseEdit].getDisCount() + '\n' +
+                '9.Quanlity inclded:' + listCustomer[chooseEdit].getQuanlityIncluded() + '\n' +
+                '10.Rent days:' + listCustomer[chooseEdit].getRentDays()));
+        let  editNew = prompt('Input new information') ;
+            switch (edit) {
+                case 0:{
+                    listCustomer[chooseEdit].setName(editNew);
+                    break;
+                }
+                case 1:{
+                    listCustomer[chooseEdit].setCmnd(editNew);
+                    break;
+                }
+                case 2:{
+                    listCustomer[chooseEdit].setBirthday(editNew);
+                    break;
+                }
+                case 3:{
+                    listCustomer[chooseEdit].setEmail(editNew);
+                    break;
+
+                }
+                case 4:{
+                    listCustomer[chooseEdit].setAddress(editNew);
+                    break;
+                }
+                case 5:{
+                    listCustomer[chooseEdit].setTypeService(editNew);
+                    break;
+                }
+                case 6:{
+                    listCustomer[chooseEdit].setTypeRoom(editNew);
+                    break;
+                }
+                case 7:{
+                    listCustomer[chooseEdit].setTypeCustomer(editNew);
+                    break;
+                }
+                case 8:{
+                    listCustomer[chooseEdit].setDisCount(editNew);
+                    break;
+                }
+                case 9:{
+                    listCustomer[chooseEdit].setQuanlityIncluded(editNew);
+                    break;
+                }
+                case 10:{
+                    listCustomer[chooseEdit].setRentDays(editNew);
+                    break;
+                }
+                default:{
+                    alert('Not avaiable!');
+                    break;
+                }
+            }
+        alert('Done!');
+        alert( '0.Name:'+  listCustomer[chooseEdit].getName() +'\n'+
+            '1.cmnd:'+   listCustomer[chooseEdit].getCmnd() +'\n'+
+            '2.Birthday:'+   listCustomer[chooseEdit].getBirthday()+'\n'+
+            '3.Email:'+   listCustomer[chooseEdit].getEmail()+'\n'+
+            '4.Address:'+ listCustomer[chooseEdit].getAddress()+'\n'+
+            '5.Type service'+   listCustomer[chooseEdit].getTypeService()+'\n'+
+            '6.Type room:'+   listCustomer[chooseEdit].getTypeRoom()+'\n'+
+            '7.Type customer:'+   listCustomer[chooseEdit].getTypeCustomer()+'\n'+
+            '8.Discount:'+   listCustomer[chooseEdit].getDisCount()+'\n'+
+            '9.Quanlity inclded:'+   listCustomer[chooseEdit].getQuanlityIncluded()+'\n'+
+            '10.Rent days:'+   listCustomer[chooseEdit].getRentDays());
+        Menu();
+    }
+    function delCustomer(){
+        let nameDel="";
+        for (let i=0;i<listCustomer.length;i++){
+            nameDel+=i+".Name: "+listCustomer[i].getName()+"\n"
+        }
+        let chooseDel = parseInt(prompt("Choose customer:  " + "\n" + nameDel));
+        listCustomer.splice(chooseDel,1);
+        alert("Done!");
+        Menu()
+    }
+
+
+    function employee() {
+        let chooseEmployee = parseInt(prompt('1. Add new employee.' +
+            '\n2. Display information employee.' +
+            '\n3. Display total pay of employee.' +
+            '\n4. Edit information employee.' +
+            '\n5. Delete employee.' +
+            '\n6. Exit' ));
+        switch (chooseEmployee) {
+            case 1:{
+                addNewEmployee();
+                break;
+            }
+            case 2:{
+                displayInForEmployee();
+                break;
+            }
+            case 3:{
+                displayTotalEmployee();
+                break;
+            }
+            case 4:{
+                editEmployee();
+                break;
+            }
+            case 5:{
+                delEmployee();
+                break;
+            }
+            case 6:{
+                Menu();
+                break;
+            }
+            default:{
+                alert('Not avaiable!');
+                break;
             }
         }
     }
 
+    function addNewEmployee() {
+        let name= prompt('Input name: ');
+        let cmnd= prompt('Input cmnd: ');
+
+        let birthday;
+        do {
+            birthday= prompt('Input birthday: ');
+        }while (!kiemTraNgayThang(birthday));
+
+        let email= '';
+        do {
+            email=prompt("nhập vào email");
+        }while (!kiemTraEmail(email));
+
+        let address= prompt('Input address: ');
+        let typeService= prompt('Input type Service: ');
+        let typeRoom= prompt('Input type Room: ');
+        let typeCustomer= prompt('Input type Customer: ');
+        let disCount= prompt('Input Discount: ');
+        let quanlityIncluded= prompt('Input  Quanlity Included: ');
+        let rentDays= prompt('Input rent Days: ');
+        let rank= prompt('Input rank: ');
+        let newEmployee= new Employee(name,cmnd,birthday,email,address,typeService,typeRoom,typeCustomer,disCount,quanlityIncluded,rentDays,rank);
+        listEmploy.push(newEmployee);
+        alert('Done');
+        employee();
+    }
+    function displayInForEmployee() {
+        let nameDisplay='';
+        for (let i=0;i<listEmploy.length;i++){
+            nameDisplay+= i+". Name: "+ listEmploy[i].getName()+'\n';
+        }
+        let chooseDisplay= parseInt(prompt('Choose Employee: '+'\n'+nameDisplay ));
+        alert( 'Rank:'+  listEmploy[chooseDisplay].getRank() +'\n'+
+            'Name:'+  listEmploy[chooseDisplay].getName() +'\n'+
+            'cmnd:'+   listEmploy[chooseDisplay].getCmnd() +'\n'+
+            'Birthday:'+   listEmploy[chooseDisplay].getBirthday()+'\n'+
+            'Email:'+   listEmploy[chooseDisplay].getEmail()+'\n'+
+            'Address:'+ listEmploy[chooseDisplay].getAddress()+'\n'+
+            'Type service'+   listEmploy[chooseDisplay].getTypeService()+'\n'+
+            'Type room:'+   listEmploy[chooseDisplay].getTypeRoom()+'\n'+
+            'Type customer:'+   listEmploy[chooseDisplay].getTypeCustomer()+'\n'+
+            'Discount:'+   listEmploy[chooseDisplay].getDisCount()+'\n'+
+            'Quanlity included:'+   listEmploy[chooseDisplay].getQuanlityIncluded()+'\n'+
+            'Rent days:'+   listEmploy[chooseDisplay].getRentDays());
+        employee();
+    }
+    function displayTotalEmployee() {
+        let pay=0;
+        let namePay='';
+        for (let i=0;i<listEmploy.length;i++){
+            namePay+=i+". Name: "+ listEmploy[i].getName()+'\n';
+        }
+        let choosePay= parseInt(prompt('Choose customer: '+'\n'+namePay));
+        if (listEmploy[choosePay].getTypeService()==="villa"){
+            pay=500*listEmploy[choosePay].getRentDays()*(1-listEmploy[choosePay].getDisCount()/100)
+        } else if (listEmploy[choosePay].getTypeService()==="house"){
+            pay=300*listEmploy[choosePay].getRentDays()*(1-listEmploy[choosePay].getDisCount()/100)
+        } else if(listEmploy[choosePay].getTypeService()==="room"){
+            pay=100*listEmploy[choosePay].getRentDays()*(1-listEmploy[choosePay].getDisCount()/100)
+        } else {
+            alert('Can not count!')
+        }
+        if (listEmploy[choosePay].getRank()==="manager"){
+            pay-=500
+        } else if (listEmploy[choosePay].getRank()==="sale"){
+            pay-=300
+        } else if(listEmploy[choosePay].getRank()==="marketing"){
+            pay-=200
+        }
+        alert("You must be pay: "+pay);
+        employee()
+    }
+    function editEmployee() {
+        let nameEdit="";
+        for (let i=0;i<listEmploy.length;i++){
+            nameEdit+=i+".Name: "+listEmploy[i].getName()+"\n"
+        }
+        let chooseEdit = parseInt(prompt("Choose Employee:  " + "\n" + nameEdit));
+        let edit = parseInt(prompt("Choose information to del: " + '\n' +
+            '0.Name:' + listEmploy[chooseEdit].getName() + '\n' +
+            '1.cmnd:' + listEmploy[chooseEdit].getCmnd() + '\n' +
+            '2.Birthday:' + listEmploy[chooseEdit].getBirthday() + '\n' +
+            '3.Email:' + listEmploy[chooseEdit].getEmail() + '\n' +
+            '4.Address:' + listEmploy[chooseEdit].getAddress() + '\n' +
+            '5.Type service' + listEmploy[chooseEdit].getTypeService() + '\n' +
+            '6.Type room:' + listEmploy[chooseEdit].getTypeRoom() + '\n' +
+            '7.Type customer:' + listEmploy[chooseEdit].getTypeCustomer() + '\n' +
+            '8.Discount:' + listEmploy[chooseEdit].getDisCount() + '\n' +
+            '9.Quanlity inclded:' + listEmploy[chooseEdit].getQuanlityIncluded() + '\n' +
+            '10.Rent days:' + listEmploy[chooseEdit].getRentDays() + '\n' +
+            '11.Rank:' + listEmploy[chooseEdit].getRank()
+        ));
+        let  editNew = prompt('Input new information') ;
+        switch (edit) {
+            case 0:{
+                listEmploy[chooseEdit].setName(editNew);
+                break;
+            }
+            case 1:{
+                listEmploy[chooseEdit].setCmnd(editNew);
+                break;
+            }
+            case 2:{
+                listEmploy[chooseEdit].setBirthday(editNew);
+                break;
+            }
+            case 3:{
+                listEmploy[chooseEdit].setEmail(editNew);
+                break;
+
+            }
+            case 4:{
+                listEmploy[chooseEdit].setAddress(editNew);
+                break;
+            }
+            case 5:{
+                listEmploy[chooseEdit].setTypeService(editNew);
+                break;
+            }
+            case 6:{
+                listEmploy[chooseEdit].setTypeRoom(editNew);
+                break;
+            }
+            case 7:{
+                listEmploy[chooseEdit].setTypeCustomer(editNew);
+                break;
+            }
+            case 8:{
+                listEmploy[chooseEdit].setDisCount(editNew);
+                break;
+            }
+            case 9:{
+                listEmploy[chooseEdit].setQuanlityIncluded(editNew);
+                break;
+            }
+            case 10:{
+                listEmploy[chooseEdit].setRentDays(editNew);
+                break;
+            }
+            case 11:{
+                listEmploy[chooseEdit].setRank(editNew);
+                break;
+            }
+            default:{
+                alert('Not avaiable!');
+                break;
+            }
+        }
+        alert('Done!');
+        alert(  '0.Name:' + listEmploy[chooseEdit].getName() + '\n' +
+            '1.cmnd:' + listEmploy[chooseEdit].getCmnd() + '\n' +
+            '2.Birthday:' + listEmploy[chooseEdit].getBirthday() + '\n' +
+            '3.Email:' + listEmploy[chooseEdit].getEmail() + '\n' +
+            '4.Address:' + listEmploy[chooseEdit].getAddress() + '\n' +
+            '5.Type service' + listEmploy[chooseEdit].getTypeService() + '\n' +
+            '6.Type room:' + listEmploy[chooseEdit].getTypeRoom() + '\n' +
+            '7.Type customer:' + listEmploy[chooseEdit].getTypeCustomer() + '\n' +
+            '8.Discount:' + listEmploy[chooseEdit].getDisCount() + '\n' +
+            '9.Quanlity inclded:' + listEmploy[chooseEdit].getQuanlityIncluded() + '\n' +
+            '10.Rent days:' + listEmploy[chooseEdit].getRentDays() + '\n' +
+            '11.Rank:' + listEmploy[chooseEdit].getRank());
+        employee();
+    }
+    function delEmployee(){
+        let nameDel="";
+        for (let i=0;i<listEmploy.length;i++){
+            nameDel+=i+".Name: "+listEmploy[i].getName()+"\n"
+        }
+        let chooseDel = parseInt(prompt("Choose Employee:  " + "\n" + nameDel));
+        listEmploy.splice(chooseDel,1);
+        alert("Done!");
+        employee();
+    }
+    function kiemTraEmail(email) {
+        let regex =/^\w{3,}@[a-zA-Z]{3,5}\.[a-zA-Z]{2,3}$/;
+        return regex.test(email);
+
+    }
+
+    function kiemTraNgayThang(ngayThangNam) {
+        let regex =/^((0[1-9])|([1-2][0-9])|(3[0-1]))\/(([0][1-9])|1[0-2])\/(19[0-9]{2}|20[0-1][0-9]|2020)$/;
+        return regex.test(ngayThangNam);
+    }
+
+    // function kiemTraSo(so) {
+    //     let check;
+    //     if (!isNaN(so)){
+    //         check=true
+    //     } else {
+    //          check=false
+    //     }
+    //     return check
+    //
+    // }
+
+    // function kiemTraCmnd(so) {
+    //         let min =9999999;
+    //         let max=100000000;
+    //         let checkCmnnd;
+    //         if (min<so<max){
+    //             checkCmnnd=true
+    //         } else {
+    //             checkCmnnd=false
+    //         }
+    //         return checkCmnnd
+    // }
 
 </script>
 </body>
