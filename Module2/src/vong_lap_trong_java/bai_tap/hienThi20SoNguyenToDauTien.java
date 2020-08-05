@@ -6,18 +6,17 @@ public class hienThi20SoNguyenToDauTien {
         int N=2;
         boolean check = true;
         while (count<numbers) {
-            if (N!=2){
-                for (int i = 2; i < N; i++) {
-                    if (N % i == 0) {
-                        check = false;
-                        break;
-                    }
+
+            for (int i = 2; i < N; i++) {
+                if (N % i == 0) {
+                    check = false;
+                    break;
                 }
             }
 
             if (check) {
                 System.out.println(N);
-                count+=1;
+                count++;
                 N++;
             } else {
                 N++;
