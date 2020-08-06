@@ -2,7 +2,7 @@ package introduction_to_java.thuc_hanh;
 
 import java.util.Scanner;
 
-public class tinhCanNang {
+public class TinhCanNang {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         double weight, height, bmi;

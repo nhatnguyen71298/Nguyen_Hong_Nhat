@@ -2,7 +2,7 @@ package vong_lap_trong_java.thuc_hanh;
 
 import java.util.Scanner;
 
-public class thietKeMenuChoUngDUng {
+public class ThietKeMenuChoUngDUng {
     public static void main(String[] args){
         int choice = -1;
         java.util.Scanner input = new java.util.Scanner(System.in);

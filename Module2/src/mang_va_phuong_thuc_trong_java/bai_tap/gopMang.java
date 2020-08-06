@@ -2,10 +2,10 @@ package mang_va_phuong_thuc_trong_java.bai_tap;
 
 import java.util.Scanner;
 
-public class gopMang {
+public class GopMang {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
-        int size1,size2,size3;
+        int size1,size2;
 //khai báo mảng 1,mảng 2, cho nhập độ dài, phần tử.
         System.out.println("Nhập độ dài mảng 1: ");
         size1= scanner.nextInt();

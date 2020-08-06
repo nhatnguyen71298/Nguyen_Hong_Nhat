@@ -2,7 +2,7 @@ package vong_lap_trong_java.thuc_hanh;
 
 import java.util.Scanner;
 
-public class timUCLN {
+public class TimUCLN {
     public static void main(String[] args){
         int a;
         int b;

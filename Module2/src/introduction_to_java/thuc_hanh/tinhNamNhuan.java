@@ -2,7 +2,7 @@ package introduction_to_java.thuc_hanh;
 
 import java.util.Scanner;
 
-public class tinhNamNhuan {
+public class TinhNamNhuan {
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         int year;

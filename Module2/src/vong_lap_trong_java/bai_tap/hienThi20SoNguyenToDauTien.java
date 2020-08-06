@@ -1,6 +1,6 @@
 package vong_lap_trong_java.bai_tap;
 
-public class hienThi20SoNguyenToDauTien {
+public class HienThi20SoNguyenToDauTien {
     public static void main(String[] args){
         int numbers=20,count=0;
         int N=2;

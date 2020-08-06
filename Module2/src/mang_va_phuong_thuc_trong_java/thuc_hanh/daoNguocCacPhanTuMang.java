@@ -2,7 +2,7 @@ package mang_va_phuong_thuc_trong_java.thuc_hanh;
 
 import java.util.Scanner;
 
-public class daoNguocCacPhanTuMang {
+public class DaoNguocCacPhanTuMang {
     public static void main(String[] args) {
 
         int size;

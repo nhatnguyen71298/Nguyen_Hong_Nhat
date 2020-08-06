@@ -2,10 +2,10 @@ package vong_lap_trong_java.bai_tap;
 
 import java.util.Scanner;
 
-public class hienThiCacLoaiHinh {
+public class HienThiCacLoaiHinh {
     public static void main(String[] args){
         int choose = -1;
-        java.util.Scanner input = new java.util.Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         while (choose != 0) {
             System.out.println("Menu");
@@ -14,7 +14,7 @@ public class hienThiCacLoaiHinh {
             System.out.println("3.Print isosceles triangle");
             System.out.println("4.Exit");
             System.out.println("Enter your choice: ");
-            choose = input.nextInt();
+            choose = scanner.nextInt();
 
             switch (choose) {
                 case 1:

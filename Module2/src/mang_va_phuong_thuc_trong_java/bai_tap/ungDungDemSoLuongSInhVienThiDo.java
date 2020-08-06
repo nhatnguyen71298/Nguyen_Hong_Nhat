@@ -2,7 +2,7 @@ package mang_va_phuong_thuc_trong_java.bai_tap;
 
 import java.util.Scanner;
 
-public class ungDungDemSoLuongSInhVienThiDo {
+public class UngDungDemSoLuongSInhVienThiDo {
     public static void main(String[] args) {
 //        khai bảo mảng có độ dài size <30
         int size;

@@ -1,6 +1,6 @@
 package mang_va_phuong_thuc_trong_java.thuc_hanh;
 
-public class timGTNNBangPhuongThuc {
+public class TimGTNNBangPhuongThuc {
     public static int minValue(int[] array){
         int minPosition=array[0];
 

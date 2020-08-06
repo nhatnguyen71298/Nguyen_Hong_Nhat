@@ -2,7 +2,7 @@ package mang_va_phuong_thuc_trong_java.bai_tap;
 
 import java.util.Scanner;
 
-public class themPhanTuVaoMang {
+public class ThemPhanTuVaoMang {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
         int[] array= {1,43,1,23,4,35,56};
@@ -24,6 +24,7 @@ public class themPhanTuVaoMang {
         if ( index > size-1 || index<0 ){
             System.out.println("Không thêm phần tử được vào mảng!");
         } else {
+
             for (int i=0; i<=index;i++){
                 if (i==index){
                     arrayNew[i]=k;

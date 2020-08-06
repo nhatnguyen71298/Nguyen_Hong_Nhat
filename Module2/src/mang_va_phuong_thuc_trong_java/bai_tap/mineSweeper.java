@@ -1,6 +1,6 @@
 package mang_va_phuong_thuc_trong_java.bai_tap;
 
-public class mineSweeper {
+public class MineSweeper {
     public static void main(String[] args) {
         String[][] map = {
                 {"*", ".", "*", ".", "."},
