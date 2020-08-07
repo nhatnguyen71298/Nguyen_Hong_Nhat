@@ -22,7 +22,7 @@ public class XayDungLopFan {
                 this.speed = speed;
             }
         }
-
+// alt +(fn )+insert
         public void setOnOff(boolean onOff) {
             this.onOff = onOff;
         }

@@ -5,9 +5,10 @@ import java.util.Scanner;
 public class ThemPhanTuVaoMang {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
+
         int[] array= {1,43,1,23,4,35,56};
-        int[] arrayNew= new int[8];
         int size=7;
+        int[] arrayNew= new int[8];
         int index,k;
 
         System.out.println("Mảng hiện tại: ");
