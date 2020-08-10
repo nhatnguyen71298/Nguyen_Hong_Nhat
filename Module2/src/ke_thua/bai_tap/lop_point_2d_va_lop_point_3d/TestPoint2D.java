@@ -1,4 +1,4 @@
-package abstract_Class_and_Interface.bai_tap.lop_point_2d_va_lop_point_3d;
+package ke_thua.bai_tap.lop_point_2d_va_lop_point_3d;
 
 public class TestPoint2D {
     public static void main(String[] args) {

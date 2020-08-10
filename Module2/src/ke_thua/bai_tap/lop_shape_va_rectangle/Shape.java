@@ -1,4 +1,4 @@
-package abstract_Class_and_Interface.bai_tap.lop_shape_va_rectangle;
+package ke_thua.bai_tap.lop_shape_va_rectangle;
 
 
 public class Shape {

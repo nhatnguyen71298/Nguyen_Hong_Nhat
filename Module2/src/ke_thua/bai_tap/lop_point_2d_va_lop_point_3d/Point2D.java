@@ -1,6 +1,5 @@
-package abstract_Class_and_Interface.bai_tap.lop_point_2d_va_lop_point_3d;
+package ke_thua.bai_tap.lop_point_2d_va_lop_point_3d;
 
-import java.lang.ref.PhantomReference;
 import java.util.Arrays;
 
 public class Point2D {

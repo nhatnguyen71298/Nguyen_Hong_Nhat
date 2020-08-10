@@ -1,4 +1,4 @@
-package abstract_Class_and_Interface.bai_tap.point_movablepoint;
+package ke_thua.bai_tap.point_movablepoint;
 
 import java.util.Arrays;
 

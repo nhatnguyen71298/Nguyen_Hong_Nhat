@@ -1,6 +1,5 @@
-package abstract_Class_and_Interface.bai_tap.point_movablepoint;
+package ke_thua.bai_tap.point_movablepoint;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class MovablePoint extends Point{

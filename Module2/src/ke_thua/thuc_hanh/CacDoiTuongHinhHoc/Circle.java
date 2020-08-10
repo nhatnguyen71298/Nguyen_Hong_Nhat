@@ -1,4 +1,4 @@
-package abstract_Class_and_Interface.thuc_hanh.CacDoiTuongHinhHoc;
+package ke_thua.thuc_hanh.CacDoiTuongHinhHoc;
 
 public class Circle extends Shape {
     private double radius = 1.0;

@@ -1,4 +1,4 @@
-package abstract_Class_and_Interface.bai_tap.lop_shape_va_rectangle;
+package ke_thua.bai_tap.lop_shape_va_rectangle;
 
 public class Rectangle extends Shape{
     private double a=1.0,b=1.0,c=1.0;

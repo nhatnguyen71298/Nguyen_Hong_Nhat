@@ -1,4 +1,4 @@
-package abstract_Class_and_Interface.thuc_hanh.CacDoiTuongHinhHoc;
+package ke_thua.thuc_hanh.CacDoiTuongHinhHoc;
 
 public class Rectangle extends Shape {
     private double width = 1.0;

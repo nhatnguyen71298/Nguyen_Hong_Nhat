@@ -1,4 +1,4 @@
-package abstract_Class_and_Interface.thuc_hanh.CacDoiTuongHinhHoc;
+package ke_thua.thuc_hanh.CacDoiTuongHinhHoc;
 
 public class TestRectangle {
     public static void main(String[] args) {
