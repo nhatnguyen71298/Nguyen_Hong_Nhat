@@ -1,11 +1,11 @@
 package access_modifier_static_method_static_property.bai_tap;
 
-public class Circle {
+ public class Circle {
     private double radius;
     private String color;
     Circle(){
-        this.radius=1.0;
-        this.color="red";
+        radius=1.0;
+        color="red";
     }
     Circle(double r){
         this.radius=r;
