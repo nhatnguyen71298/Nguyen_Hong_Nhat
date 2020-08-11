@@ -120,22 +120,22 @@
             danhSachNV[i].getInfo()+"\n 5.Thoát");
         switch (luaChon) {
             case "1":
-                let maNV=prompt("Nhập lại mã nhân viên")
+                let maNV=prompt("Nhập lại mã nhân viên");
                 danhSachNV[i].setMaNV(maNV);
                 suaThongTinNV(i);
                 break;
             case "2":
-                let tenNV =prompt("Nhập lại tên nhân viên")
+                let tenNV =prompt("Nhập lại tên nhân viên");
                 danhSachNV[i].setTenNV();
                 suaThongTinNV(i);
                 break;
             case "3":
-                let ngaySinh= prompt("Nhập lại ngày sinh nhân viên")
+                let ngaySinh= prompt("Nhập lại ngày sinh nhân viên");
                 danhSachNV[i].setNgaySinh(ngaySinh);
                 suaThongTinNV(i);
                 break;
             case "4":
-                let email = prompt("Nhập lại email nhân viên")
+                let email = prompt("Nhập lại email nhân viên");
                 danhSachNV[i].setEmail(email);
                 suaThongTinNV(i);
                 break;
@@ -163,27 +163,21 @@
             return danhSach;
     }
 
-    // hàm kiểm tra email
     function kiemTraEmail(email) {
         let regex =/^\w{3,}@[a-zA-Z]{3,5}\.[a-zA-Z]{2,3}$/;
         return regex.test(email);
 
     }
 
-    //** Các hàm dưới làm thêm cho mọi người nếu cần thiết có thể dùng
-
-    // hàm kiểm tra ngày tháng (dd/mm/yyyy) ( ngay 01-31, tháng từ 01-12, năm 1900 đến 2020)
     function kiemTraNgayThang(ngayThangNam) {
         let regex =/^((0[1-9])|([1-2][0-9])|(3[0-1]))\/(([0][1-9])|1[0-2])\/(19[0-9]{2}|20[0-1][0-9]|2020)$/;
         return regex.test(ngayThangNam);
     }
-    // hàm định dạng tháng/năm (mm/yyyy) (tháng từ 01-12, năm 1900 đến 2999) .chú ý kiểm tra kỹ xem đúng chưa
     function kiemTraNgayThang(thangNam) {
         let regex =/^(([0][1-9])|1[0-2])\/(19[0-9]{2}|2[0-9]{3})$/;
         return regex.test(thangNam);
     }
 
-    // hàm kiểm tra mã nhân viên định dạng (MNV-XXXX) , Bắt đầu bằng "MNV-", tiếp theo X là dạng số từ 0-9 (gồm 4 số)
     function kiemTraMaNhaVien(maNV) {
         let regex =/^MNV-[0-9]{4}$/;
         return regex.test(maNV);

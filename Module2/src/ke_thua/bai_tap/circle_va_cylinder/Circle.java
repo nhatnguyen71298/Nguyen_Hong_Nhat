@@ -12,11 +12,11 @@ public class Circle {
     }
 
     public double getRadius() {
-        return this.radius;
+        return radius;
     }
 
     public String getColor() {
-        return this.color;
+        return color;
     }
 
     public void setRadius(double radius) {

@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Thẻ canvas</title>
 </head>
 <body>
-$END$
+<h3>Thực hành về Canvas</h3>
+<canvas id="hcn" style="border: 1px solid #888; height: 300px; width: 600px;"></canvas>
+<canvas id="hinhtron" style="border: 1px solid #888; height: 300px; width: 600px;"></canvas>
 </body>
+<script >
+    let hcn = document.getElementById('hcn'),
+        ctx = hcn.getContext('2d');
+    ctx.fillStyle = "#FF0000";
+    ctx.fillRect(75,35,150,75);
+
+    let hinhTron = document.getElementById('hinhtron'),
+        ctx1 = hinhTron.getContext('2d');
+    ctx1.fillStyle = "#010101";
+    ctx1.arc(10,10,100,0,2*Math.PI);
+    ctx1.stroke();
+
+
+</script>
 </html>

@@ -2,9 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>bài 3</title>
 </head>
 <body>
-$END$
+<script>
+    function isFibonacci(soNguyenX) {
+        let num1 = 0;
+        let num2 = 1;
+
+        while (num1 < soNguyenX) {
+            num2 = num1 + num2;
+            num1 = num2 - num1;
+        }
+
+        if (num1 === soNguyenX) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    alert(isFibonacci(89));
+    alert(isFibonacci(90))
+</script>
 </body>
 </html>

@@ -155,7 +155,11 @@
 
     function addNewCustomer(){
         let name= prompt('Input name: ');
-        let cmnd= prompt('Input cmnd: ');
+
+        let cmnd;
+        do {
+           cmnd = prompt('Input cmnd: ')
+        } while (kiemTraCmnd(cmnd)===false);
 
         let birthday;
         do {
@@ -171,9 +175,22 @@
         let typeService= prompt('Input type Servicec: ');
         let typeRoom= prompt('Input type Room: ');
         let typeCustomer= prompt('Input type Customer: ');
-        let  disCount= prompt('Input disCount: ');
-        let quanlityIncluded= prompt('Input  Quanlity Included: ');
-        let rentDays= prompt('Input rent Days: ');
+
+        let  disCount;
+        do {
+            disCount= prompt('Input disCount: ')
+        } while (kiemTraSo(disCount)===false);
+
+        let quanlityIncluded;
+        do {
+            quanlityIncluded= prompt('Input  Quanlity Included: ')
+        } while (kiemTraSo(quanlityIncluded)===false);
+
+        let rentDays;
+        do {
+            rentDays= prompt('Input rent Days: ')
+        }while (kiemTraSo(rentDays)===false);
+
         let newCustomer= new Customer(name,cmnd,birthday,email,address,typeService,typeRoom,typeCustomer,disCount,quanlityIncluded,rentDays);
         listCustomer.push(newCustomer);
         alert('Done');
@@ -357,7 +374,11 @@
 
     function addNewEmployee() {
         let name= prompt('Input name: ');
-        let cmnd= prompt('Input cmnd: ');
+
+        let cmnd;
+        do {
+            cmnd = prompt('Input cmnd: ')
+        } while (kiemTraCmnd(cmnd)===false);
 
         let birthday;
         do {
@@ -373,9 +394,22 @@
         let typeService= prompt('Input type Service: ');
         let typeRoom= prompt('Input type Room: ');
         let typeCustomer= prompt('Input type Customer: ');
-        let disCount= prompt('Input Discount: ');
-        let quanlityIncluded= prompt('Input  Quanlity Included: ');
-        let rentDays= prompt('Input rent Days: ');
+
+        let  disCount;
+        do {
+            disCount= prompt('Input disCount: ')
+        } while (kiemTraSo(disCount)===false);
+
+        let quanlityIncluded;
+        do {
+            quanlityIncluded= prompt('Input  Quanlity Included: ')
+        } while (kiemTraSo(quanlityIncluded)===false);
+
+        let rentDays;
+        do {
+            rentDays= prompt('Input rent Days: ')
+        }while (kiemTraSo(rentDays)===false);
+
         let rank= prompt('Input rank: ');
         let newEmployee= new Employee(name,cmnd,birthday,email,address,typeService,typeRoom,typeCustomer,disCount,quanlityIncluded,rentDays,rank);
         listEmploy.push(newEmployee);
@@ -529,6 +563,7 @@
         alert("Done!");
         employee();
     }
+
     function kiemTraEmail(email) {
         let regex =/^\w{3,}@[a-zA-Z]{3,5}\.[a-zA-Z]{2,3}$/;
         return regex.test(email);
@@ -540,28 +575,28 @@
         return regex.test(ngayThangNam);
     }
 
-    // function kiemTraSo(so) {
-    //     let check;
-    //     if (!isNaN(so)){
-    //         check=true
-    //     } else {
-    //          check=false
-    //     }
-    //     return check
-    //
-    // }
+    function kiemTraSo(so) {
+        let check;
+        if (!isNaN(so)){
+            check=true
+        } else {
+             check=false
+        }
+        return check
 
-    // function kiemTraCmnd(so) {
-    //         let min =9999999;
-    //         let max=100000000;
-    //         let checkCmnnd;
-    //         if (min<so<max){
-    //             checkCmnnd=true
-    //         } else {
-    //             checkCmnnd=false
-    //         }
-    //         return checkCmnnd
-    // }
+    }
+
+    function kiemTraCmnd(so) {
+            let min =9999999;
+            let max=100000000;
+            let checkCmnd;
+            if (min<so<max){
+                checkCmnd=true
+            } else {
+                checkCmnd=false
+            }
+            return checkCmnd
+    }
 
 </script>
 </body>

@@ -2,5 +2,12 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/New folder/New folder/java-cleancode-refactoring-renaming" vcs="" />
+    <mapping directory="$PROJECT_DIR$/src/clean_code_and_refactoring/thuc_hanh/refactoring" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/cleancode_and_refactoring/New folder/java-cleancode-refactoring-renaming" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/cleancode_and_refactoring/thuc_hanh/java-cleancode-refactoring-renaming" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/cleancode_and_refactoring/thuc_hanh/java_cleancode_refactoring_renaming" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/cleancode_and_refactoring/thuc_hanh/refactoring_doi_ten_bien_tach_hang/java-cleancode-refactoring-renaming" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/cleancode_and_refactoring/thuc_hanh/refactoring_doi_ten_bien_tach_hang/java_cleancode_refactoring_renaming" vcs="Git" />
   </component>
 </project>
