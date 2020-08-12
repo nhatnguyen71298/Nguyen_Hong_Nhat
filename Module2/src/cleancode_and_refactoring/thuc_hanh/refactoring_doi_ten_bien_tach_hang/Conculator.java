@@ -16,9 +16,9 @@ public class Conculator {
                 return firstOperand * secondOperand;
             case DIVISION:
                 if (secondOperand != 0)
-                return firstOperand / secondOperand;
+                    return firstOperand / secondOperand;
                 else
-            throw new RuntimeException("Can not divide by 0");
+                    throw new RuntimeException("Can not divide by 0");
             default:
                 throw new RuntimeException("Unsupported operation");
         }
