@@ -3,6 +3,9 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/New folder/New folder/java-cleancode-refactoring-renaming" vcs="" />
+    <mapping directory="$PROJECT_DIR$/src/automated_testing_and_tdd/thuc_hanh/junit-simple-calculator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/automated_testing_and_tdd/thuc_hanh/junit_simple_calculator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/automated_testing_and_tdd/thuc_hanh/simple_calculator" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/clean_code_and_refactoring/thuc_hanh/refactoring" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/cleancode_and_refactoring/New folder/java-cleancode-refactoring-renaming" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/cleancode_and_refactoring/thuc_hanh/java-cleancode-refactoring-renaming" vcs="Git" />
