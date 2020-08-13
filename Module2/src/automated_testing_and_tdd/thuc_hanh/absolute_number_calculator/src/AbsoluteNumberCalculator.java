@@ -1,3 +1,5 @@
+package automated_testing_and_tdd.thuc_hanh.absolute_number_calculator.src;
+
 public class AbsoluteNumberCalculator {
     public static int findAbsolute(int number){
         if(number < 0)

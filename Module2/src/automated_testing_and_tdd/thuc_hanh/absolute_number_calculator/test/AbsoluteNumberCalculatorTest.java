@@ -1,6 +1,9 @@
+package automated_testing_and_tdd.thuc_hanh.absolute_number_calculator.test;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import automated_testing_and_tdd.thuc_hanh.absolute_number_calculator.src.AbsoluteNumberCalculator;
 
 class AbsoluteNumberCalculatorTest {
     @Test
