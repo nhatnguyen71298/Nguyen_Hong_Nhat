@@ -2,13 +2,12 @@ package java_collection_framework.bai_tap.su_dung_arraylist_linkedlist;
 
 import java.util.*;
 
-public class ArrayListAndLinkedList {
+public class ProductManager {
 
     static List<String[]> product=new ArrayList<>();
     static  Scanner scanner=new Scanner(System.in);
 
     public static void addProduct(){
-        displayListProduct();
         String[] inforOfproduct= new String[2];
         System.out.println("Add new Product:");
         System.out.println("Input name:");
@@ -23,57 +22,86 @@ public class ArrayListAndLinkedList {
         System.out.println("Choose product want to repair:");
         displayListProduct();
         String chooseProductRepair= scanner.next();
+        boolean checkRepair=false;
 
         for (String[] element:product){
             if (chooseProductRepair.equals(element[0])){
-                System.out.println("Repair product:");
-                System.out.println("Input name:");
-                element[0] =scanner.next();
-                System.out.println("Input price:");
-                element[1] =scanner.next();
-                System.out.println("Fixed");
-                System.out.println(product);
+                checkRepair=true;
                 break;
-            } else {
-                System.out.println("The product is not in the list");
             }
         }
-
+        if (!checkRepair){
+            System.out.println("Product is not in the list!");
+        } else {
+            for (String[] element:product){
+                if (chooseProductRepair.equals(element[0])){
+                    System.out.println("Repair product:");
+                    System.out.println("Input name:");
+                    element[0] =scanner.next();
+                    System.out.println("Input price:");
+                    element[1] =scanner.next();
+                    System.out.println("Fixed");
+                    displayListProduct();
+                    break;
+                }
+            }
+        }
     }
 
     public static void displayListProduct(){
         System.out.println("List Product: ");
-        System.out.println(Arrays.toString(product.toArray()));
+        for (String[] element:product){
+            System.out.print("{ Name: "+element[0]+" Price: "+element[1]+" } ");
+        }
+        System.out.println();
     }
 
     public static void searchProduct(){
         System.out.println("Search:");
         String chooseSearch= scanner.next();
+        boolean checkSearch=false;
         for (String[] element:product){
             if (chooseSearch.equals(element[0])){
-                System.out.println("Information of product: ");
-                System.out.println(Arrays.toString(element));
-            } else {
-                System.out.println("The product is not in the list ");
+                checkSearch=true;
+                break;
             }
         }
+        if (!checkSearch){
+            System.out.println("Product is not in the list!");
+        } else {
+            for (String[] element:product){
+                if (chooseSearch.equals(element[0])){
+                    System.out.println("Information of product: ");
+                    System.out.println(Arrays.toString(element));
+                }
+            }
+        }
+
     }
 
-//    public static void SortProduct(){
+
+
+//   public static int SortProduct(){
 //       displayListProduct();
 //       System.out.println("1.Sort by name."+
 //               "\n2.Sort by price");
 //       int chooseSort= scanner.nextInt();
 //       switch (chooseSort){
 //           case 1:
-//               String[] sortByName=new String[product.size()];
-//
+//               for (String[]element: product
+//                    )
 //               break;
 //           case 2:
 //               break;
 //           default:
 //       }
 //    }
+//
+//    @Override
+//    public int compareTo(String[] o) {
+//        return 0;
+//    }
+//
 
     public static void main(String[] args) {
         int choose=-1;
@@ -108,4 +136,6 @@ public class ArrayListAndLinkedList {
             }
         }
     }
+
+
 }
