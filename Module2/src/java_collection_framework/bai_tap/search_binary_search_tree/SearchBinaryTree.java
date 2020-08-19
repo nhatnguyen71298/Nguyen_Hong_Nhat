@@ -64,7 +64,5 @@ public class SearchBinaryTree {
         else
             System.out.println("Element is not present in the binary tree");
 
-
-
     }
 }

@@ -11,7 +11,7 @@ public class ReverseStack {
         myStack.push("nhat3");
         myStack.push("nhat4");
 
-//        System.out.println(myStack.toString());
+        System.out.println(myStack.toString());
         for (int i=myStack.size()-1;i>=0;i--) {
             reverseMyStack.push(myStack.elementAt(i));
         }
