@@ -11,9 +11,9 @@ public abstract class Services {
     int area;
     int price;
     int maxMembers;
-    Date rentalType;
+    String rentalType;
 
-    public Services(String nameOfService, int area, int price, int maxMembers, Date rentalType) {
+    public Services(String nameOfService, int area, int price, int maxMembers, String rentalType) {
         this.nameOfService = this.nameOfService;
         this.area = this.area;
         this.price = this.price;
@@ -37,7 +37,7 @@ public abstract class Services {
         return maxMembers;
     }
 
-    public Date getRentalType() {
+    public String getRentalType() {
         return rentalType;
     }
 
@@ -57,7 +57,7 @@ public abstract class Services {
         this.maxMembers = maxMembers;
     }
 
-    public void setRentalType(Date rentalType) {
+    public void setRentalType(String rentalType) {
         this.rentalType = rentalType;
     }
 }

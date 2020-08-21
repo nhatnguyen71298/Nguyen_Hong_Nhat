@@ -55,7 +55,7 @@ public class ProductManager {
     }
 
     public static void searchProduct() {
-        displayListProduct();
+        System.out.println("Search: ");
         String chooseSearch = scanner.next();
         boolean checkSearch = false;
         for (Product element : listProduct) {

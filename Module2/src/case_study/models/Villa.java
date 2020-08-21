@@ -1,7 +1,5 @@
 package case_study.models;
 
-import java.util.Date;
-
 public class Villa extends Services {
     String typeRoom;
     String otherAmenities;
@@ -18,7 +16,7 @@ public class Villa extends Services {
         this.numberFloors=numberFloors;
     }
 
-    public Villa(String nameOfService, int area, int price, int maxMembers, Date rentalType,String typeRoom, String otherAmenities, int areaSwim, int numberFloors){
+    public Villa(String nameOfService, int area, int price, int maxMembers, String rentalType,String typeRoom, String otherAmenities, int areaSwim, int numberFloors){
         super(nameOfService,area,price,maxMembers,rentalType);
         this.typeRoom = typeRoom;
         this.otherAmenities = otherAmenities;
