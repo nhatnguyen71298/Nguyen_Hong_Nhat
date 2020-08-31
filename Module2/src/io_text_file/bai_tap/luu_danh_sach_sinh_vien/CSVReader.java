@@ -7,14 +7,11 @@ import java.io.IOException;
 
 public class CSVReader {
     public static void main(String[] args) {
-
         String csvFile = "F:\\4. Nguyen_Hong_Nhat\\Module2\\src\\io_text_file\\bai_tap\\luu_danh_sach_sinh_vien\\DanhSachSinhVien.csv";
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";
-
         try {
-
             br = new BufferedReader(new FileReader(csvFile));
             while ((line = br.readLine()) != null) {
 

@@ -3,10 +3,11 @@ package case_study.models;
 public class Villa extends Services {
     String typeRoom;
     String otherAmenities;
-    int areaSwim;
+    float areaSwim;
     int numberFloors;
 
     public Villa(){
+
     }
 
     public Villa(String typeRoom, String otherAmenities, int areaSwim, int numberFloors){
@@ -16,7 +17,7 @@ public class Villa extends Services {
         this.numberFloors=numberFloors;
     }
 
-    public Villa(String nameOfService, int area, int price, int maxMembers, String rentalType,String typeRoom, String otherAmenities, int areaSwim, int numberFloors){
+    public Villa(String nameOfService, float area, int price, int maxMembers, String rentalType,String typeRoom, String otherAmenities, float areaSwim, int numberFloors){
         super(nameOfService,area,price,maxMembers,rentalType);
         this.typeRoom = typeRoom;
         this.otherAmenities = otherAmenities;
@@ -32,7 +33,7 @@ public class Villa extends Services {
         return otherAmenities;
     }
 
-    public int getAreaSwim() {
+    public float getAreaSwim() {
         return areaSwim;
     }
 
@@ -57,7 +58,7 @@ public class Villa extends Services {
     }
 
     @Override
-    void ShowInfor() {
+    public void showInfor() {
         System.out.println("Name of Service: Villa"+
                 "\nArea: "+getArea()+
                 "\nPrice: "+getPrice()+

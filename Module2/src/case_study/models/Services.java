@@ -1,19 +1,17 @@
 package case_study.models;
 
-import java.util.Date;
-
 public abstract class Services {
     protected Services() {
     }
 
-    abstract void ShowInfor();
+    abstract void showInfor();
     String nameOfService;
-    int area;
+    float area;
     int price;
     int maxMembers;
     String rentalType;
 
-    public Services(String nameOfService, int area, int price, int maxMembers, String rentalType) {
+    public Services(String nameOfService, float area, int price, int maxMembers, String rentalType) {
         this.nameOfService = this.nameOfService;
         this.area = this.area;
         this.price = this.price;
@@ -25,7 +23,7 @@ public abstract class Services {
         return nameOfService;
     }
 
-    public int getArea() {
+    public float getArea() {
         return area;
     }
 

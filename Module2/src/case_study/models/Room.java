@@ -1,7 +1,5 @@
 package case_study.models;
 
-import java.util.Date;
-
 public class Room extends Services {
     String freeService;
 
@@ -12,7 +10,7 @@ public class Room extends Services {
         this.freeService=freeService;
     }
 
-    public Room(String nameOfService, int area, int price, int maxMembers, String rentalType,String freeService){
+    public Room(String nameOfService, float area, int price, int maxMembers, String rentalType,String freeService){
         super(nameOfService,area,price,maxMembers,rentalType);
         this.freeService=freeService;
     }
@@ -26,7 +24,7 @@ public class Room extends Services {
     }
 
     @Override
-    void ShowInfor() {
+    public void showInfor() {
         System.out.println("Name of Service: Room"+
                 "\nArea: "+getArea()+
                 "\nPrice: "+getPrice()+
