@@ -84,6 +84,9 @@ public class Customer {
         yearBirthday= Integer.parseInt(temp);
         return yearBirthday;
     }
+    public String services(String service){
+        return service;
+    }
     public void showInfor(){
         System.out.println("Name of customer: "+getName()+
                 "\nBirthday: "+getBirthday()+

@@ -10,6 +10,9 @@ import static java.lang.System.exit;
 
 public class MainControllers {
     static Scanner scanner = new Scanner(System.in);
+    static File cinemaFile = new File("F:\\4. Nguyen_Hong_Nhat\\Module2\\src\\case_study\\data\\Cinema.csv");
+    static File employeeFile = new File("F:\\4. Nguyen_Hong_Nhat\\Module2\\src\\case_study\\data\\Employee.csv");
+    static File bookingFile = new File("F:\\4. Nguyen_Hong_Nhat\\Module2\\src\\case_study\\data\\Booking.csv");
     static File villaFile = new File("F:\\4. Nguyen_Hong_Nhat\\Module2\\src\\case_study\\data\\Villa.csv");
     static File houseFile = new File("F:\\4. Nguyen_Hong_Nhat\\Module2\\src\\case_study\\data\\House.csv");
     static File roomFile = new File("F:\\4. Nguyen_Hong_Nhat\\Module2\\src\\case_study\\data\\Room.csv");
@@ -35,13 +38,15 @@ public class MainControllers {
     public static void displayMainMenu() {
         int choose = 0;
         while (choose != 7) {
-            System.out.println("1. Add New Services\n" +
+            System.out.println("1.Add New Services\n" +
                     "2.Show Services\n" +
                     "3.Add New Customer\n" +
                     "4.Show Information of Customer\n" +
                     "5.Add New Booking\n" +
                     "6.Show Information of Employee\n" +
-                    "7.Exit\n");
+                    "7.Search Employee\n" +
+                    "8.Cinema 4D\n" +
+                    "9.Exit\n");
             choose = scanner.nextInt();
             switch (choose) {
                 case 1:
@@ -60,8 +65,15 @@ public class MainControllers {
                     addNewBooking();
                     break;
                 case 6:
+                    showInforEmployee();
                     break;
                 case 7:
+                    searchEmployee();
+                    break;
+                case 8:
+                    checkCinema4D();
+                    break;
+                case 9:
                     exit(0);
                     break;
                 default:
@@ -100,7 +112,14 @@ public class MainControllers {
     }
 
     public static void inputNewVilla() {
-        boolean checkRegex = false;
+        boolean checkRegex=false;
+        String nameVilla = null;
+        while (!checkRegex) {
+            System.out.println("Input name villa:");
+            nameVilla = scanner.next();
+            checkRegex = nameVilla.matches(REGEX_NAMEOFSERVICES);
+        }
+        checkRegex = false;
         String areaVilla = null;
         while (!checkRegex) {
             System.out.println("Input area:");
@@ -157,7 +176,7 @@ public class MainControllers {
             checkRegex=numberFloorsVilla.matches(REGEX_NUMBEROFFLOOR);
         }
         StringBuilder inForVilla = new StringBuilder();
-        inForVilla.append(areaVilla).append(COMMON).append(priceVilla).append(COMMON).append(maxMembersVilla).append(COMMON);
+        inForVilla.append(nameVilla).append(COMMON).append(areaVilla).append(COMMON).append(priceVilla).append(COMMON).append(maxMembersVilla).append(COMMON);
         inForVilla.append(rentalTypeVilla).append(COMMON).append(typeRoomVilla).append(COMMON).append(ortherAmenitiesVilla).append(COMMON).append(areaSwimVilla).append(COMMON).append(numberFloorsVilla);
         try {
             FileWriter outputStreamVilla = new FileWriter(villaFile, true);
@@ -174,6 +193,13 @@ public class MainControllers {
 
     public static void inputNewHouse() {
         boolean checkRegex = false;
+        String nameHouse = null;
+        while (!checkRegex) {
+            System.out.println("Input name:");
+            nameHouse = scanner.next();
+            checkRegex = nameHouse.matches(REGEX_NAMEOFSERVICES);
+        }
+        checkRegex=false;
         String areaHouse = null;
         while (!checkRegex) {
             System.out.println("Input area:");
@@ -223,7 +249,7 @@ public class MainControllers {
             checkRegex = numberFloorsHouse.matches(REGEX_NUMBEROFFLOOR);
         }
         StringBuilder inForHouse = new StringBuilder();
-        inForHouse.append(areaHouse).append(COMMON).append(priceHouse).append(COMMON).append(maxMembersHouse).append(COMMON);
+        inForHouse.append(nameHouse).append(COMMON).append(areaHouse).append(COMMON).append(priceHouse).append(COMMON).append(maxMembersHouse).append(COMMON);
         inForHouse.append(rentalTypeHouse).append(COMMON).append(typeRoomHouse).append(COMMON).append(ortherAmenitiesHouse).append(COMMON).append(numberFloorsHouse);
         try {
             FileWriter outputStreamHouse = new FileWriter(houseFile, true);
@@ -239,6 +265,13 @@ public class MainControllers {
 
     public static void inputNewRoom() {
         boolean checkRegex = false;
+        String nameRoom = null;
+        while (!checkRegex) {
+            System.out.println("Input name:");
+            nameRoom = scanner.next();
+            checkRegex = nameRoom.matches(REGEX_NAMEOFSERVICES);
+        }
+        checkRegex=false;
         String areaRoom = null;
         while (!checkRegex) {
             System.out.println("Input area:");
@@ -274,7 +307,7 @@ public class MainControllers {
             checkRegex = freeServicesRoom.matches(REGEX_SERVIVICEACCOMPANNIED);
         }
         StringBuilder inForRoom = new StringBuilder();
-        inForRoom.append(areaRoom).append(COMMON).append(priceRoom).append(COMMON).append(maxMembersRoom).append(COMMON);
+        inForRoom.append(nameRoom).append(COMMON).append(areaRoom).append(COMMON).append(priceRoom).append(COMMON).append(maxMembersRoom).append(COMMON);
         inForRoom.append(rentalTypeRoom).append(COMMON).append(freeServicesRoom);
         try {
             FileWriter outputStreamRoom = new FileWriter(roomFile, true);
@@ -310,10 +343,13 @@ public class MainControllers {
                 showAllRoom();
                 break;
             case 4:
+                showVillaNotDuplicate();
                 break;
             case 5:
+                showHouseNotDuplicate();
                 break;
             case 6:
+                showRoomNotDuplicate();
                 break;
             case 7:
                 displayMainMenu();
@@ -337,7 +373,7 @@ public class MainControllers {
             String[] temp;
             while ((line=bufferedVillaInputStream.readLine())!=null){
                 temp=line.split(COMMON);
-                villaTemp =new Villa("Villa",Float.parseFloat(temp[0]), parseInt(temp[1]), parseInt(temp[2]),temp[3],temp[4],temp[5],Float.parseFloat(temp[6]), parseInt(temp[7]));
+                villaTemp =new Villa(temp[0],temp[1], parseInt(temp[2]), parseInt(temp[3]),temp[4],temp[5],temp[6],temp[7], parseInt(temp[8]));
                 villaList.add(villaTemp);
             }
 
@@ -370,7 +406,7 @@ public class MainControllers {
             String[] temp;
             while ((line=bufferedHouseInputStream.readLine())!=null){
                 temp=line.split(COMMON);
-                houseTemp =new House("House",Float.parseFloat(temp[0]), parseInt(temp[1]), parseInt(temp[2]),temp[3],temp[4],temp[5], parseInt(temp[6]));
+                houseTemp =new House(temp[0],temp[1], parseInt(temp[2]), parseInt(temp[3]),temp[4],temp[5],temp[6], parseInt(temp[7]));
                 houseList.add(houseTemp);
             }
 
@@ -402,7 +438,7 @@ public class MainControllers {
             String[] temp;
             while ((line=bufferedHouseInputStream.readLine())!=null){
                 temp=line.split(COMMON);
-                roomTemp =new Room("Room",Float.parseFloat(temp[0]), parseInt(temp[1]), parseInt(temp[2]),temp[3],temp[4]);
+                roomTemp =new Room(temp[0],temp[1], parseInt(temp[2]), parseInt(temp[3]),temp[4],temp[5]);
                 roomList.add(roomTemp);
             }
 
@@ -573,11 +609,421 @@ public class MainControllers {
             e.printStackTrace();
         }
         displayMainMenu();
-    }
-//-----------------------------------------------------------------------------------
+    }//-----------------------------------------------------------------------------------
     public static void addNewBooking(){
-
+        int chooseBooking = 0;
+        System.out.println("1.Booking Villa"+
+        "\n2.Booking House"+
+        "\n3.Booking Room"+
+        "\n4.Back to Menu"+
+        "\n5.Exit");
+        chooseBooking = scanner.nextInt();
+        switch (chooseBooking) {
+            case 1:
+                bookingVilla();
+                break;
+            case 2:
+                bookingHouse();
+                break;
+            case 3:
+                bookingRoom();
+                break;
+            case 4:
+                displayMainMenu();
+                break;
+            case 5:
+                System.exit(0);
+                break;
+            default:
+                System.out.println("Not available!");
+        }
     }
+
+    public static void bookingVilla(){
+        List<Villa> villaList= new ArrayList<>();
+        try {
+            FileReader villaStream = new FileReader(villaFile);
+            BufferedReader bufferedVillaInputStream = new BufferedReader(villaStream);
+            Villa villaTemp;
+            String line;
+            String[] temp;
+            while ((line=bufferedVillaInputStream.readLine())!=null){
+                temp=line.split(COMMON);
+                villaTemp =new Villa(temp[0],temp[1], parseInt(temp[2]), parseInt(temp[3]),temp[4],temp[5],temp[6],temp[7], parseInt(temp[8]));
+                villaList.add(villaTemp);
+            }
+            int countVilla=0;
+            System.out.println("All villa: ");
+            System.out.println("-------------------------------");
+            for (Villa villa:villaList){
+                countVilla++;
+                System.out.println("villa "+countVilla+" : ");
+                villa.showInfor();
+                System.out.println("-------------------------------");
+
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        boolean checkChooseVilla=false;
+        System.out.println("Input name of villa you want: ");
+        String chooseVilla=scanner.next();
+        for (Villa villa:villaList){
+            if (villa.getNameOfService().equals(chooseVilla)){
+                checkChooseVilla=true;
+                try{
+                    FileWriter fileWriterBooked =new FileWriter(bookingFile,true);
+                    BufferedWriter bufferedWriterBooked =new BufferedWriter(fileWriterBooked);
+                    StringBuilder stringBuilderBookedVilla =new StringBuilder();
+                    stringBuilderBookedVilla.append(villa.getNameOfService()).append(COMMON).append(villa.getArea()).append(COMMON).append(villa.getPrice()).append(COMMON).append(villa.getMaxMembers()).append(COMMON);
+                    stringBuilderBookedVilla.append(villa.getRentalType()).append(COMMON).append(villa.getTypeRoom()).append(COMMON).append(villa.getOtherAmenities()).append(COMMON).append(villa.getAreaSwim()).append(COMMON).append(villa.getNumberFloors());
+                    bufferedWriterBooked.write(stringBuilderBookedVilla.toString()+"\n");
+                    bufferedWriterBooked.flush();
+                    bufferedWriterBooked.close();
+                } catch (IOException e){
+                    e.printStackTrace();
+                }
+                break;
+            }
+        }
+        if (!checkChooseVilla){
+            System.out.println("Villa not in villa list!");
+        } else {
+            System.out.println("Booked!");
+        }
+        addNewBooking();
+    }
+
+    public static void bookingHouse(){
+        List<House> houseList= new ArrayList<>();
+        try {
+            FileReader houseStream = new FileReader(houseFile);
+            BufferedReader bufferedHouseInputStream = new BufferedReader(houseStream);
+            House houseTemp;
+            String line;
+            String[] temp;
+            while ((line=bufferedHouseInputStream.readLine())!=null){
+                temp=line.split(COMMON);
+                houseTemp =new House(temp[0],temp[1], parseInt(temp[2]), parseInt(temp[3]),temp[4],temp[5],temp[6], parseInt(temp[7]));
+                houseList.add(houseTemp);
+            }
+
+            int countHouse=0;
+            System.out.println("All House: ");
+            System.out.println("-------------------------------");
+            for (House house:houseList){
+                countHouse++;
+                System.out.println("House "+countHouse+" : ");
+                house.showInfor();
+                System.out.println("-------------------------------");
+
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        boolean chechChooseHouse=false;
+        System.out.println("Input name of house you want: ");
+        String chooseVilla=scanner.next();
+        for (House house:houseList){
+            if (house.getNameOfService().equals(chooseVilla)){
+                chechChooseHouse=true;
+                try{
+                    FileWriter fileWriterBooked =new FileWriter(bookingFile,true);
+                    BufferedWriter bufferedWriterBooked =new BufferedWriter(fileWriterBooked);
+                    StringBuilder stringBuilderBookedVilla =new StringBuilder();
+                    stringBuilderBookedVilla.append(house.getNameOfService()).append(COMMON).append(house.getArea()).append(COMMON).append(house.getPrice()).append(COMMON).append(house.getMaxMembers()).append(COMMON);
+                    stringBuilderBookedVilla.append(house.getRentalType()).append(COMMON).append(house.getTypeRoom()).append(COMMON).append(house.getOtherAmenities()).append(COMMON).append(house.getNumberFloors());
+                    bufferedWriterBooked.write(stringBuilderBookedVilla.toString()+"\n");
+                    bufferedWriterBooked.flush();
+                    bufferedWriterBooked.close();
+                } catch (IOException e){
+                    e.printStackTrace();
+                }
+                break;
+            }
+        }
+        if (!chechChooseHouse){
+            System.out.println("House not in house list!");
+        } else {
+            System.out.println("Booked!");
+        }
+        addNewBooking();
+    }
+
+    public static void bookingRoom(){
+        List<Room> roomList= new ArrayList<>();
+        try {
+            FileReader roomStream = new FileReader(roomFile);
+            BufferedReader bufferedHouseInputStream = new BufferedReader(roomStream);
+            Room roomTemp;
+            String line;
+            String[] temp;
+            while ((line=bufferedHouseInputStream.readLine())!=null){
+                temp=line.split(COMMON);
+                roomTemp =new Room(temp[0],temp[1], parseInt(temp[2]), parseInt(temp[3]),temp[4],temp[5]);
+                roomList.add(roomTemp);
+            }
+
+            int countRoom=0;
+            System.out.println("All Room: ");
+            System.out.println("-------------------------------");
+            for (Room room:roomList){
+                countRoom++;
+                System.out.println("Room "+countRoom+" : ");
+                room.showInfor();
+                System.out.println("-------------------------------");
+
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        boolean checkRoomBooked=false;
+        System.out.println("Input name of Room you want: ");
+        String chooseRoom=scanner.next();
+        for (Room room:roomList){
+            if (room.getNameOfService().equals(chooseRoom)){
+                checkRoomBooked=true;
+                try{
+                    FileWriter fileWriterBooked =new FileWriter(bookingFile,true);
+                    BufferedWriter bufferedWriterBooked =new BufferedWriter(fileWriterBooked);
+                    StringBuilder stringBuilderBookedVilla =new StringBuilder();
+                    stringBuilderBookedVilla.append(room.getNameOfService()).append(COMMON).append(room.getArea()).append(COMMON).append(room.getPrice()).append(COMMON).append(room.getMaxMembers()).append(COMMON);
+                    stringBuilderBookedVilla.append(room.getRentalType()).append(COMMON).append(room.getFreeService());
+                    bufferedWriterBooked.write(stringBuilderBookedVilla.toString()+"\n");
+                    bufferedWriterBooked.flush();
+                    bufferedWriterBooked.close();
+                } catch (IOException e){
+                    e.printStackTrace();
+                }
+                break;
+            }
+        }
+        if (!checkRoomBooked){
+            System.out.println("Room not in room list!");
+        } else {
+            System.out.println("Booked!");
+        }
+        addNewBooking();
+    }
+//-------------------------------------------------------------------------------------------------
+    public static void showVillaNotDuplicate(){
+        TreeSet<String> nameVilla= new TreeSet<>();
+        try{
+            FileReader fileReaderVilla =new FileReader(villaFile);
+            BufferedReader bufferedReaderVilla =new BufferedReader(fileReaderVilla);
+            String line;
+            String[] temp;
+            while ((line=bufferedReaderVilla.readLine())!=null){
+                temp=line.split(COMMON);
+                boolean checkDuplicate =false;
+                for (String villa:nameVilla){
+                    if (temp[0].equals(villa)){
+                        checkDuplicate =true;
+                        break;
+                    }
+                }
+                if (!checkDuplicate){
+                    nameVilla.add(temp[0]);
+                }
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        Iterator<String> iteratorteNameVilla =nameVilla.iterator();
+        System.out.println("List name Villa not duplicate and sort: ");
+        while (iteratorteNameVilla.hasNext()){
+            System.out.println(iteratorteNameVilla.next());
+        }
+        showServies();
+    }
+
+    public static void showHouseNotDuplicate(){
+        TreeSet<String> nameHouse= new TreeSet<>();
+        try{
+            FileReader fileReaderHouse =new FileReader(houseFile);
+            BufferedReader bufferedReaderHouse =new BufferedReader(fileReaderHouse);
+            String line;
+            String[] temp;
+            while ((line=bufferedReaderHouse.readLine())!=null){
+                temp=line.split(COMMON);
+                boolean checkDuplicate =false;
+                for (String house:nameHouse){
+                    if (temp[0].equals(house)){
+                        checkDuplicate =true;
+                        break;
+                    }
+                }
+                if (!checkDuplicate){
+                    nameHouse.add(temp[0]);
+                }
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        Iterator<String> iteratorteNameHouse =nameHouse.iterator();
+        System.out.println("List name House not duplicate and sort: ");
+        while (iteratorteNameHouse.hasNext()){
+            System.out.println(iteratorteNameHouse.next());
+        }
+        showServies();
+    }
+
+    public static void showRoomNotDuplicate(){
+        TreeSet<String> nameRoom= new TreeSet<>();
+        try{
+            FileReader fileReaderRoom =new FileReader(roomFile);
+            BufferedReader bufferedReaderRoom =new BufferedReader(fileReaderRoom);
+            String line;
+            String[] temp;
+            while ((line=bufferedReaderRoom.readLine())!=null){
+                temp=line.split(COMMON);
+                boolean checkDuplicate =false;
+                for (String room:nameRoom){
+                    if (temp[0].equals(room)){
+                        checkDuplicate =true;
+                        break;
+                    }
+                }
+                if (!checkDuplicate){
+                    nameRoom.add(temp[0]);
+                }
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        Iterator<String> iteratorteNameRoom =nameRoom.iterator();
+        System.out.println("List name Room not duplicate and sort: ");
+        while (iteratorteNameRoom.hasNext()){
+            System.out.println(iteratorteNameRoom.next());
+        }
+        showServies();
+    }
+//---------------------------------------------------------------------------------------
+    public static void showInforEmployee(){
+        Map<Integer,Employee> inforEmployee= new HashMap<>();
+        try {
+            FileReader fileReaderEmployee =new FileReader(employeeFile);
+            BufferedReader bufferedReaderEmployee= new BufferedReader(fileReaderEmployee);
+            int countEmployee = 0;
+            String[] temp;
+            Employee employeeTemp;
+            String line ;
+            while ((line=bufferedReaderEmployee.readLine())!=null){
+                countEmployee++;
+                temp=line.split(COMMON);
+                employeeTemp=new Employee(temp[0],Integer.parseInt(temp[1]),temp[2]);
+                inforEmployee.put(countEmployee,employeeTemp);
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        for (Map.Entry<Integer,Employee> entry:inforEmployee.entrySet()){
+            System.out.println(entry.getKey()+" : "+entry.getValue());
+        }
+        displayMainMenu();
+    }
+//----------------------------------------------------------------------------------------------
+    public static void searchEmployee(){
+        Stack<Employee> employees= new Stack<>();
+        System.out.println("Input name employee: ");
+        String employeeSearch=scanner.next();
+        try {
+            FileReader fileReaderEmployee =new FileReader(employeeFile);
+            BufferedReader bufferedReaderEmployee= new BufferedReader(fileReaderEmployee);
+            String[] temp;
+            Employee employeeTemp;
+            String line ;
+            while ((line=bufferedReaderEmployee.readLine())!=null){
+                temp=line.split(COMMON);
+                employeeTemp=new Employee(temp[0],Integer.parseInt(temp[1]),temp[2]);
+                employees.push(employeeTemp);
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        boolean checkEmployee=false;
+        Employee employeeSearched=new Employee();
+        while (!employees.isEmpty()){
+            employeeSearched=employees.pop();
+            if (employeeSearch.equals(employeeSearched.getName())){
+                checkEmployee=true;
+                break;
+            }
+        }
+        if (!checkEmployee){
+            System.out.println("Employee not in employee list!");
+        } else {
+            System.out.println(employeeSearched);
+        }
+        displayMainMenu();
+    }
+//----------------------------------------------------------------------------------------
+    public static void checkCinema4D(){
+        int chooseCinema = 0;
+        System.out.println("1.Check list ciname4D." +
+                "\n2.Book tickets." +
+                "\n3.Back to Menu." +
+                "\n4.Exit.");
+        chooseCinema = scanner.nextInt();
+        switch (chooseCinema) {
+            case 1:
+                checkListCinema();
+                break;
+            case 2:
+                bookTickets();
+                break;
+            case 3:
+                displayMainMenu();
+                break;
+            case 4:
+                System.exit(0);
+                break;
+            default:
+                System.out.println("Not available!");
+        }
+    }
+
+    public static void checkListCinema(){
+        System.out.println("List name customer booked ticket(sorted FIFO): ");
+        Queue<String> listCinema=new ArrayDeque<>();
+        try{
+            FileReader fileReader =new FileReader(cinemaFile);
+            BufferedReader bufferedReader=new BufferedReader(fileReader);
+            String line;
+            while ((line=bufferedReader.readLine())!=null){
+                listCinema.add(line);
+            }
+            bufferedReader.close();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        for (String name:listCinema){
+            System.out.println(name);
+        }
+        checkCinema4D();
+    }
+
+    public static void bookTickets(){
+        System.out.println("Input your name: ");
+        String booking= scanner.next();
+        try{
+            FileWriter fileWriter =new FileWriter(cinemaFile,true);
+            BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
+            bufferedWriter.write("\n"+booking);
+            System.out.println("Booked!");
+            bufferedWriter.close();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        checkListCinema();
+    }
+
     public static void main(String[] args) {
         displayMainMenu();
     }

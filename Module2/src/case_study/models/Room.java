@@ -10,7 +10,7 @@ public class Room extends Services {
         this.freeService=freeService;
     }
 
-    public Room(String nameOfService, float area, int price, int maxMembers, String rentalType,String freeService){
+    public Room(String nameOfService, String area, int price, int maxMembers, String rentalType,String freeService){
         super(nameOfService,area,price,maxMembers,rentalType);
         this.freeService=freeService;
     }
@@ -25,7 +25,7 @@ public class Room extends Services {
 
     @Override
     public void showInfor() {
-        System.out.println("Name of Service: Room"+
+        System.out.println("Name of Service: "+getNameOfService()+
                 "\nArea: "+getArea()+
                 "\nPrice: "+getPrice()+
                 "\nMax Member: "+getMaxMembers()+

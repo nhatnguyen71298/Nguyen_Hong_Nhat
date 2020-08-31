@@ -1,5 +1,8 @@
 package case_study.controllers;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 public class Test {
         public static final String REGEX_CODE = "^SV(VL|HO|RO)-\\d{4}$";
         static final String REGEX_NAMEOFSERVICES="^[A-Z]{1}\\w+$";
@@ -14,8 +17,19 @@ public class Test {
 
 
     public static void main(String[] args) {
-            String test="UnKnoW";
-
-            System.out.println(test.matches(REGEX_GENDER));
+//            String test="UnKnoW";
+//
+//            System.out.println(test.matches(REGEX_GENDER));
+        Queue<Integer> test= new ArrayDeque<>();
+        test.add(1);
+        test.add(2);
+        test.add(3);
+        test.add(4);
+        test.add(5);
+        test.add(6);
+        test.add(7);
+        for (Integer integer:test){
+            System.out.println(integer);
         }
+    }
 }

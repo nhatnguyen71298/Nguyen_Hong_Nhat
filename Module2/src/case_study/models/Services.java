@@ -6,24 +6,24 @@ public abstract class Services {
 
     abstract void showInfor();
     String nameOfService;
-    float area;
+    String area;
     int price;
     int maxMembers;
     String rentalType;
 
-    public Services(String nameOfService, float area, int price, int maxMembers, String rentalType) {
-        this.nameOfService = this.nameOfService;
-        this.area = this.area;
-        this.price = this.price;
-        this.maxMembers = this.maxMembers;
-        this.rentalType = this.rentalType;
+    public Services(String nameOfService, String area, int price, int maxMembers, String rentalType) {
+        this.nameOfService = nameOfService;
+        this.area = area;
+        this.price = price;
+        this.maxMembers = maxMembers;
+        this.rentalType = rentalType;
     }
 
     public String getNameOfService() {
         return nameOfService;
     }
 
-    public float getArea() {
+    public String getArea() {
         return area;
     }
 
@@ -43,7 +43,7 @@ public abstract class Services {
         this.nameOfService = nameOfService;
     }
 
-    public void setArea(int area) {
+    public void setArea(String area) {
         this.area = area;
     }
 

@@ -8,7 +8,7 @@ public class House extends Services {
     public House(){
     }
 
-    public House(String nameOfService,float area, int price, int maxMembers, String rentalType, String typeRoom, String otherAmenities,int numberFloors){
+    public House(String nameOfService,String area, int price, int maxMembers, String rentalType, String typeRoom, String otherAmenities,int numberFloors){
         super(nameOfService,area,price,maxMembers,rentalType);
         this.typeRoom = typeRoom;
         this.otherAmenities = otherAmenities;
@@ -41,7 +41,7 @@ public class House extends Services {
 
     @Override
     public void showInfor() {
-        System.out.println("Name of Service: House"+
+        System.out.println("Name of Service: "+getNameOfService()+
                 "\nArea: "+getArea()+
                 "\nPrice: "+getPrice()+
                 "\nMax Member: "+getMaxMembers()+

@@ -3,21 +3,22 @@ package case_study.models;
 public class Villa extends Services {
     String typeRoom;
     String otherAmenities;
-    float areaSwim;
+    String areaSwim;
     int numberFloors;
 
     public Villa(){
 
     }
 
-    public Villa(String typeRoom, String otherAmenities, int areaSwim, int numberFloors){
+    public Villa(String typeRoom, String otherAmenities, String areaSwim, int numberFloors){
+
         this.typeRoom=typeRoom;
         this.otherAmenities=otherAmenities;
         this.areaSwim=areaSwim;
         this.numberFloors=numberFloors;
     }
 
-    public Villa(String nameOfService, float area, int price, int maxMembers, String rentalType,String typeRoom, String otherAmenities, float areaSwim, int numberFloors){
+    public Villa(String nameOfService, String area, int price, int maxMembers, String rentalType,String typeRoom, String otherAmenities, String areaSwim, int numberFloors){
         super(nameOfService,area,price,maxMembers,rentalType);
         this.typeRoom = typeRoom;
         this.otherAmenities = otherAmenities;
@@ -33,7 +34,7 @@ public class Villa extends Services {
         return otherAmenities;
     }
 
-    public float getAreaSwim() {
+    public String getAreaSwim() {
         return areaSwim;
     }
 
@@ -49,7 +50,7 @@ public class Villa extends Services {
         this.otherAmenities = otherAmenities;
     }
 
-    public void setAreaSwim(int areaSwim) {
+    public void setAreaSwim(String areaSwim) {
         this.areaSwim = areaSwim;
     }
 
@@ -59,7 +60,7 @@ public class Villa extends Services {
 
     @Override
     public void showInfor() {
-        System.out.println("Name of Service: Villa"+
+        System.out.println("Name of Service:"+getNameOfService()+
                 "\nArea: "+getArea()+
                 "\nPrice: "+getPrice()+
                 "\nMax Member: "+getMaxMembers()+
