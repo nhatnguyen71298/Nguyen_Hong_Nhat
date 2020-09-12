@@ -12,7 +12,7 @@ public class Data {
     public final String REGEX_TYPEWORD="^(Verb|Adj|N)$";
 
 
-    public Data(){
+    public Data(String s, String s1, String s2, String s3, String s4, String s5, String s6){
 
     }
 
@@ -192,6 +192,7 @@ public class Data {
                 dataTemp=new Data(temp[0],temp[1],temp[2]);
                 if (mean.equals(temp[0])||mean.equals(temp[1])){
                     checkData=true;
+                    System.out.println(dataTemp+"----> Đã xóa.");
                 } else {
                     dataList.add(dataTemp);
                 }
@@ -208,7 +209,6 @@ public class Data {
                     bufferedWriter.write(stringBuilder.toString()+"\n");
                 }
                 bufferedWriter.close();
-                System.out.println("Đã xóa: "+mean);
             }
             bufferedReader.close();
         } catch (IOException e){

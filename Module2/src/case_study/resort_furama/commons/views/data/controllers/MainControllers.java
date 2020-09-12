@@ -10,13 +10,13 @@ import static java.lang.System.exit;
 
 public class MainControllers {
     static Scanner scanner = new Scanner(System.in);
-    static File cinemaFile = new File("F:\\4. Nguyen_Hong_Nhat\\Module2\\src\\case_study\\data\\Cinema.csv");
-    static File employeeFile = new File("F:\\4. Nguyen_Hong_Nhat\\Module2\\src\\case_study\\data\\Employee.csv");
-    static File bookingFile = new File("F:\\4. Nguyen_Hong_Nhat\\Module2\\src\\case_study\\data\\Booking.csv");
-    static File villaFile = new File("F:\\4. Nguyen_Hong_Nhat\\Module2\\src\\case_study\\data\\Villa.csv");
-    static File houseFile = new File("F:\\4. Nguyen_Hong_Nhat\\Module2\\src\\case_study\\data\\House.csv");
-    static File roomFile = new File("F:\\4. Nguyen_Hong_Nhat\\Module2\\src\\case_study\\data\\Room.csv");
-    static File customerFile = new File("F:\\4. Nguyen_Hong_Nhat\\Module2\\src\\case_study\\data\\Customer.csv");
+    static File cinemaFile = new File("F:\\4. Nguyen_Hong_Nhat\\Module2\\src\\case_study\\resort_furama\\commons\\views\\data\\Cinema.csv");
+    static File employeeFile = new File("F:\\4. Nguyen_Hong_Nhat\\Module2\\src\\case_study\\resort_furama\\commons\\views\\data\\Employee.csv");
+    static File bookingFile = new File("F:\\4. Nguyen_Hong_Nhat\\Module2\\src\\case_study\\resort_furama\\commons\\views\\data\\Booking.csv");
+    static File villaFile = new File("F:\\4. Nguyen_Hong_Nhat\\Module2\\src\\case_study\\resort_furama\\commons\\views\\data\\Villa.csv");
+    static File houseFile = new File("F:\\4. Nguyen_Hong_Nhat\\Module2\\src\\case_study\\resort_furama\\commons\\views\\data\\House.csv");
+    static File roomFile = new File("F:\\4. Nguyen_Hong_Nhat\\Module2\\src\\case_study\\resort_furama\\commons\\views\\data\\Room.csv");
+    static File customerFile = new File("F:\\4. Nguyen_Hong_Nhat\\Module2\\src\\case_study\\resort_furama\\commons\\views\\data\\Customer.csv");
     static final String COMMON = ",";
     static final String REGEX_CODESERVICES="^SV(VL|HO|RO)-\\d{4}$";
     static final String REGEX_NAMEOFSERVICES="^[A-Z]{1}\\w+$";
@@ -1022,9 +1022,5 @@ public class MainControllers {
             e.printStackTrace();
         }
         checkListCinema();
-    }
-
-    public static void main(String[] args) {
-        displayMainMenu();
     }
 }
