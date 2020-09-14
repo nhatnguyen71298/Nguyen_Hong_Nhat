@@ -3,3 +3,4 @@ select * from employee;
 
 select * from employee
 where id in (1,3);
+drop database employee;
