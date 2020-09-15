@@ -90,11 +90,17 @@ alter table customer
 add foreign key (employee_number) references employee(employee_number);
 
 alter table employee
-add column reportTo int;
+add column report_to int;
 alter table employee
-add foreign key (reportTo) references employee(employee_number);
+add foreign key (report_to) references employee(employee_number);
+
+-- alter table employee
+-- drop column report_to;
+-- alter table employee
+-- rename column reportTo to report_to;
 
 alter table employee
 add column office_code varchar(10);
 alter table employee
 add foreign key (office_code) references offices(office_code);
+drop database phantichvathietke;

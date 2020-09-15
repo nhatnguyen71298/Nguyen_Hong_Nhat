@@ -13,3 +13,4 @@ CREATE TABLE orders(
    customer_id INT,
    FOREIGN KEY (customer_id) REFERENCES customers(id)
 );
+drop database test;
