@@ -1,0 +1,113 @@
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+[class*="col-"] {
+    float: left;
+}
+.row::after {
+    clear: both;
+}
+*{
+    box-sizing: border-box;
+}
+/*-------------------------------------------------------------------------------*/
+#header{
+    height: 60px;
+    background-color:royalblue;
+    text-align: center;
+    margin-bottom: 0;
+}
+#header #tim_kiem{
+    color: white;
+}
+#header #tim_kiem img{
+    cursor: pointer;
+    width: 50px;
+    height: 40px;
+    margin-top:10px;
+    margin-left: 70px;
+    margin-bottom: 0;
+}
+#header #tim_kiem input,p{
+    position: relative;
+    top: -10px;
+    left: 30px;
+    cursor: pointer;
+}
+
+#header #tim_kiem p:hover {
+    color: lemonchiffon;
+    background-color: royalblue;
+}
+#header #item{
+    text-align: center;
+    margin-bottom: 0;
+}
+#header #item p{
+    margin-right:70px ;
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+}
+#header #item img{
+    margin-top: 10px;
+    width: 50px;
+    height: 40px;
+    padding: 5px 10px ;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+#header #item p:hover{
+    color: lemonchiffon;
+    background-color: royalblue;
+}
+#header #item img:hover{
+    color: lemonchiffon;
+    background-color: royalblue;
+}
+/*-----------------------------------------------------------------*/
+#main {
+    background-color: silver;
+}
+#main div{
+    font-size: 50px;
+    text-align: center;
+}
+#main #muc_luc{
+    position: fixed;
+    background-color: black;
+    color: white;
+    height: 500px;
+}
+#main #online{
+    position: fixed;
+    background-color: green;
+    color: white;
+    height: 500px;
+    right: 0;
+}
+#main #video{
+    position: relative;
+    background-color: lightblue;
+    color: white;
+    height: 500px;
+    top: -10px;
+    left:341px
+}
+#main #bang_tin{
+    position: relative;
+    height: 3000px;
+    background-color: silver;
+    left: 339px;
+    top:-10px
+
+}

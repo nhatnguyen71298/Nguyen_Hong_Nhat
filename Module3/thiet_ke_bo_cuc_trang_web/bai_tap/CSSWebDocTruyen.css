@@ -1,0 +1,75 @@
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+[class*="col-"] {
+    float: left;
+}
+.row::after {
+    clear: both;
+}
+*{
+    box-sizing: border-box;
+}
+/*----------------------------------------------------------------------------------------------------------------*/
+#header {
+    height: 40px;
+    background-color: orange;
+}
+#header p {
+    text-align: center;
+    cursor: pointer;
+
+}
+#header label {
+    padding-top: 13px ;
+    text-align: left;
+    left: 350px;
+    text-decoration: black underline;
+    cursor: pointer;
+
+}
+#header input{
+    size: 200px;
+    margin-left: -100px;
+    cursor: pointer;
+
+}
+/*------------------------------------------------------------------------------------------------------------*/
+#nav .row{
+    background: #FFFACD	;
+    height: 60px;
+}
+#nav div{
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+#nav div:hover{
+    background-color: lightyellow;
+    color: red;
+}
+/*--------------------------------------------------------------------------------------------------------------*/
+#main .row{
+    height: 400px;
+}
+#main div{
+    padding: 15px;
+    text-align: center;
+}
+/*------------------------------------------------------------------------------------------------------------------*/
+#main_row_2 .row{
+    height: 400px;
+}
+#main_row_2 div{
+    padding: 15px;
+    text-align: center;
+}

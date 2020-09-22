@@ -1,6 +1,14 @@
-img{margin-left: 10%;height:300px;width: 80%}
-div{margin-left: 10%;margin-bottom: 5%;background: burlywood;width:80%;height: 350px}
+img{margin-left: 10%;height:300px;width: 80%;padding-bottom: 0px}
+div{
+    margin-left: 10%;
+    margin-top:0px;background: burlywood;
+    width:80%;
+    height: 350px;
+    position: relative;
+    bottom: 25px
+}
 ol{margin-left: 40%}
+li{padding-right: 510px}
 h1{color: brown}
 h5{
     text-decoration: underline;
@@ -8,4 +16,3 @@ h5{
     font-size: 16px;
     color: black;
 }
-
