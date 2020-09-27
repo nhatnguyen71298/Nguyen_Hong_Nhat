@@ -96,6 +96,27 @@ group by hdct.id_dich_vu_di_kem;
 -- 	group by dvdk.id_dich_vu_di_kem
 --     having dvdk.id_dich_vu_di_kem = max(count(hdct.id_dich_vu_di_kem))
 -- )
+select *
+from(
+select dich_vu_di_kem.*,sum(hop_dong_chi_tiet.so_luong) as so_luong
+from hop_dong_chi_tiet
+inner join dich_vu_di_kem on dich_vu_di_kem.id_dich_vu_di_kem=hop_dong_chi_tiet.id_dich_vu_di_kem
+inner join hop_dong on hop_dong.id_hop_dong=hop_dong_chi_tiet.id_hop_dong
+inner join khach_hang on khach_hang.id_khach_hang=hop_dong.id_hop_dong
+group by hop_dong_chi_tiet.id_dich_vu_di_kem
+)as so_luong_dich_vu_khach_su_dung
+inner join (
+select max(so_luong) as b
+from(
+select dich_vu_di_kem.*,sum(hop_dong_chi_tiet.so_luong) as so_luong
+from hop_dong_chi_tiet
+inner join dich_vu_di_kem on dich_vu_di_kem.id_dich_vu_di_kem=hop_dong_chi_tiet.id_dich_vu_di_kem
+inner join hop_dong on hop_dong.id_hop_dong=hop_dong_chi_tiet.id_hop_dong
+inner join khach_hang on khach_hang.id_khach_hang=hop_dong.id_hop_dong
+group by hop_dong_chi_tiet.id_dich_vu_di_kem
+) as so_luong_dich_vu_khach_su_dung
+) as a
+on so_luong_dich_vu_khach_su_dung.so_luong=a.b;
 -- 14. hiển thị tên thông tin dvdk moi được sử dụng 1 lần
 select hd.id_hop_dong, dvdk.*, count(hdct.id_dich_vu_di_kem) as so_lan_su_dung
 from hop_dong hd
@@ -152,4 +173,20 @@ select id_nhan_vien, ho_va_ten, emai, sdt, birthday, dia_chi
 from nhan_vien
 union
 select id_khach_hang, ho_va_ten, emai, sdt, birthday, dia_chi
-from khach_hang
+from khach_hang;
+-- khung nhìn có tên là V_NHANVIEN để lấy được thông tin của tất cả các nhân viên có địa chỉ là “Đà Nẵng”
+--  và đã từng lập hợp đồng cho 1 hoặc nhiều Khách hàng bất kỳ  với ngày lập hợp đồng là năm 2019
+create view v_nhanvien as
+select nhan_vien.*
+from nhan_vien
+where nhan_vien.dia_chi='đà nẵng' and id_nhan_vien in (
+	select id_nhan_vien
+    from hop_dong
+    where year(ngay_lam_hop_dong)=2019
+);
+drop view v_nhanvien;
+select* from v_nhanvien;
+-- update dia chi thanh liên chiểu với tat cả nhân viên từ view trên
+update v_nhanvien
+set dia_chi='Liên Chiểu';
+
