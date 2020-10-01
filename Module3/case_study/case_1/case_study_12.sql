@@ -96,7 +96,7 @@ create table dich_vu_di_kem(
 	id_dich_vu_di_kem int primary key,
     ten_dich_vu_di_kem varchar(45),
     gia int,
-    don_vi varchar(45),
+    don_vi int,
     trang_thai_kha_dung varchar(45)
 );
 alter table hop_dong_chi_tiet
@@ -182,18 +182,17 @@ values
 (5,4,5,1,'2020-05-06','2020-08-19',1234,100000);
 insert into dich_vu_di_kem
 values
-(1,'Massage',100,'$','Còn'),
-(2,'Karaoke',100,'$','Còn'),
-(3,'Thức ăn',50,'$','Còn'),
-(4,'Thuê xe',200,'$','Còn');
+(1,'Massage',100,1,'Còn'),
+(2,'Karaoke',100,1,'Còn'),
+(3,'Thức ăn',50,5,'Còn'),
+(4,'Thuê xe',200,1,'Còn');
 insert into hop_dong_chi_tiet
 values
-(1,3,4,0),
-(2,1,3,0),
-(3,2,1,0),
-(4,5,2,0),
-(5,4,2,0);
-
+(1,3,4,1),
+(2,1,3,2),
+(3,2,1,1),
+(4,5,2,3),
+(5,4,2,4);
 
 
 
@@ -201,3 +200,5 @@ select * from hop_dong;
 select * from dich_vu;
 select * from khach_hang;
 select * from nhan_vien;
+select * from dich_vu_di_kem;
+select * from hop_dong_chi_tiet;
