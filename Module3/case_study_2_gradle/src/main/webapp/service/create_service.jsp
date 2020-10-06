@@ -24,11 +24,11 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="collapse navbar-collapse " id="navbarNavAltMarkup" >
         <div class="navbar-nav" style="margin-left: 50px">
-            <a class="nav-link active" href="#">Home </a>
-            <a class="nav-link active" href="#">Employee</a>
-            <a class="nav-link active" href="">Customer</a>
-            <a class="nav-link active" href="#">Service</a>
-            <a class="nav-link active" href="#">Contract</a>
+            <a class="nav-link active" href="/home">Home </a>
+            <a class="nav-link active" href="/employee?action=create">Employee</a>
+            <a class="nav-link active" href="/customer?action=create_customer">Customer</a>
+            <a class="nav-link active" href="/service?action=create">Service</a>
+            <a class="nav-link active" href="/contract?action=create">Contract</a>
             <a class="nav-link active" href="#" style="margin-left: 450px">
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -41,18 +41,15 @@
 
 <div class="container-fluid pt-5" style="background-image: url(https://1.bp.blogspot.com/-sP3dIHuoTYw/TcQWWUfQJ2I/AAAAAAAAAnI/akgXrJLmTHo/s1600/Hoi+An+096.jpg)">
     <div class="row">
-        <div class="col-3 px-0  vh-100 ">
+        <div class="col-2 px-0  vh-100 ">
             <div class="list-group">
-                <a href="/customer?action=displayAllCustomer" class="list-group-item list-group-item-action list-group-item-primary">All Customer </a>
+                <a href="/customer?action=displayAllCustomer" class="list-group-item list-group-item-action ">All Customer </a>
                 <a href="/employee?action=displayAllEmployee" class="list-group-item list-group-item-action ">All Employee</a>
-                <a href="#" class="list-group-item list-group-item-action ">Primary item</a>
-                <a href="#" class="list-group-item list-group-item-action ">Primary item</a>
-                <a href="#" class="list-group-item list-group-item-action ">Primary item</a>
-                <a href="#" class="list-group-item list-group-item-action ">Primary item</a>
-                <a href="#" class="list-group-item list-group-item-action ">Primary item</a>
+                <a href="/customer?action=displayCustomerOnline" class="list-group-item list-group-item-action ">All customer on service</a>
+                <a href="/contract?action=createContractDetail" class="list-group-item list-group-item-action ">Create contract detail</a>
             </div>
         </div>
-        <div class="col-9">
+        <div class="col-10">
             <form method="post" action="/service?action=create">
                 <input class="form-control" type="hidden" name="id">
                 <input class="form-control" type="text" placeholder="Input price" name="price">

@@ -24,11 +24,11 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="collapse navbar-collapse " id="navbarNavAltMarkup" >
         <div class="navbar-nav" style="margin-left: 50px">
-            <a class="nav-link active" href="#">Home </a>
-            <a class="nav-link active" href="#">Employee</a>
-            <a class="nav-link active" href="">Customer</a>
-            <a class="nav-link active" href="#">Service</a>
-            <a class="nav-link active" href="#">Contract</a>
+            <a class="nav-link active" href="/home">Home </a>
+            <a class="nav-link active" href="/employee?action=create">Employee</a>
+            <a class="nav-link active" href="/customer?action=create_customer">Customer</a>
+            <a class="nav-link active" href="/service?action=create">Service</a>
+            <a class="nav-link active" href="/contract?action=create">Contract</a>
             <a class="nav-link active" href="#" style="margin-left: 450px">
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -41,22 +41,18 @@
 
 <div class="container-fluid pt-5" style="background-image: url(https://1.bp.blogspot.com/-sP3dIHuoTYw/TcQWWUfQJ2I/AAAAAAAAAnI/akgXrJLmTHo/s1600/Hoi+An+096.jpg)">
     <div class="row">
-        <div class="col-3 px-0  vh-100 ">
+        <div class="col-2 px-0  vh-100 ">
             <div class="list-group">
-                <a href="/customer?action=displayAllCustomer" class="list-group-item list-group-item-action list-group-item-primary">All Customer </a>
+                <a href="/customer?action=displayAllCustomer" class="list-group-item list-group-item-action ">All Customer </a>
                 <a href="/employee?action=displayAllEmployee" class="list-group-item list-group-item-action ">All Employee</a>
-                <a href="#" class="list-group-item list-group-item-action ">Primary item</a>
-                <a href="#" class="list-group-item list-group-item-action ">Primary item</a>
-                <a href="#" class="list-group-item list-group-item-action ">Primary item</a>
-                <a href="#" class="list-group-item list-group-item-action ">Primary item</a>
-                <a href="#" class="list-group-item list-group-item-action ">Primary item</a>
+                <a href="/customer?action=displayCustomerOnline" class="list-group-item list-group-item-action ">All customer on service</a>
+                <a href="/contract?action=createContractDetail" class="list-group-item list-group-item-action ">Create contract detail</a>
             </div>
         </div>
-        <div class="col-9">
-            <table class="table table-light">
+        <div class="col-10">
+            <table class="table table-light ">
                 <thead>
                 <tr>
-                    <th scope="col">Id</th>
                     <th scope="col">Postion Id</th>
                     <th scope="col">Education Id</th>
                     <th scope="col">Division Id</th>
@@ -74,7 +70,6 @@
                 <tbody>
                 <c:forEach var="employee" items="${allEmployee}">
                     <tr>
-                        <th scope="col">${employee.id}</th>
                         <th scope="col">${employee.postion_id}</th>
                         <th scope="col">${employee.education_id}</th>
                         <th scope="col">${employee.division_id}</th>
@@ -85,8 +80,38 @@
                         <th scope="col">${employee.phoneNumber}</th>
                         <th scope="col">${employee.email}</th>
                         <th scope="col">${employee.address}</th>
-                        <th scope="col"><a href="/employee?action=edit&idEdit=${employee.id}"> Edit</a></th>
-                        <th scope="col"><a href="/employee?action=delete&idDelete=${employee.id}"> Delete</a></th>
+                        <th scope="col">
+                            <a href="/employee?action=edit&idEdit=${employee.id}">
+                                <button type="button" class="btn btn-primary-" style="color: blue;text-decoration: blue">
+                                    Edit
+                                </button>
+                            </a>
+                        </th>
+                        <th scope="col">
+                            <button type="button" class="btn btn-primary-" data-toggle="modal" data-target="#exampleModal" style="color: blue;text-decoration: blue">
+                                Delete
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Delete Employee</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Are you sure to delele Employee?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                            <a href="/employee?action=delete&idDelete=${employee.id}"> <button type="button" class="btn btn-primary">Yes</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </th>
                     </tr>
                 </c:forEach>
                 </tbody>
@@ -95,6 +120,8 @@
     </div>
 </div>
 </div>
+
+
 
 
 

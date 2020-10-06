@@ -1,18 +1,28 @@
 package furama.model;
 
 public class Contract {
-    int id,totalMoney,employeeID,customerID,serviceID,dePosst;
+    int id,totalMoney,employeeID,customerID,serviceID, deposit;
     String dayStart,dayEnd;
 
     public Contract(){};
 
-    public Contract(int id, int totalMoney, int employeeID, int customerID, int serviceID, int dePosst, String dayStart, String dayEnd) {
+    public Contract(int id, int totalMoney, int employeeID, int customerID, int serviceID, int deposit, String dayStart, String dayEnd) {
         this.id = id;
         this.totalMoney = totalMoney;
         this.employeeID = employeeID;
         this.customerID = customerID;
         this.serviceID = serviceID;
-        this.dePosst = dePosst;
+        this.deposit = deposit;
+        this.dayStart = dayStart;
+        this.dayEnd = dayEnd;
+    }
+
+    public Contract(int totalMoney, int employeeID, int customerID, int serviceID, int deposit, String dayStart, String dayEnd) {
+        this.totalMoney = totalMoney;
+        this.employeeID = employeeID;
+        this.customerID = customerID;
+        this.serviceID = serviceID;
+        this.deposit = deposit;
         this.dayStart = dayStart;
         this.dayEnd = dayEnd;
     }
@@ -57,12 +67,12 @@ public class Contract {
         this.serviceID = serviceID;
     }
 
-    public int getDePosst() {
-        return dePosst;
+    public int getDeposit() {
+        return deposit;
     }
 
-    public void setDePosst(int dePosst) {
-        this.dePosst = dePosst;
+    public void setDeposit(int deposit) {
+        this.deposit = deposit;
     }
 
     public String getDayStart() {

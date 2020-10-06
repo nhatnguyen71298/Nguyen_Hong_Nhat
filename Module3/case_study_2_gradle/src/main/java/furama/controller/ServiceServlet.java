@@ -1,7 +1,7 @@
 package furama.controller;
 
-import furama.bo.service.ServiceImlp;
-import furama.model.Customer;
+import furama.bo.service.ServiceInterfaceImlp;
+import furama.common.ValidateImpl;
 import furama.model.Service;
 
 import javax.servlet.ServletException;
@@ -15,7 +15,7 @@ import java.util.List;
 @WebServlet(name = "ServiceServlet",urlPatterns = "/service")
 public class ServiceServlet extends HttpServlet {
 
-    ServiceImlp serviceImlp= new ServiceImlp();
+    ServiceInterfaceImlp serviceImlp= new ServiceInterfaceImlp();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -34,10 +34,13 @@ public class ServiceServlet extends HttpServlet {
                 String orther=request.getParameter("orther");
                 String standardRoom=request.getParameter("standardRoom");
                 Service newService =new Service(price,rentalTypeID,serviceTypeID,name,area,maxPeople,floos,areaFool,orther,standardRoom);
-                if (this.serviceImlp.addNewService(newService)){
-                    messenger="Created service : "+ name;
-                } else {
-                    messenger="Error";
+                messenger=this.serviceImlp.validateService(newService);
+                if (messenger.equals("")){
+                    if (this.serviceImlp.addNewService(newService)){
+                        messenger="Created service : "+ name;
+                    } else {
+                        messenger="Error";
+                    }
                 }
                 request.setAttribute("messenger",messenger);
                 request.getRequestDispatcher("service/create_service.jsp").forward(request, response);
@@ -47,7 +50,6 @@ public class ServiceServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        String mesesnger="";
         switch (action){
             case "create":
                 request.getRequestDispatcher("service/create_service.jsp").forward(request, response);

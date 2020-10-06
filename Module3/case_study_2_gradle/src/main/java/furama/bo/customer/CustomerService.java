@@ -10,4 +10,5 @@ public interface CustomerService {
     boolean addNewCustomer(Customer customer);
     boolean delCustomer(int id);
     boolean editCustomer(Customer customer);
+    String validateCustomer(Customer customer);
 }

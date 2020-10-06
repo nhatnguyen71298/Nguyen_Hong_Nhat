@@ -35,11 +35,14 @@ public class EmployeeServlet extends HttpServlet {
                 String phoneNumber = request.getParameter("phoneNumber");
                 String email = request.getParameter("email");
                 String address = request.getParameter("address");
-                Employee newEmployee = new Employee(postion_id,education_id,division_id,name,birthday,salary,cmnd,phoneNumber,email,address);
-                if(this.employeeServiceimpl.addNewEmployee(newEmployee)){
-                    messenger="Created new employee "+ name +" !";
-                } else {
-                    messenger="Error";
+                Employee newEmployee = new Employee(postion_id,education_id,division_id,name,birthday,cmnd,salary,phoneNumber,email,address);
+                messenger=this.employeeServiceimpl.validateEmployee(newEmployee);
+                if (messenger.equals("")){
+                    if(this.employeeServiceimpl.addNewEmployee(newEmployee)){
+                        messenger="Created new employee "+ name +" !";
+                    } else {
+                        messenger="Error";
+                    }
                 }
                 request.setAttribute("messenger",messenger);
                 request.getRequestDispatcher("employee/create_employee.jsp").forward(request,response);
@@ -57,13 +60,16 @@ public class EmployeeServlet extends HttpServlet {
                 String emailEdit = request.getParameter("email");
                 String addressEdit = request.getParameter("address");
                 Employee newEmployeeEdit = new Employee(idEdit,postion_idEdit,education_idEdit,division_idEdit,nameEdit,birthdayEdit,cmndEdit,salaryEdit,phoneNumberEdit,emailEdit,addressEdit);
-                if(this.employeeServiceimpl.editEmployee(newEmployeeEdit)){
-                    Employee employeeEdit =  this.employeeServiceimpl.getEmployeeByID(idEdit);
-                    request.setAttribute("employeeEdit",employeeEdit);
-                    messenger="Updated employee : "+ nameEdit +" !";
-                } else {
-                    messenger="Error!";
+                messenger=this.employeeServiceimpl.validateEmployee(newEmployeeEdit);
+                if (messenger.equals("")){
+                    if(this.employeeServiceimpl.editEmployee(newEmployeeEdit)){
+                        messenger="Updated employee: "+ nameEdit +" !";
+                    } else {
+                        messenger="Error";
+                    }
                 }
+                Employee employeeEdit =  this.employeeServiceimpl.getEmployeeByID(idEdit);
+                request.setAttribute("employeeEdit",employeeEdit);
                 request.setAttribute("messenger",messenger);
                 request.getRequestDispatcher("employee/edit_employee.jsp").forward(request,response);
                 break;

@@ -11,4 +11,5 @@ public interface EmployeeService {
     boolean addNewEmployee(Employee employee);
     boolean delEmployee(int id);
     boolean editEmployee(Employee employee);
+    String validateEmployee(Employee employee);
 }

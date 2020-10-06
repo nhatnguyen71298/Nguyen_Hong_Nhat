@@ -2,6 +2,8 @@ package furama.controller;
 
 import furama.bo.customer.CustomerService;
 import furama.bo.customer.CustomerServiceImpl;
+import furama.common.Validate;
+import furama.common.ValidateImpl;
 import furama.model.Customer;
 
 import javax.servlet.ServletException;
@@ -16,8 +18,6 @@ import java.util.List;
 public class CustomerServlet extends HttpServlet {
 
     CustomerServiceImpl customerService =new CustomerServiceImpl();
-
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         String messenger="";
@@ -32,10 +32,13 @@ public class CustomerServlet extends HttpServlet {
                 String email = request.getParameter("email");
                 String address = request.getParameter("address");
                 Customer newCustomer = new Customer(idService,name,birthday,gender,cmnd,phoneNumber,email,address);
-                if(this.customerService.addNewCustomer(newCustomer)){
-                    messenger="Created new customer "+ name +" !";
-                } else {
-                    messenger="Error";
+                messenger=this.customerService.validateCustomer(newCustomer);
+                if (messenger.equals("")){
+                    if(this.customerService.addNewCustomer(newCustomer)){
+                        messenger="Created new customer "+ name +" !";
+                    } else {
+                        messenger="Error";
+                    }
                 }
                 request.setAttribute("messenger",messenger);
                 request.getRequestDispatcher("customer/create_customer.jsp").forward(request,response);
@@ -51,13 +54,16 @@ public class CustomerServlet extends HttpServlet {
                 String emailEdit = request.getParameter("email");
                 String addressEdit = request.getParameter("address");
                 Customer newCustomerEdit = new Customer(idEdit,idServiceEdit,nameEdit,birthdayEdit,genderEdit,cmndEdit,phoneNumberEdit,emailEdit,addressEdit);
-                if(this.customerService.editCustomer(newCustomerEdit)){
-                    Customer customerEdit =  this.customerService.getCustomerByID(idEdit);
-                    request.setAttribute("customerEdit",customerEdit);
-                    messenger="Update success: "+ nameEdit +" !";
-                } else {
-                    messenger="Error";
+                messenger=this.customerService.validateCustomer(newCustomerEdit);
+                if (messenger.equals("")){
+                    if(this.customerService.editCustomer(newCustomerEdit)){
+                        messenger="Updated customer : "+ nameEdit +" !";
+                    } else {
+                        messenger="Error";
+                    }
                 }
+                Customer customerEdit =  this.customerService.getCustomerByID(idEdit);
+                request.setAttribute("customerEdit",customerEdit);
                 request.setAttribute("messenger",messenger);
                 request.getRequestDispatcher("customer/edit_customer.jsp").forward(request,response);
                 break;
