@@ -24,7 +24,7 @@ public class ServiceServlet extends HttpServlet {
             case "create":
 //                name,area,maxPeople,floos,areaFool,orther,standardRoom
                 int price=Integer.parseInt(request.getParameter("price"));
-                int rentalTypeID=Integer.parseInt(request.getParameter("rentalTypeID"));
+                int rentalTypeID=Integer.parseInt(request.getParameter("rentalT5waypeID"));
                 int serviceTypeID=Integer.parseInt(request.getParameter("serviceTypeID"));
                 String name=request.getParameter("name");
                 String area=request.getParameter("area");
