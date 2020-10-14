@@ -25,7 +25,7 @@
   <div class="collapse navbar-collapse " id="navbarNavAltMarkup" >
     <div class="navbar-nav" style="margin-left: 50px">
       <a class="nav-link active" href="">Home </a>
-      <a class="nav-link active" href="/product?action=create">Product</a>
+      <a class="nav-link active" href="/matBang?action=create">Tạo mặt bằng mới</a>
       <a class="nav-link active" href="#" style="margin-left: 450px">
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -40,7 +40,7 @@
   <div class="row">
     <div class="col-2 px-0  vh-100 ">
       <div class="list-group">
-        <a href="/product?action=display" class="list-group-item list-group-item-action ">All Product</a>
+        <a href="/matBang?action=display" class="list-group-item list-group-item-action ">Hiển thị tất cả mặt bằng</a>
       </div>
     </div>
     <div class="col-10">

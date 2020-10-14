@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-  <title>Resort Furama </title>
+  <title>Final Exam</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
@@ -25,10 +25,7 @@
   <div class="collapse navbar-collapse " id="navbarNavAltMarkup" >
     <div class="navbar-nav" style="margin-left: 50px">
       <a class="nav-link active" href="">Home </a>
-      <a class="nav-link active" href="/employee?action=create">Employee</a>
-      <a class="nav-link active" href="/customer?action=create_customer">Customer</a>
-      <a class="nav-link active" href="/service?action=create">Service</a>
-      <a class="nav-link active" href="/contract?action=create">Contract</a>
+      <a class="nav-link active" href="/matBang?action=create">Tạo mặt bằng mới</a>
       <a class="nav-link active" href="#" style="margin-left: 450px">
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -43,10 +40,7 @@
   <div class="row">
     <div class="col-2 px-0  vh-100 ">
       <div class="list-group">
-        <a href="/customer?action=displayAllCustomer" class="list-group-item list-group-item-action ">All Customer </a>
-        <a href="/employee?action=displayAllEmployee" class="list-group-item list-group-item-action ">All Employee</a>
-        <a href="/customer?action=displayCustomerOnline" class="list-group-item list-group-item-action ">All customer on service</a>
-        <a href="/contract?action=createContractDetail" class="list-group-item list-group-item-action ">Create contract detail</a>
+        <a href="/matBang?action=display" class="list-group-item list-group-item-action ">Hiển thị tất cả mặt bằng</a>
       </div>
     </div>
     <div class="col-10">
