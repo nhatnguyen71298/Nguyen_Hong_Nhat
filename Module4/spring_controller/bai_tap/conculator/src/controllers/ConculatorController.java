@@ -11,6 +11,7 @@ public class ConculatorController {
     public String home(){
         return "conculator";
     }
+
     @GetMapping("/conculator")
     public String conculator(@RequestParam double num1, @RequestParam double num2,@RequestParam String conculator, Model model){
         double result=0;
