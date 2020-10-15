@@ -11,6 +11,6 @@
     <title>Result</title>
 </head>
 <body>
-    <h3 style="color: ${engMean}"> ${result} </h3>
+    <h3 style="color:${engMean}"> ${result} </h3>
 </body>
 </html>
