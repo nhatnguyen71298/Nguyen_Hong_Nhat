@@ -1,0 +1,48 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List Customer</title>
+</head>
+<body>
+<header th:replace="~{common::header}"></header>
+<p style="color: green" th:text="${message}"></p>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Date of birth</th>
+        <th>Type</th>
+        <th>View</th>
+        <th>Delete</th>
+        <th>Edit</th>
+    </tr>
+    <th:block th:each="customer : ${listCustomer}">
+        <tr>
+            <td th:text="${customer.id}"></td>
+            <td th:text="${customer.name}"></td>
+            <td th:text="${customer.dateOfBirth}"></td>
+<!--            <td>-->
+<!--                <span th:if="${student.mark < 5}">Bad</span>-->
+<!--                <span th:if="${student.mark >= 5}">Good</span>-->
+<!--            </td>-->
+            <td th:switch="${customer.typeCustomer}">
+                <span th:case="Vip">Vip</span>
+                <span th:case="Normal">Normal</span>
+                <span th:case="Member">Member</span>
+            </td>
+            <td>
+                <a th:href="@{/view/{id}(id=${customer.id})}" th:text="View"></a>
+            </td>
+            <td>
+                <a th:href="@{/delete/{id}(id=${customer.id})}" th:text="Delete"></a>
+            </td>
+            <td>
+                <a th:href="@{/edit/{id}(id=${customer.id})}" th:text="Edit"></a>
+            </td>
+        </tr>
+    </th:block>
+</table>
+<!--    <footer th:insert="common::footerStudent"></footer>-->
+<!--    <th:block th:insert="common::footerStudent"></th:block>-->
+<footer th:replace="common::footer"></footer>
+</body>
+</html>
