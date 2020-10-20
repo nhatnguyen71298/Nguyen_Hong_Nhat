@@ -13,8 +13,8 @@ create table nhan_vien(
     luong varchar(45),
     sdt varchar(45),
     email varchar(45),
-    dia_chi varchar(45),
-    username varchar(255)
+    dia_chi varchar(45)
+--     username varchar(255)
 );
 create table vi_tri(
 	id_vi_tri int primary key auto_increment,
@@ -29,27 +29,27 @@ create table bo_phan(
 	ten_bo_phan varchar(45)
 );
 
-create table `user`(
-	username varchar(255) primary key,
-    `password` varchar(255)
-);
- 
- create table user_role(
-	username varchar(255),
-	role_id int
-);
+-- create table `user`(
+-- 	username varchar(255) primary key,
+--     `password` varchar(255)
+-- );
+--  
+--  create table user_role(
+-- 	username varchar(255),
+-- 	role_id int
+-- );
 
- create table `role`(
-	role_id int primary key auto_increment,
-    role_name varchar(255)
-);
+--  create table `role`(
+-- 	role_id int primary key auto_increment,
+--     role_name varchar(255)
+-- );
 
-alter table user_role
-add foreign key(username) references `user`(username);
-alter table user_role
-add foreign key(role_id) references `role`(role_id);
-alter table nhan_vien
-add foreign key(username) references user(username);
+-- alter table user_role
+-- add foreign key(username) references `user`(username);
+-- alter table user_role
+-- add foreign key(role_id) references `role`(role_id);
+-- alter table nhan_vien
+-- add foreign key(username) references user(username);
 alter table nhan_vien
 add foreign key(id_vi_tri) references vi_tri(id_vi_tri);
 alter table nhan_vien
@@ -77,11 +77,12 @@ add foreign key(id_loai_khach) references loai_khach(id_loai_khach);
 -- ------------------------------------------------------------------------------------------------ 
 create table dich_vu(
 	id_dich_vu int primary key auto_increment,
+    ma_dich_vu varchar(45),
 	ten_dich_vu varchar(45),
-    dien_tich int,
-    dien_tich_ho_boi int,
-    so_tang int,	
-    so_nguoi_toi_da int,
+    dien_tich varchar(45),
+    dien_tich_ho_boi varchar(45),
+    so_tang varchar(45),	
+    so_nguoi_toi_da varchar(45),
     chi_phi_thue int,
     id_kieu_thue int,
     id_loai_dich_vu int,
@@ -155,5 +156,31 @@ values
 (2,'Tháng',5000),
 (3,'Ngày',300),
 (4,'Giờ',40);
+insert into vi_tri
+values
+(1,'Lễ tân'),
+(2,'phục vụ'),
+(3,' chuyên viên'),
+(4,'giám sát'),
+(5,'quản lý'),
+(6,'giám đốc');
+insert into trinh_do
+values
+(1,'Trung cấp'),
+(2,'Cao đẳng'),
+(3,'Đại học'),
+(4,'Sau đại học');
+insert into bo_phan
+values
+(1,'Sale – Marketing'),
+(2,'Hành Chính'),
+(3,'Phục vụ'),
+(4,'Quản lý');
+insert into dich_vu_di_kem
+values
+(1,'Massage',100,'$','Còn'),
+(2,'Karaoke',100,'$','Còn'),
+(3,'Thức ăn',50,'$','Còn'),
+(4,'Thuê xe',200,'$','Còn');
 -- ----------------------------------------------------------------------- 
-select * from khach_hang;
+select * from dich_vu;

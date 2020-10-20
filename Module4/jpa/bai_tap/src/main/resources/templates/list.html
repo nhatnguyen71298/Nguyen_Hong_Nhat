@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Blog</title>
+</head>
+<body>
+    <div th:replace="~{common :: header}"></div>
+    <table>
+        <tr>
+            <th> ID Blog </th>
+            <th> Name Blog </th>
+        </tr>
+        <tr th:each= "blog : ${allBlog}">
+            <td>
+                <a th:href="@{/readBlog(id=${blog.getId()})}">
+                    <p th:text="${blog.id}"></p>
+                </a>
+            </td>
+            <td>
+                <a  th:href="@{/readBlog(id=${blog.getId()})}">
+                    <p th:text="${blog.name}"></p>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <div th:replace="~{common :: footer}"></div>
+</body>
+</html>

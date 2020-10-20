@@ -41,7 +41,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         BaseRepository.entityManager.remove(customer);
         entityTransaction.commit();
     }
-
+//
     @Override
     public void updateCustomer(Customer customer) {
         EntityTransaction entityTransaction=BaseRepository.entityManager.getTransaction();
