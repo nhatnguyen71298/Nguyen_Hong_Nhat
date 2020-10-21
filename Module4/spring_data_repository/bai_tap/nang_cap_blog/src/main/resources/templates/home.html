@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Blog</title>
+</head>
+<body>
+    <div th:replace="~{common :: header}"></div>
+    <form action="/">
+        <input type="text" name="keyword" th:value="${keywordOld}"/>
+        <input type="submit" value="Search" />
+    </form>
+    <table>
+        <tr>
+            <th> ID Blog </th>
+            <th> Name Blog </th>
+            <th> Category </th>
+            <th> Date write </th>
+        </tr>
+        <tr th:each= "blog : ${allBlog}">
+            <td>
+                <a th:href="@{/readBlog(id=${blog.getId()})}">
+                    <p th:text="${blog.id}"></p>
+                </a>
+            </td>
+            <td>
+                <a  th:href="@{/readBlog(id=${blog.getId()})}">
+                    <p th:text="${blog.name}"></p>
+                </a>
+            </td>
+            <td>
+                <a  th:href="@{/catelory_form}">
+                    <p th:text="${blog.cateloryBlog.name}"></p>
+                </a>
+            </td>
+            <td>
+                <p th:text="${blog.dateWrite}"></p>
+            </td>
+        </tr>
+    </table>
+    <a th:if="${allBlog.hasPrevious()}" th:href="@{/(page = ${allBlog.number -1})}" >Previous</a>
+    <span th:text="${allBlog.number+1}"></span>/    <span th:text="${allBlog.totalPages}"></span>
+    <a th:if="${allBlog.hasNext()}" th:href="@{/(page = ${allBlog.number +1})}" >Next</a>
+    <div th:replace="~{common :: footer}"></div>
+</body>
+</html>

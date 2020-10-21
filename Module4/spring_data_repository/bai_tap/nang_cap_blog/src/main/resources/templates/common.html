@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BLog</title>
+</head>
+<body>
+    <header th:fragment="header">
+        <style>
+            th,td{
+                width: 100px;
+                text-align: center;
+            }
+        </style>
+
+
+
+
+        <a href="/"><h1>All Blog</h1></a>
+        <a href="/create_blog_form" ><input type="button" value= " Write your blog ^^! "></a>
+        <a href="/catelory_form" ><input type="button" value= " Catelory "></a>
+        <br>
+        <br>
+    </header>
+
+    <footer th:fragment="footer">
+        <a href="/"><h3>@ Nguyễn Hồng Nhật Blogger</h3></a>
+    </footer>
+</body>
+</html>
