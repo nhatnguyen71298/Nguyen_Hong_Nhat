@@ -38,8 +38,8 @@
             <ul class="pagination">
                 <li class="page-item"><a class="page-link" th:if="${listBeDe.hasPrevious()}" th:href="@{/list(page = ${listBeDe.number - 3})}">Previous</a></li>
                 <li class="page-item"><a class="page-link" th:text="${listBeDe.number+1}" th:href="@{/list(page= ${listBeDe.number})}" ></a></li>
-                <li class="page-item"><a class="page-link" th:text="${listBeDe.number+2}" th:href="@{/list(page= ${listBeDe.number+1})}"></a></li>
-                <li class="page-item"><a class="page-link" th:text="${listBeDe.number+3}" th:href="@{/list(page= ${listBeDe.number+2})}"></a></li>
+                <li class="page-item"><a class="page-link"  th:text="${listBeDe.number+2}" th:href="@{/list(page= ${listBeDe.number+1})}"></a></li>
+                <li class="page-item"><a class="page-link"  th:text="${listBeDe.number+3}" th:href="@{/list(page= ${listBeDe.number+2})}"></a></li>
                 <li class="page-item"><a class="page-link" th:if="${listBeDe.hasNext()}" th:href="@{/list(page = ${listBeDe.number +3})}">Next</a></li>
             </ul>
         </nav>

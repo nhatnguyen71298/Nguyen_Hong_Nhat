@@ -27,7 +27,7 @@ public class BeDeController {
     @PostMapping("/create")
     public String saveBeDe(@Validated @ModelAttribute("newBeDe") BeDe newBeDe, BindingResult bindingResult, Model model){
             if (bindingResult.hasFieldErrors()){
-                model.addAttribute("newBeDe",newBeDe);
+//                model.addAttribute("newBeDe",newBeDe);
                 return "form";
             }
             this.beDeServies.saveBeDe(newBeDe);
