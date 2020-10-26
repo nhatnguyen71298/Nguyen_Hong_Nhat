@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Blog</title>
+</head>
+<style>
+    table,tr,th,td{
+        border: solid 1px ;
+    }
+</style>
+<body>
+<h1> List Product</h1>
+<table>
+    <tr>
+        <th> ID Blog </th>
+        <th> Name Blog </th>
+        <th> Price </th>
+        <th> Detail </th>
+        <th>  </th>
+    </tr>
+    <tr th:each= "product : ${allProduct}">
+        <td>
+            <p th:text="${product.id}"></p>
+        </td>
+        <td>
+            <p th:text="${product.name}"></p>
+        </td>
+        <td>
+            <p th:text="${product.price}"></p>
+        </td>
+        <td>
+            <a  th:href="@{/detail(id=${product.id})}">
+                <p>Detail Product</p>
+            </a>
+        </td>
+        <td>
+            <a  th:href="@{/buyProduct(id=${product.id})}">
+                <p>Buy Product</p>
+            </a>
+        </td>
+    </tr>
+</table>
+<a th:if="${allProduct.hasPrevious()}" th:href="@{/(page = ${allProduct.number -1})}" >Previous</a>
+<span th:text="${allProduct.number+1}"></span>/    <span th:text="${allProduct.totalPages}"></span>
+<a th:if="${allProduct.hasNext()}" th:href="@{/(page = ${allProduct.number +1})}" >Next</a>
+<br>
+<a href="/cart">
+    <input type="button" value="Cart">
+</a>
+</body>
+</html>

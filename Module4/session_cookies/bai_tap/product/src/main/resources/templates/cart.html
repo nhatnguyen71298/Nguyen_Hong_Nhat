@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Blog</title>
+</head>
+<style>
+    table,tr,th,td{
+        border: solid 1px ;
+    }
+</style>
+<body>
+<h1> Cart Product</h1>
+
+    <h3 th:if="${messenger!= null}" th:text="${messenger}"></h3>
+
+    <a href="/deleteAll">
+        <input type="button" value="DeleteAll">
+    </a>
+    <br>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Delete</th>
+        </tr>
+        <th:block th:each="product : ${cartProduct}">
+            <tr>
+                <td>
+                    <p th:text="${product.name}"></p>
+                </td>
+                <td>
+                    <p th:text="${product.price}"></p>
+                </td>
+                <td>
+                    <a th:href="@{/delete_cart(id=${product.id})}">
+                        <p>Delete</p>
+                    </a>
+                </td>
+            </tr>
+
+        </th:block>
+        <br>
+    </table>
+    <br>
+    <a href="/">
+        <input type="button" value="List Product">
+    </a>
+</body>
+</html>
