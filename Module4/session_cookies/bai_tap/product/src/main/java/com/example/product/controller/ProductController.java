@@ -3,7 +3,6 @@ package com.example.product.controller;
 import com.example.product.entity.Product;
 import com.example.product.services.ProductServices;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
@@ -11,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -66,9 +64,9 @@ public class ProductController {
 
     @GetMapping("/delete_cart")
     public String deleteCartProduct(@RequestParam Integer id,@SessionAttribute("cartProduct") List<Product> cartProduct){
-        int index=Integer.parseInt(String.valueOf(id));
         for (int i=0;i<cartProduct.size();i++){
-            if (index==i){
+            if (this.productServices.findByID(id).getId().equals(cartProduct.get(i).getId())){
+                int index=Integer.parseInt(String.valueOf(i));
                 cartProduct.remove(index);
                 break;
             }
