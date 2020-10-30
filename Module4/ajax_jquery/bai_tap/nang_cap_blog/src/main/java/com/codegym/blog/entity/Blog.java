@@ -14,7 +14,7 @@ public class Blog {
     @Column(columnDefinition = "Text")
     String blogContent;
     @ManyToOne
-    @JsonBackReference
+    @JsonManagedReference
     @JoinColumn(name = "catelory_id",referencedColumnName = "id")
     private Catelory cateloryBlog;
     private String dateWrite;
