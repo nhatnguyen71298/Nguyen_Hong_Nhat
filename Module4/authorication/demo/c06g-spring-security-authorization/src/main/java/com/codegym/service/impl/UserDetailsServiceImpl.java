@@ -1,11 +1,9 @@
-package com.codegym.blog.services.impl;
+package com.codegym.service.impl;
 
-import com.codegym.blog.entity.AppRole;
-import com.codegym.blog.entity.AppUser;
-import com.codegym.blog.entity.UserRole;
-import com.codegym.blog.repository.AppRoleRepository;
-import com.codegym.blog.repository.AppUserRepository;
-import com.codegym.blog.repository.UserRoleRepository;
+import com.codegym.entity.AppUser;
+import com.codegym.entity.UserRole;
+import com.codegym.repository.AppUserRepository;
+import com.codegym.repository.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -27,9 +25,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     private UserRoleRepository userRoleRepository;
 
-    @Autowired
-    private AppRoleRepository appRoleRepository;
-
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         AppUser appUser = this.appUserRepository.findByUserName(userName);
@@ -39,7 +34,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw new UsernameNotFoundException("User " + userName + " was not found in the database");
         }
 
-        System.out.println("Found User: " + appUser.getUserName());
+        System.out.println("Found User: " + appUser);
 
         // [ROLE_USER, ROLE_ADMIN,..]
         List<UserRole> userRoles = this.userRoleRepository.findByAppUser(appUser);
@@ -59,12 +54,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return userDetails;
     }
 
-    public void saveAppUser(AppUser appUser, Long id){
-        this.appUserRepository.save(appUser);
-        this.userRoleRepository.save(new UserRole(appUser,this.appRoleRepository.findByRoleId(id)));
-    }
-
-    public List<AppUser> allUser(){
-        return this.appUserRepository.findAll();
-    }
 }
