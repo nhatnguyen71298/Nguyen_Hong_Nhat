@@ -1,0 +1,18 @@
+<h2>Font size editor</h2>
+
+<div>
+  <label>Enter font size (px):</label>
+  <br>
+  <input type="range" [value]="fontSize" (change)="onChange($event.target.value)">
+  <br>
+  <input type="number" [value]="fontSize" (change)="onChange($event.target.value)">
+</div>
+
+<p class="output" [style.fontSize.px]="fontSize">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi cumque nostrum quibusdam. Inventore quibusdam debitis, tempore error voluptatem explicabo ipsum?
+</p>
+<br>
+<br>
+<h1>********************************************************************</h1>
+<h1>Pet profile</h1>
+<pet-lanh-style></pet-lanh-style>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Furama house</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+</head>
+<body>
+    <div th:replace="~{common :: header}"></div>
+
+    <br>
+    <br>
+    <br>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3" style="background: #F8F9FA">
+
+                <div class="row">
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                            <h1 class="display-4">Ⓕurama resort</h1>
+                            <p class="lead">Welcome To My Page.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card" style="width: 18rem;">
+                        <img src="data:image/jpeg;base64,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" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text" style="color: red"> Come with me ♥♥♥ </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner" >
+                        <div class="carousel-item active">
+                            <img src="https://pix10.agoda.net/hotelImages/109/10953/10953_17080818330055123540.jpg" height="570px" width="100%"/></div>
+                        <div class="carousel-item">
+                            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-s/01/e8/d4/8e/view-of-the-infinity.jpg?w=600&h=300&s=1" height="570px" width="100%"/></div>
+                        <div class="carousel-item">
+                            <img src="https://fantasea.vn/wp-content/uploads/2017/10/Furama-%C4%90%C3%A0-N%E1%BA%B5ng-Resort.jpg" height="570px" width="100%"/></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        Furama
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>Thanks for your visit!</p>
+                            <footer class="blockquote-footer">Good bye!</footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+</body>
+</html>
