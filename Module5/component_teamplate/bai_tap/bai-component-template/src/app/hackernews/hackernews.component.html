@@ -1,0 +1,22 @@
+<h2>Today's article</h2>
+<hr>
+<div *ngFor="let art of articles">
+  <a href="{{art.url}}" target="_blank">{{art.title}}</a>
+  <br>
+  <br>
+  <label> Edit title: </label>
+  <textarea [(ngModel)]="art.title"></textarea>
+  <br>
+  <label> Edit Url: </label>
+  <textarea [(ngModel)]="art.url"></textarea>
+  <br>
+  <input type="button" value="update">
+  <br>
+  <app-likes></app-likes>
+  <hr>
+</div>
+<br>
+@CodeGym, 2019
+
+
+

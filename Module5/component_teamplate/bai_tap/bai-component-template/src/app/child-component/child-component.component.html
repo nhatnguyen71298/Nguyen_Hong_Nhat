@@ -1,0 +1,17 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h6 class="card-subtitle mb-6 text-muted"></h6>
+    <img src="{{parentEdit.img}}" class="card-img"><br>
+    <button type="button" class="close" aria-label="Close" (click)="close()" style="position: relative;bottom:265px;left: 25px;height: 30px;width: 30px">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h5 class="card-title"> Edit Parent : {{parentEdit.name}}</h5>
+    <label>Name: </label>
+    <input type="text" class="form-control" #nameEdit [value]="parentEdit.name">
+    <label>Birthday: </label>
+    <input type="date" class="form-control" #birthdayEdit [value]="parentEdit.birthday">
+    <label>Wife number: </label>
+    <input type="number" class="form-control" #wifeNumberEdit [value]="parentEdit.wifeNumber"><br>
+    <a class="btn btn-danger" (click)="updateInfoParent(nameEdit.value, birthdayEdit.value , wifeNumberEdit.value)">Edit</a>
+  </div>
+</div>

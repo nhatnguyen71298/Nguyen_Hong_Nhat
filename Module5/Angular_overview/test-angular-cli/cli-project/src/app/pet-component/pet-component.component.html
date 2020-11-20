@@ -1,0 +1,11 @@
+<h1>Pet- component!</h1>
+<label>Input Name:</label>
+<input type="text" (change)="updateName($event.target.value)" [value]="petName"><br>
+<label>Input Url:</label>
+<input type="text" [value]="petImage" (change)="updateImage($event.target.value)"><br>
+<br>
+<br>
+<label>Name:</label>
+<p style="color: red">{{petName}}</p>
+<label>Image:</label>
+<img [src]="petImage" />
