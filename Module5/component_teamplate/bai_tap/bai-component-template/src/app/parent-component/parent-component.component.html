@@ -1,8 +1,8 @@
-<app-child-component style="position:relative;left : 37.5%" *ngIf="parentDetail" [parentEdit]="parentDetail" [numberEdit]="numberEdited" (edited)="updateNumberEdit($event)" (closed)="closed($event)" ></app-child-component>
 <h3 style="color: deeppink">Version: 1.1.15.{{numberEdited}} </h3>
+<h3 style="color: deeppink" *ngIf="message">{{message}}</h3>
 <div class="row">
-  <div class="col-3" *ngFor="let parentInfo of parentList">
-        <div class="card" style="width: 18rem;">
+  <div class="col-3" *ngFor="let parentInfo of parentList" >
+        <div class="card" style="width: 18rem">
           <div class="card-body">
             <img src="{{parentInfo.img}}" class="card-img"><br>
             <h3 class="card-subtitle mb-2 text-muted">{{parentInfo.name}}</h3>
@@ -10,8 +10,9 @@
             <p class="card-text">Name: {{parentInfo.name}}</p>
             <p class="card-text">Birthday: {{parentInfo.birthday}}</p>
             <p class="card-text">Number wife in the future: {{parentInfo.wifeNumber}}</p>
-            <a class="btn btn-danger" (click)="getInfoParent(parentInfo)">Edit</a>
+            <input type="button" class="btn btn-danger" (click)="getInfoParent(parentInfo)" value="Edit" data-toggle="modal" data-target="#exampleModal">
           </div>
         </div>
   </div>
 </div>
+<app-child-component style="position:relative;left : 37.5%" *ngIf="parentDetail" [titleFromParent]="title" [parentEdit]="parentDetail" [numberEdit]="numberEdited" (edited)="updateNumberEdit($event)" (closed)="closed($event)" (sendMessage)="getMessage($event)"></app-child-component>

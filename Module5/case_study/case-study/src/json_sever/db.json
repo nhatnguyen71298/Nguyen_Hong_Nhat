@@ -1,0 +1,84 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "type": "Member",
+      "name": "Khánh",
+      "dateOfBirth": "07/12/1998",
+      "idCard": "123464879",
+      "phoneNumber": "1230981203",
+      "email": "khanhngu@email.com",
+      "address": "japan"
+    },
+    {
+      "id": 2,
+      "type": "Diamond",
+      "name": "Đin",
+      "dateOfBirth": "02/11/1998",
+      "idCard": "121234879",
+      "phoneNumber": "129381923",
+      "email": "đin@email.com",
+      "address": "Viet"
+    },
+    {
+      "id": 3,
+      "type": "Gold",
+      "name": "Ngân",
+      "dateOfBirth": "12/05/1998",
+      "idCard": "123123179",
+      "phoneNumber": "1230981203",
+      "email": "khngânngu@email.com",
+      "address": "ANh"
+    },
+    {
+      "type": "Member",
+      "name": "Khánh",
+      "dateOfBirth": "07/12/1998",
+      "idCard": "123464879",
+      "phoneNumber": "1230981203",
+      "email": "khanhngu@email.com",
+      "address": "japan",
+      "id": 4
+    },
+    {
+      "type": "Diamond",
+      "name": "213",
+      "dateOfBirth": "0213-03-12",
+      "idCard": "123",
+      "phoneNumber": "123",
+      "email": "123",
+      "address": "123123",
+      "id": 5
+    },
+    {
+      "type": "Silver",
+      "name": "123",
+      "dateOfBirth": "0123-03-21",
+      "idCard": "123",
+      "phoneNumber": "123",
+      "email": "123",
+      "address": "213",
+      "id": 6
+    },
+    {
+      "type": "Member",
+      "name": "ĐIn",
+      "dateOfBirth": "0123-03-12",
+      "idCard": "Đin",
+      "phoneNumber": "Đin",
+      "email": "ĐIn",
+      "address": "ĐIn",
+      "id": 8
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

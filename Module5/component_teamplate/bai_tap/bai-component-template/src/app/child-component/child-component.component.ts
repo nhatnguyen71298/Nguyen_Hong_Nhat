@@ -9,13 +9,16 @@ import {Parent} from '../parent-component/Parent';
 export class ChildComponentComponent implements OnInit {
   @Input()
   parentEdit: Parent;
-  parentClosed: Parent;
+  @Input()
+  titleFromParent: string;
   @Output()
   closed = new EventEmitter<Parent>();
   @Output()
   edited = new EventEmitter<number>();
   @Input()
   numberEdit: number;
+  @Output()
+  sendMessage = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit(): void {
@@ -27,9 +30,6 @@ export class ChildComponentComponent implements OnInit {
     this.parentEdit.wifeNumber = wifeNumberEdit;
     this.numberEdit++;
     this.edited.emit(this.numberEdit);
-  }
-
-  close() {
-    this.closed.emit(this.parentClosed);
+    this.sendMessage.emit('Updated ' + nameEdit + ' ( message from child )');
   }
 }

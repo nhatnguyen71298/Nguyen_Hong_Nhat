@@ -1,0 +1,70 @@
+<h1 style="color: royalblue">Create new customer</h1>
+<br>
+<form [formGroup]="formAddNewCustomer" (ngSubmit)="addNewCustomer()">
+          <div class="form-group">
+            <label>Type Customer:</label>
+            <select class="form-control" formControlName="type">
+              <option value="Diamond">Diamond</option>
+              <option value="Plantium">Plantium</option>
+              <option value="Gold">Gold</option>
+              <option value="Silver">Silver</option>
+              <option value="Member">Member</option>
+            </select>
+            <p class="text-danger" *ngIf="formAddNewCustomer.get('type').invalid&&formAddNewCustomer.get('type').touched" >
+              Type customer is required !
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>Name: </label>
+            <input type="text" class="form-control" formControlName="name">
+             <p class="text-danger" *ngIf="formAddNewCustomer.get('name').invalid&&formAddNewCustomer.get('name').touched">
+              name is required !
+              </p>
+          </div>
+          <div class="form-group">
+            <label>Date of birth: </label>
+            <mat-form-field>
+              <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="myDatepicker" class="form-control" formControlName="dateOfBirth" placeholder="Choose birthday">
+              <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+              <mat-datepicker #myDatepicker></mat-datepicker>
+            </mat-form-field>
+            <p class="text-danger" *ngIf="formAddNewCustomer.get('dateOfBirth').invalid&&formAddNewCustomer.get('dateOfBirth').touched">
+              Date is required !
+            </p>
+          </div>
+          <div class="form-group">
+            <label>Id Card: </label>
+            <input type="text" class="form-control" formControlName="idCard">
+            <p class="text-danger" *ngIf="formAddNewCustomer.get('idCard').invalid&&formAddNewCustomer.get('idCard').touched">
+              Id card is required !
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>Phone: </label>
+            <input type="text" class="form-control" formControlName="phoneNumber">
+            <p class="text-danger" *ngIf="formAddNewCustomer.get('phoneNumber').invalid&&formAddNewCustomer.get('phoneNumber').touched">
+              Phone number is required !
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>Email: </label>
+            <input type="text" class="form-control" formControlName="email">
+            <p class="text-danger" *ngIf="formAddNewCustomer.get('email').invalid&&formAddNewCustomer.get('email').touched">
+              Email is required !
+            </p>
+          </div>
+
+          <div class="form-group">
+            <label>Address: </label>
+            <input type="text" class="form-control" formControlName="address">
+            <p class="text-danger" *ngIf="formAddNewCustomer.get('address').invalid&&formAddNewCustomer.get('address').touched">
+              Address is required !
+            </p>
+          </div>
+          <div class="modal-footer">
+          <button style="margin-right: 450px" type="submit" class="btn btn-primary" [disabled]="formAddNewCustomer.invalid">Save</button>
+        </div>
+</form>

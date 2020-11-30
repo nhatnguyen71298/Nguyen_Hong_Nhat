@@ -1,0 +1,172 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "type": "Member",
+      "name": "Khánh",
+      "dateOfBirth": "07/12/1998",
+      "idCard": "123464879",
+      "phoneNumber": "1230981203",
+      "email": "khanhngu@email.com",
+      "address": "japan"
+    },
+    {
+      "id": 2,
+      "type": "Diamond",
+      "name": "Đin",
+      "dateOfBirth": "02/11/1998",
+      "idCard": "121234879",
+      "phoneNumber": "129381923",
+      "email": "đin@email.com",
+      "address": "Viet"
+    },
+    {
+      "id": 3,
+      "type": "Gold",
+      "name": "Ngân",
+      "dateOfBirth": "12/05/1998",
+      "idCard": "123123179",
+      "phoneNumber": "1230981203",
+      "email": "khngânngu@email.com",
+      "address": "ANh"
+    },
+    {
+      "type": "Member",
+      "name": "Khánh",
+      "dateOfBirth": "07/12/1998",
+      "idCard": "123464879",
+      "phoneNumber": "1230981203",
+      "email": "khanhngu@email.com",
+      "address": "japan",
+      "id": 4
+    },
+    {
+      "type": "Member",
+      "name": "ĐIn",
+      "dateOfBirth": "0123-03-12",
+      "idCard": "Đin123123",
+      "phoneNumber": "Đin12313",
+      "email": "ĐIn123123",
+      "address": "123123",
+      "id": 8
+    },
+    {
+      "type": "Silver",
+      "name": "test",
+      "dateOfBirth": "123123-03-12",
+      "idCard": "213",
+      "phoneNumber": "123",
+      "email": "123",
+      "address": "123",
+      "id": 9
+    },
+    {
+      "type": "Gold",
+      "name": "Danh",
+      "dateOfBirth": "2020-11-08T17:00:00.000Z",
+      "idCard": "123",
+      "phoneNumber": "123",
+      "email": "Danh@gmail.com",
+      "address": "123123123",
+      "id": 10
+    }
+  ],
+  "employees": [
+    {
+      "position": "Manager",
+      "name": "Khánh",
+      "dateOfBirth": "2020-11-08T17:00:00.000Z",
+      "idCard": "123464879",
+      "phoneNumber": "1230981203",
+      "email": "khanhngu@email.com",
+      "address": "japan",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "position": "CEO",
+      "name": "NHật",
+      "dateOfBirth": "07/12/1998",
+      "idCard": "123464348",
+      "phoneNumber": "12123123",
+      "email": "knhatngu@email.com",
+      "address": "VIiet"
+    },
+    {
+      "id": 3,
+      "position": "Serve",
+      "name": "Đin",
+      "dateOfBirth": "04/04/1993",
+      "idCard": "123123653",
+      "phoneNumber": "138241203",
+      "email": "kĐInhngu@email.com",
+      "address": "ĐIn"
+    },
+    {
+      "position": "CEO",
+      "name": "213nhat",
+      "dateOfBirth": "0123-03-12",
+      "idCard": "123nhat",
+      "phoneNumber": "213",
+      "email": "123",
+      "address": "123123123",
+      "id": 5
+    },
+    {
+      "name": "123",
+      "position": "CEO",
+      "dateOfBirth": "0123-03-12",
+      "idCard": "123",
+      "phoneNumber": "123",
+      "email": "123",
+      "address": "123",
+      "id": 6
+    },
+    {
+      "name": "123",
+      "position": "CEO",
+      "dateOfBirth": "0123-03-12",
+      "idCard": "213",
+      "phoneNumber": "123",
+      "email": "123",
+      "address": "123",
+      "id": 7
+    },
+    {
+      "name": "123",
+      "position": "Manager",
+      "dateOfBirth": "2010-10-21T17:00:00.000Z",
+      "idCard": "1231",
+      "phoneNumber": "23",
+      "email": "123",
+      "address": "123",
+      "id": 8
+    }
+  ],
+  "cars": [
+    {
+      "numberCar": "12351",
+      "type": "4-10",
+      "name": "Khánh",
+      "goPlace": "Huế",
+      "toPlace": "HCM",
+      "phoneNumber": "0901231231",
+      "email": "123@gmai.com",
+      "timeGo": "05:20",
+      "timeEnd": "09:20",
+      "id": 1
+    },
+    {
+      "numberCar": "78851",
+      "type": "10-20",
+      "name": "nhật",
+      "goPlace": "Huế",
+      "toPlace": "HCM",
+      "phoneNumber": "0903566565",
+      "email": "nhat@gmail.com",
+      "timeGo": "05:00",
+      "timeEnd": "23:00",
+      "id": 2
+    }
+  ]
+}

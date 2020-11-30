@@ -1,0 +1,12 @@
+<div class="modal-header">
+  <h1 class="modal-title" style="color: red">Delete customer</h1>
+</div>
+<div class="modal-body">
+      Are you sure delele customer {{customerFullname}}?<br>
+      <i style="color: red ">Can not rollback ! </i>
+</div>
+<div class="modal-footer">
+  <button mat-dialog-close type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <button type="button" (click)="deleteCustomer()" class="btn btn-primary">Save changes</button>
+</div>
+

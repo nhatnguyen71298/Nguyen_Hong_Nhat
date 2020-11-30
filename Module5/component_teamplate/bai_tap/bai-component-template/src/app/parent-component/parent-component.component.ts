@@ -11,6 +11,8 @@ export class ParentComponentComponent implements OnInit {
   parentList: Parent[] = parentRepository;
   parentDetail: Parent;
   numberEdited = 0;
+  message: string;
+  title = 'Message from Parent !';
   constructor() { }
 
   ngOnInit(): void {
@@ -26,5 +28,9 @@ export class ParentComponentComponent implements OnInit {
 
   closed(closed: Parent) {
     this.parentDetail = closed;
+  }
+
+  getMessage(message: string) {
+    this.message = message;
   }
 }
